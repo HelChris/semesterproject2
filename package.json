@@ -25,7 +25,7 @@
   "author": "",
   "license": "ISC",
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write",
+    "*.{js,css,md,json,html}": "prettier --write",
     "*.js": "eslint --cache --fix"
   }
 }
