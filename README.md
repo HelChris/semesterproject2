@@ -1,12 +1,68 @@
-# Semester Project 2
+# Semester Project 2 - Auction Website
 
-Short description of what the project does or is about.
+## Project Description
+
+This project is part of my delivery for the Front-End Development studies at Noroff. The goal is to build a fully functional auction website using all the skills we've learnd throughout the studies.
+
+The website allows visitor to register users, users to create auctions, bid on others' listings, and manage their own profile. The application is built with a modular file structure, semantic HTML for proper base structure, tailwind CSS for styling + responsive layout and javascript to handle interaction and functionality.
+
+## Goal
+
+> Build a modern auction website where users can buy and sell items through a credit-based bidding system.
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Carousel on the front page with latest auctions
+- "View more" button to load more listings
+- Search for listings in the navbar/on the front page.
+- Hero banner with buttons to start bidding and create listing
+- Explore category section links users to listings sorted by category
+- Featured Auction of the week section
+- What our users say with customer feedback
+- Register user CTA section, register now or learn more:
+- About page with information about the site
+- Footer with quicklinks and newsletter subscription signup
+- Users can bid directly from auction cards
+- Clicking a card navigates to a detailed view:
+- Item title, description, time left, image gallery
+- See current bid, place a bid
+- See bid history with user, amount, and time
+- Profile page:
+- Username, member since, credit balance
+- Sort content on profile page by: users listings, bid history, (watchlist?)
+- Edit listing (modal), delete listing (modal/alert)
+- Update avatar, banner and bio
+- Edit profile page:
+- User updates information, image, (wishlist?) saves changes (and can delete account?)
+- Contact page with a validated contact form
+- Uses .env for configuration
+- Unit testing with Vitest
+- E2E testing with Playwright
+
+## User Stories
+
+- A user with a stud.noroff.no email may register
+- A registered user may login and logout
+- A registered user may update their avatar and bio
+- A registered user may view their credit balance
+- A registered user may create, edit, or delete a listing
+- A registered user may add a bid to other users’ listings
+- A registered user may view bids made on a listing
+- An unregistered user may search through listings
+
+## Tech Stack
+
+- HTML 5
+- Javascript (ES6 modules)
+- Tailwind 4
+- Vite
+- Vitest
+- Playwright
+- ESLint
+- Prettier
+- Husky
+- Netlify (hosting)
+- Hotjar (user behavior tracking)
 
 ## Prerequisites
 
@@ -49,14 +105,7 @@ BASE_URL=https://example.com/api
 - `npm run test` - Run tests
 - `npm run lint` - Run ESLint
 
-## Technologies
-
-- JavaScript
-- HTML
-- CSS
-- ESLint
-- Prettier
-
 ## Author
 
-Your name or GitHub username
+FrontEnd: HelChris
+API functionality endpoints: Noroff
