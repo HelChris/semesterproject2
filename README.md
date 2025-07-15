@@ -107,5 +107,5 @@ BASE_URL=https://example.com/api
 
 ## Author
 
-FrontEnd: HelChris
+FrontEnd: HelChris, 
 API functionality endpoints: Noroff
