@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+  --color-warm-terracotta: #e07a5f;
+  --color-hover-terracotta: #d4634a;
+  --color-soft-teal-1: #5e9ca2;
+  --color-soft-teal-2: #3a7d7e;
+  --color-earthy-beige: #f5f3eb;
+  --color-soft-yellow: #f2cc87;
+  --color-forest-green: #81b29a;
+}
+
+:root {
+  font-family:;
+  line-height: 1.5;
+  font-weight: 400;
+}

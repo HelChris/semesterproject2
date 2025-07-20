@@ -3,7 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login</title>
   </head>
-  <body></body>
+
+  <body>
+    <main>
+      <section>
+        <h1 class="text-red-400">Sign In</h1>
+        <!-- Login form -->
+        <div class="p-8">
+          <form novalidate>
+            <!-- Email field-->
+            <div class="space-y-5">
+              <div>
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  aria-describedby="email-error"
+                  placeholder="example@mail.com"
+                />
+              </div>
+              <div
+                id="email-error"
+                class="mt-1 text-sm text-red-600 hidden"
+                role="alert"
+              >
+                Please enter a valid email adress
+              </div>
+            </div>
+            <!-- Password field-->
+            <div class="space-y-5">
+              <div>
+                <label for="Password">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="password"
+                  required
+                  aria-describedby="password-error"
+                  placeholder="********"
+                />
+              </div>
+              <div
+                id="password-error"
+                class="mt-1 text-sm text-red-600 hidden"
+                role="alert"
+              >
+                Please enter a valid password
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
