@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Login || Spirit Bid</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -14,15 +14,21 @@
   <body class="bg-earthy-beige">
     <header class="flex justify-between p-2 bg-forest-green">
       <div class="flex items-center pl-2">
-        <img src="/assets/img/logo.png" class="max-w-10 place-content-start" />
-        <p
-          class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
-        >
-          Spirit Bid
-        </p>
+        <a href="/index.html"
+          ><img src="/assets/img/logo.png" class="max-w-10 place-content-start"
+        /></a>
+        <a href="/index.html">
+          <p
+            class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
+          >
+            Spirit Bid
+          </p>
+        </a>
         <nav class="flex items-center pl-10 text-earthy-beige gap-8 min-w-60">
-          <a href="index.html" class="w-10 hover:font-bold">Home</a>
-          <a href="pages/listings.html" class="w-10 hover:font-bold">Explore</a>
+          <a href="/index.html" class="w-10 hover:font-bold">Home</a>
+          <a href="/pages/listings.html" class="w-10 hover:font-bold"
+            >Explore</a
+          >
           <a href="#how-it-works" class="w-40 hover:font-bold">How it works</a>
         </nav>
       </div>
@@ -45,12 +51,12 @@
         </div>
         <nav class="flex justify-end items-center p-2 gap-2">
           <a
-            href="pages/login.html"
+            href="/pages/login.html"
             class="px-4 py-1 border-warm-terracotta bg-warm-terracotta hover:bg-hover-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold"
             >Sign in</a
           >
           <a
-            href="pages/register.html"
+            href="/pages/register.html"
             class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-forest-green hover:border-soft-teal-2 border-2 rounded-3xl text-soft-teal-2 bold"
             >Register</a
           >
@@ -58,11 +64,13 @@
       </div>
     </header>
     <main
-      class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-cover"
+      class="bg-gradient-to-r from-forest-green from-15% via-soft-yellow via-55% to-forest-green to-80% bg-cover p-8"
     >
-      <section class="p-8 border-2 max-w-fit justify-self-center h-svh">
+      <section
+        class="p-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
+      >
         <div>
-          <h1 class="text-black font-bold text-center">Sign In</h1>
+          <h1 class="text-black text-center text-3xl font-light">Sign In</h1>
         </div>
         <!-- Login form -->
         <div class="p-8">
@@ -113,11 +121,23 @@
                 Please enter a valid password
               </div>
             </div>
-            <button
-              class="px-4 py-1 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold font-medium w-50 text-center"
-            >
-              Sign in -&gt;
-            </button>
+            <!-- Forgot Password Link -->
+            <div class="text-center my-2">
+              <a href="#" class="underline text-lg">Forgot your password?</a>
+            </div>
+            <div class="text-center my-6">
+              <button
+                class="px-4 py-1.5 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold font-medium w-80 text-center"
+              >
+                Sign in -&gt;
+              </button>
+            </div>
+            <!-- Register Link -->
+            <div class="text-right">
+              <a href="/pages/register.html" class="underline italic"
+                >Or register</a
+              >
+            </div>
           </form>
         </div>
       </section>
@@ -141,20 +161,20 @@
         >
           <a href="www.instagram.com" class="p-2" aria-describedby="Instagram"
             ><img
-              src="assets/img/instagram.png"
+              src="/assets/img/instagram.png"
               class="max-h-6 opacity-70 hover:opacity-100"
           /></a>
           <a href="www.x.com" class="p-2" aria-describedby="X"
             ><img
-              src="assets/img/x.png"
+              src="/assets/img/x.png"
               class="max-h-6 opacity-70 hover:opacity-100" /></a
           ><a href="www.discord.com" class="p-2" aria-describedby="discord"
             ><img
-              src="assets/img/discord1.png"
+              src="/assets/img/discord1.png"
               class="max-h-6 opacity-70 hover:opacity-100" /></a
           ><a href="www.facebook.com" class="p-2" aria-describedby="facebook"
             ><img
-              src="assets/img/facebook.png"
+              src="/assets/img/facebook.png"
               class="max-h-6 opacity-70 hover:opacity-100"
           /></a>
         </section>
