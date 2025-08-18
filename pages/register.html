@@ -3,7 +3,373 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Register || Spirit Bid</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/main.js" type="module"></script>
   </head>
-  <body></body>
+
+  <body class="bg-earthy-beige">
+    <header class="flex justify-between p-2 bg-forest-green">
+      <div class="flex items-center pl-2">
+        <a href="/index.html"
+          ><img src="/assets/img/logo.png" class="max-w-10 place-content-start"
+        /></a>
+        <a href="/index.html">
+          <p
+            class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
+          >
+            Spirit Bid
+          </p>
+        </a>
+        <nav class="flex items-center pl-10 text-earthy-beige gap-8 min-w-60">
+          <a href="/index.html" class="w-10 hover:font-bold">Home</a>
+          <a href="/pages/listings.html" class="w-10 hover:font-bold"
+            >Explore</a
+          >
+          <a href="#how-it-works" class="w-40 hover:font-bold">How it works</a>
+        </nav>
+      </div>
+      <div class="flex justify-end items-center gap-2">
+        <div
+          class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
+        >
+          <label for="site-search" hidden>Search the site:</label>
+          <input
+            placeholder="Search for item.."
+            id="site-search"
+            type="search"
+            aria-describedby="search-field"
+          />
+          <button
+            class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+          >
+            Search
+          </button>
+        </div>
+        <nav class="flex justify-end items-center p-2 gap-2">
+          <a
+            href="/pages/login.html"
+            class="px-4 py-1 border-warm-terracotta bg-warm-terracotta hover:bg-hover-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold"
+            >Sign in</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-forest-green hover:border-soft-teal-2 border-2 rounded-3xl text-soft-teal-2 bold"
+            >Register</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main
+      class="bg-gradient-to-r from-forest-green from-15% via-soft-yellow via-55% to-forest-green to-80% bg-cover p-8"
+    >
+      <section
+        class="pt-8 px-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
+      >
+        <div>
+          <h1 class="text-black text-center text-3xl font-medium">
+            Create Account
+          </h1>
+          <p class="text-center italic pt-2">Join our bidding community</p>
+        </div>
+        <!-- register form -->
+        <div class="pb-8 pt-4 px-8">
+          <form id="registerForm" novalidate>
+            <fieldset>
+              <div id="message"></div>
+              <!-- name field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="name" class="flex-shrink-0">Name:</label>
+                  <input
+                    type="name"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                    aria-describedby="name-error"
+                    placeholder="Your Name"
+                    class="pl-1 w-full flex-1"
+                  />
+                </div>
+                <div
+                  id="name-error"
+                  class="mt-1 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter your name
+                </div>
+              </div>
+              <!-- Email field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="email" class="flex-shrink-0">Email:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    aria-describedby="email-error"
+                    placeholder="your.email@stud.noroff.no"
+                    class="pl-1 w-full flex-1"
+                  />
+                </div>
+                <div
+                  id="email-error"
+                  class="mt-1 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter a valid email adress
+                </div>
+              </div>
+              <!-- Password field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="Password" class="flex-shrink-0">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="password"
+                    required
+                    aria-describedby="password-error"
+                    placeholder="********"
+                    class="pl-1 w-full flex-1"
+                  />
+                </div>
+                <div
+                  id="password-error"
+                  class="mt-1 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter a valid password
+                </div>
+              </div>
+              <!-- Confirm Password field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="confirm-password" class="flex-shrink-0"
+                    >Confirm Password:</label
+                  >
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    autocomplete="password"
+                    required
+                    aria-describedby="confirm-password-error"
+                    placeholder="********"
+                    class="pl-1 w-full flex-1"
+                  />
+                </div>
+                <div
+                  id="confirm-password-error"
+                  class="mt-1 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter a valid password
+                </div>
+              </div>
+              <!-- bio field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="bio" class="flex-shrink-0 self-start"
+                    >Your Bio:</label
+                  >
+                  <textarea
+                    id="bio"
+                    name="bio"
+                    aria-describedby="bio-error"
+                    placeholder="Write a little about yourself."
+                    class="pl-1 w-full flex-1"
+                  ></textarea>
+                </div>
+              </div>
+              <!-- Avatar URL field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="avatarUrl" class="flex-shrink-0"
+                    >Avatar URL:</label
+                  >
+                  <input
+                    type="url"
+                    id="avatarUrl"
+                    name="avatarUrl"
+                    aria-describedby="avatarUrl-help"
+                    class="pl-1 w-full flex-1"
+                  />
+                </div>
+              </div>
+              <!-- Banner URL field-->
+              <div class="mb-5">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
+                  <label for="bannerUrl" class="flex-shrink-0"
+                    >Banner URL:</label
+                  >
+                  <input
+                    type="url"
+                    id="bannerUrl"
+                    name="bannerUrl"
+                    aria-describedby="bannerUrl-help"
+                    class="pl-1 w-full flex-1"
+                  />
+                </div>
+              </div>
+              <!-- Accept terms Link -->
+              <div class="mb-4 pl-2">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  name="terms"
+                  class="mr-2"
+                  required
+                />
+                <label for="terms" class="text-gray-700"
+                  >I agree to the
+                  <a
+                    href="/pages/terms.html"
+                    class="text-forest-green hover:underline"
+                    >Terms of Service</a
+                  ></label
+                >
+              </div>
+              <div class="text-center my-6">
+                <button
+                  type="submit"
+                  id="submit-button"
+                  class="px-4 py-1 hover:border-soft-teal-2 hover:bg-earthy-beige bg-forest-green border-soft-teal-2 border-2 rounded-3xl text-black bold shadow w-80"
+                >
+                  Create Account -&gt;
+                </button>
+              </div>
+              <!-- Sign in link -->
+              <p class="mt-4 text-center">
+                Already have an account?
+                <a
+                  href="/pages/login.html"
+                  class="text-forest-green hover:underline"
+                  >Sign In</a
+                >
+              </p>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="p-2 m-8 flex bg-earthy-beige text-soft-teal-2 gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
+    >
+      <section class="flex-col max-w-60 text-balance">
+        <div class="pl-10 flex items-center">
+          <img src="/assets/img/logo.png" class="max-w-10" />
+          <p class="font-serif font-thin pl-2 text-2xl min-w-fit">Spirit Bid</p>
+        </div>
+        <blockquote
+          class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
+        >
+          A magical marketplace for unique and enchanted items.
+        </blockquote>
+        <section
+          class="flex pt-2 justify-center"
+          aria-describedby="Social media links"
+        >
+          <a href="www.instagram.com" class="p-2" aria-describedby="Instagram"
+            ><img
+              src="/assets/img/instagram.png"
+              class="max-h-6 opacity-70 hover:opacity-100"
+          /></a>
+          <a href="www.x.com" class="p-2" aria-describedby="X"
+            ><img
+              src="/assets/img/x.png"
+              class="max-h-6 opacity-70 hover:opacity-100" /></a
+          ><a href="www.discord.com" class="p-2" aria-describedby="discord"
+            ><img
+              src="/assets/img/discord1.png"
+              class="max-h-6 opacity-70 hover:opacity-100" /></a
+          ><a href="www.facebook.com" class="p-2" aria-describedby="facebook"
+            ><img
+              src="/assets/img/facebook.png"
+              class="max-h-6 opacity-70 hover:opacity-100"
+          /></a>
+        </section>
+      </section>
+      <section class="flex-col">
+        <h3 class="font-bold pb-2">Quick Links</h3>
+        <a
+          href="/index.html"
+          target="_blank"
+          class="flex pb-2 w-40 hover:font-medium"
+          >Home</a
+        >
+        <a href="/pages/listings.html" class="flex pb-2 w-40 hover:font-medium"
+          >Explore</a
+        >
+        <a
+          href="/index.html/#howitworks"
+          class="flex pb-2 w-40 hover:font-medium"
+          >How It Works</a
+        >
+        <a
+          href="/pages/createListing.html"
+          class="flex pb-2 w-40 hover:font-medium"
+          >Create Listing</a
+        >
+        <a href="/index.html" class="flex pb-2 w-40 hover:font-medium"
+          >My Account</a
+        >
+      </section>
+      <div class="">
+        <h3 class="font-bold pb-2">Help & Support</h3>
+        <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
+          >FAQ</a
+        >
+        <a
+          href="/js/src/pages/contact.html"
+          class="flex pb-2 w-40 hover:font-medium"
+          >Contact Us</a
+        >
+        <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
+          >Terms of Service</a
+        >
+        <a href="/pages/privacy.html" class="flex pb-2 w-40 hover:font-medium"
+          >Privacy Policy</a
+        >
+        <a href="/pages/faq#help.html" class="flex pb-2 w-40 hover:font-medium"
+          >Help Center</a
+        >
+      </div>
+      <section class="">
+        <h3 class="font-bold pb-2">Newsletter</h3>
+        <p class="text-balance pb-2 max-w-60">
+          Subscribe to get updates on new magical items and exclusive auctions.
+        </p>
+        <div class="flex pt-2">
+          <div
+            class="pl-2 border-forest-green border-2 border-r-0 rounded-l-3xl max-w-fit content-center"
+          >
+            <input
+              type="email"
+              id="newsletter-email"
+              name="newsletter-email"
+              autocomplete="email"
+              required
+              aria-describedby="enter email to subscribe to newsletter"
+              placeholder="example@mail.com"
+              class="pl-2 focus:border-0"
+            />
+          </div>
+          <button
+            class="bg-warm-terracotta text-earthy-beige rounded-r-3xl justify-between px-4 py-1.5 border-warm-terracotta border-2 border-l-0 font-semibold"
+          >
+            Subscribe
+          </button>
+        </div>
+      </section>
+    </footer>
+  </body>
 </html>

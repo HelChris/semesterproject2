@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/main.js" type="module"></script>
   </head>
 
   <body class="bg-earthy-beige">
@@ -67,77 +68,80 @@
       class="bg-gradient-to-r from-forest-green from-15% via-soft-yellow via-55% to-forest-green to-80% bg-cover p-8"
     >
       <section
-        class="p-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
+        class="pt-8 px-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
       >
         <div>
-          <h1 class="text-black text-center text-3xl font-light">Sign In</h1>
+          <h1 class="text-black text-center text-3xl font-medium">Sign In</h1>
         </div>
         <!-- Login form -->
         <div class="p-8">
-          <form novalidate>
-            <!-- Email field-->
-            <div class="space-y-5">
-              <div class="border p-2 rounded-2xl">
-                <label for="email">Email:</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  autocomplete="email"
-                  required
-                  aria-describedby="email-error"
-                  placeholder="example@mail.com"
-                  class="pl-1"
-                />
+          <form novalidate id="login-form">
+            <fieldset>
+              <div id="message"></div>
+              <!-- Email field-->
+              <div class="space-y-5">
+                <div class="border p-2 rounded-2xl">
+                  <label for="email">Email:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    aria-describedby="email-error"
+                    placeholder="example@mail.com"
+                    class="pl-1"
+                  />
+                </div>
+                <div
+                  id="email-error"
+                  class="mt-1 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter a valid email adress
+                </div>
               </div>
-              <div
-                id="email-error"
-                class="mt-1 text-sm text-red-600 hidden"
-                role="alert"
-              >
-                Please enter a valid email adress
+              <!-- Password field-->
+              <div class="space-y-5">
+                <div class="border p-2 rounded-2xl">
+                  <label for="Password">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="password"
+                    required
+                    aria-describedby="password-error"
+                    placeholder="********"
+                    class="pl-1"
+                  />
+                </div>
+                <div
+                  id="password-error"
+                  class="mt-1 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter a valid password
+                </div>
               </div>
-            </div>
-            <!-- Password field-->
-            <div class="space-y-5">
-              <div class="border p-2 rounded-2xl">
-                <label for="Password">Password:</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  autocomplete="password"
-                  required
-                  aria-describedby="password-error"
-                  placeholder="********"
-                  class="pl-1"
-                />
+              <!-- Forgot Password Link -->
+              <div class="pl-2 my-2">
+                <a href="#" class="text-xs underline">Forgot your password?</a>
               </div>
-              <div
-                id="password-error"
-                class="mt-1 text-sm text-red-600 hidden"
-                role="alert"
-              >
-                Please enter a valid password
+              <div class="text-center my-6">
+                <button
+                  class="px-4 py-1.5 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-warm-terracotta border-2 rounded-3xl text-black bold w-80 text-center"
+                >
+                  Sign in -&gt;
+                </button>
               </div>
-            </div>
-            <!-- Forgot Password Link -->
-            <div class="text-center my-2">
-              <a href="#" class="underline text-lg">Forgot your password?</a>
-            </div>
-            <div class="text-center my-6">
-              <button
-                class="px-4 py-1.5 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold font-medium w-80 text-center"
-              >
-                Sign in -&gt;
-              </button>
-            </div>
-            <!-- Register Link -->
-            <div class="text-right">
-              <a href="/pages/register.html" class="underline italic"
-                >Or register</a
-              >
-            </div>
+              <!-- Register Link -->
+              <div class="text-right">
+                <a href="/pages/register.html" class="underline italic"
+                  >Or register</a
+                >
+              </div>
+            </fieldset>
           </form>
         </div>
       </section>
@@ -147,7 +151,7 @@
     >
       <section class="flex-col max-w-60 text-balance">
         <div class="pl-10 flex items-center">
-          <img src="assets/img/logo.png" class="max-w-10" />
+          <img src="/assets/img/logo.png" class="max-w-10" />
           <p class="font-serif font-thin pl-2 text-2xl min-w-fit">Spirit Bid</p>
         </div>
         <blockquote
@@ -187,9 +191,7 @@
           class="flex pb-2 w-40 hover:font-medium"
           >Home</a
         >
-        <a
-          href="/js/src/pages/listings.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/listings.html" class="flex pb-2 w-40 hover:font-medium"
           >Explore</a
         >
         <a
@@ -198,7 +200,7 @@
           >How It Works</a
         >
         <a
-          href="/js/src/pages/createListing.html"
+          href="/pages/createListing.html"
           class="flex pb-2 w-40 hover:font-medium"
           >Create Listing</a
         >
@@ -208,9 +210,7 @@
       </section>
       <div class="">
         <h3 class="font-bold pb-2">Help & Support</h3>
-        <a
-          href="/js/src/pages/faq.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
           >FAQ</a
         >
         <a
@@ -218,19 +218,13 @@
           class="flex pb-2 w-40 hover:font-medium"
           >Contact Us</a
         >
-        <a
-          href="/js/src/pages/terms.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
           >Terms of Service</a
         >
-        <a
-          href="/js/src/pages/privacy.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/privacy.html" class="flex pb-2 w-40 hover:font-medium"
           >Privacy Policy</a
         >
-        <a
-          href="/js/src/pages/faq#help.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/faq#help.html" class="flex pb-2 w-40 hover:font-medium"
           >Help Center</a
         >
       </div>

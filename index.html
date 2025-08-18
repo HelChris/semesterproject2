@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="css/index.css" />
+    <script src="/js/main.js" type="module"></script>
   </head>
 
   <body class="bg-earthy-beige">
@@ -155,8 +156,24 @@
         <div class="place-content-center" id="how-it-works">
           <h2 class="text-center text-xl font-medium p-4">How it works</h2>
           <div class="flex m-4 justify-center">
-            <article class="bg-white h-36 w-60 flex m-4 rounded-lg">
+            <article class="bg-white h-50 w-60 flex m-4 rounded-lg">
               <div class="place-content-center justify-items-center m-auto">
+                <div class="pb-1 text-forest-green">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-8"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
+                    />
+                  </svg>
+                </div>
                 <img />
                 <h3 class="font-bold">Register with Your Email</h3>
                 <p class="text-balance p-2 text-center">
@@ -165,8 +182,24 @@
                 </p>
               </div>
             </article>
-            <article class="bg-white h-36 w-60 flex m-4 rounded-lg">
+            <article class="bg-white h-50 w-60 flex m-4 rounded-lg">
               <div class="place-content-center justify-items-center m-auto">
+                <div class="pb-1 text-forest-green">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-8"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                  </svg>
+                </div>
                 <img />
                 <h3 class="font-bold">Create Your Listing</h3>
                 <p class="text-balance p-2 text-center">
@@ -175,8 +208,24 @@
                 </p>
               </div>
             </article>
-            <article class="bg-white h-36 w-60 flex m-4 rounded-lg">
+            <article class="bg-white h-50 w-60 flex m-4 rounded-lg">
               <div class="place-content-center justify-items-center m-auto">
+                <div class="pb-1 text-forest-green">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="m12 14.006l-6.156 7.227a2.182 2.182 0 1 1-3.077-3.077L9.994 12M22 11.905L15.905 18m-3.81-16L6 8.095m5.333-5.333L6.762 7.333s2.286 3.048 4.571 5.334c2.286 2.285 5.334 4.571 5.334 4.571l4.571-4.571s-2.286-3.048-4.571-5.334c-2.286-2.285-5.334-4.571-5.334-4.571"
+                    />
+                  </svg>
+                </div>
                 <img />
                 <h3 class="font-bold">Start Bidding</h3>
                 <p class="text-balance p-2 text-center">
@@ -210,7 +259,7 @@
             </button>
           </div>
         </div>
-        <!--NEWSLETTER SIGN UP BANNER-->
+        <!-- JOIN COMMUNITY BANNER -->
         <section class="w-full bg-green-700">
           <div
             class="justify-items-center place-content-center min-h-90 min-w-full bg-white/30 backdrop-invert backdrop-opacity-10"
@@ -225,8 +274,8 @@
 
             <div class="m-8 flex gap-4">
               <a
-                href=""
-                class="px-4 py-1 border-warm-terracotta bg-warm-terracotta hover:bg-hover-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+                href="/pages/register.html"
+                class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
                 >Register Now</a
               >
               <a
@@ -240,7 +289,7 @@
       </section>
     </main>
     <footer
-      class="p-2 m-8 flex bg-earthy-beige text-soft-teal-2 gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
+      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
     >
       <section class="flex-col max-w-60 text-balance">
         <div class="pl-10 flex items-center">
@@ -284,9 +333,7 @@
           class="flex pb-2 w-40 hover:font-medium"
           >Home</a
         >
-        <a
-          href="/js/src/pages/listings.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/listings.html" class="flex pb-2 w-40 hover:font-medium"
           >Explore</a
         >
         <a
@@ -295,7 +342,7 @@
           >How It Works</a
         >
         <a
-          href="/js/src/pages/createListing.html"
+          href="/pages/createListing.html"
           class="flex pb-2 w-40 hover:font-medium"
           >Create Listing</a
         >
@@ -305,9 +352,7 @@
       </section>
       <div class="">
         <h3 class="font-bold pb-2">Help & Support</h3>
-        <a
-          href="/js/src/pages/faq.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
           >FAQ</a
         >
         <a
@@ -315,19 +360,13 @@
           class="flex pb-2 w-40 hover:font-medium"
           >Contact Us</a
         >
-        <a
-          href="/js/src/pages/terms.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
           >Terms of Service</a
         >
-        <a
-          href="/js/src/pages/privacy.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/privacy.html" class="flex pb-2 w-40 hover:font-medium"
           >Privacy Policy</a
         >
-        <a
-          href="/js/src/pages/faq#help.html"
-          class="flex pb-2 w-40 hover:font-medium"
+        <a href="/pages/faq#help.html" class="flex pb-2 w-40 hover:font-medium"
           >Help Center</a
         >
       </div>

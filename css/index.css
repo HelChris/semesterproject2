@@ -5,16 +5,35 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 976px;
   --color-warm-terracotta: #e07a5f;
-  --color-hover-terracotta: #d4634a;
+  --color-hover-terracotta: #d4634a; /* "darker terracota" */
   --color-soft-teal-1: #5e9ca2;
   --color-soft-teal-2: #3a7d7e;
   --color-earthy-beige: #f5f3eb;
   --color-soft-yellow: #f2cc87;
-  --color-forest-green: #81b29a;
+  --color-light-forest-green: #81b29a;
+  --color-forest-green: #487961;
 }
 
 :root {
   font-family:;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  border: 1px solid #6ee7b7;
+  color: #059669;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
 }
