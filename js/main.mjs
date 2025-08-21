@@ -1,8 +1,8 @@
-import { registerHandler } from "/js/auth/register.js";
-import { loginHandler } from "/js/auth/login.js";
-import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.js";
-import { fetchAuctionListings } from "/js/api/auctionListings.js";
-import { createListingHandler } from "./utils/createListingHandler.js";
+import { setupRegisterForm } from "./utils/registerFormHandler.mjs";
+import { loginHandler } from "/js/auth/login.mjs";
+import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
+import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
+import { createListingHandler } from "./utils/createListingHandler.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -34,7 +34,7 @@ function router() {
       loginHandler();
       break;
     case "/pages/register.html":
-      registerHandler();
+      setupRegisterForm();
       break;
     case "/pages/listings.html":
     case "/listings/":
@@ -71,7 +71,7 @@ async function handleListingsPage() {
     if (response.data && response.data.length > 0) {
       // Import the card component
       const { createListingCard } = await import(
-        "/js/components/itemCards/listingCardComponent.js"
+        "/js/components/itemCards/listingCardComponent.mjs"
       );
 
       // Clear existing content

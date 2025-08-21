@@ -1,6 +1,6 @@
-import { AUTH_ENDPOINTS } from "/js/constants/endpoints.js";
-import { getFromLocalStorage } from "/js/utils/localStorage.js";
-import { API_KEY } from "/js/constants/apiKey.js";
+import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
+import { getFromLocalStorage } from "/js/utils/localStorage.mjs";
+import { API_KEY } from "/js/constants/apiKey.mjs";
 
 /**
  * Fetches all auction listings from the API (limit 12, page 1)

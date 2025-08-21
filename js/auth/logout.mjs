@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from "/js/utils/localStorage.js";
+import { getFromLocalStorage } from "/js/utils/localStorage.mjs";
 /**
  * Logs out the user by clearing localStorage and redirecting to login page
  */

@@ -1,10 +1,10 @@
-import { fetchAuctionListings } from "/js/api/auctionListings.js";
+import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
 import {
   renderListingCards,
   showLoadingState,
   showErrorState,
-} from "/js/components/render/renderListingCards.js";
-import { setupSearch } from "/js/components/search/search.js";
+} from "/js/components/render/renderListingCards.mjs";
+import { setupSearch } from "/js/components/search/search.mjs";
 
 /**
  * Initializes the listings page functionality

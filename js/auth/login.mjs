@@ -1,6 +1,6 @@
-import { AUTH_ENDPOINTS } from "/js/constants/endpoints.js";
-import { addToLocalStorage } from "/js/utils/localStorage.js";
-import { showError } from "/js/shared/errorHandling.js";
+import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
+import { addToLocalStorage } from "/js/utils/localStorage.mjs";
+import { showError } from "/js/shared/errorHandling.mjs";
 
 /**
  * Authenticates a user by sending login credentials to the server
@@ -48,7 +48,7 @@ export async function login(user) {
 }
 
 export function loginHandler() {
-  const form = document.querySelector("#login-form");
+  const form = document.querySelector("#loginForm");
   if (form) {
     form.addEventListener("submit", submitForm);
   }

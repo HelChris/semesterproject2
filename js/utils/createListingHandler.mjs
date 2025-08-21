@@ -1,5 +1,5 @@
-import { createAuctionListing } from "/js/api/auctionListings.js";
-import { showError } from "/js/shared/errorHandling.js";
+import { createAuctionListing } from "/js/api/auctionListings.mjs";
+import { showError } from "/js/shared/errorHandling.mjs";
 
 /**
  * Handles the create listing form submission
@@ -55,7 +55,6 @@ async function submitListing(event) {
     fieldset.disabled = true;
     await createAuctionListing(listingData);
 
-    // Show success message and redirect
     alert("Listing created successfully!");
     window.location.href = "/pages/listings.html";
   } catch (error) {

@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from "./localStorage.js";
+import { getFromLocalStorage } from "./localStorage.mjs";
 /**
  * Checks if the current logged-in user is the author of a post
  *
