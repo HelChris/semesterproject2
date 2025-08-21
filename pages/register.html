@@ -91,15 +91,15 @@
                     name="name"
                     autocomplete="name"
                     required
-                    aria-describedby="name-error"
                     placeholder="Your Name"
                     class="pl-1 w-full flex-1"
                   />
                 </div>
                 <div
-                  id="name-error"
+                  id="nameError"
                   class="mt-1 text-sm text-red-600 hidden"
                   role="alert"
+                  aria-describedby="name-error"
                 >
                   Please enter your name
                 </div>
@@ -114,15 +114,15 @@
                     name="email"
                     autocomplete="email"
                     required
-                    aria-describedby="email-error"
                     placeholder="your.email@stud.noroff.no"
                     class="pl-1 w-full flex-1"
                   />
                 </div>
                 <div
-                  id="email-error"
+                  id="emailError"
                   class="mt-1 text-sm text-red-600 hidden"
                   role="alert"
+                  aria-describedby="email-error"
                 >
                   Please enter a valid email adress
                 </div>
@@ -137,15 +137,15 @@
                     name="password"
                     autocomplete="password"
                     required
-                    aria-describedby="password-error"
                     placeholder="********"
                     class="pl-1 w-full flex-1"
                   />
                 </div>
                 <div
-                  id="password-error"
+                  id="passwordError"
                   class="mt-1 text-sm text-red-600 hidden"
                   role="alert"
+                  aria-describedby="password-error"
                 >
                   Please enter a valid password
                 </div>
@@ -153,24 +153,24 @@
               <!-- Confirm Password field-->
               <div class="mb-5">
                 <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="confirm-password" class="flex-shrink-0"
+                  <label for="confirmPassword" class="flex-shrink-0"
                     >Confirm Password:</label
                   >
                   <input
                     type="password"
-                    id="confirm-password"
-                    name="confirm-password"
+                    id="confirmPassword"
+                    name="confirmPassword"
                     autocomplete="password"
                     required
-                    aria-describedby="confirm-password-error"
                     placeholder="********"
                     class="pl-1 w-full flex-1"
                   />
                 </div>
                 <div
-                  id="confirm-password-error"
+                  id="confirmPasswordError"
                   class="mt-1 text-sm text-red-600 hidden"
                   role="alert"
+                  aria-describedby="confirm-password-error"
                 >
                   Please enter a valid password
                 </div>
@@ -184,7 +184,6 @@
                   <textarea
                     id="bio"
                     name="bio"
-                    aria-describedby="bio-error"
                     placeholder="Write a little about yourself."
                     class="pl-1 w-full flex-1"
                   ></textarea>
@@ -200,7 +199,6 @@
                     type="url"
                     id="avatarUrl"
                     name="avatarUrl"
-                    aria-describedby="avatarUrl-help"
                     class="pl-1 w-full flex-1"
                   />
                 </div>
@@ -215,7 +213,6 @@
                     type="url"
                     id="bannerUrl"
                     name="bannerUrl"
-                    aria-describedby="bannerUrl-help"
                     class="pl-1 w-full flex-1"
                   />
                 </div>
@@ -241,7 +238,7 @@
               <div class="text-center my-6">
                 <button
                   type="submit"
-                  id="submit-button"
+                  id="registerbutton"
                   class="px-4 py-1 hover:border-soft-teal-2 hover:bg-earthy-beige bg-forest-green border-soft-teal-2 border-2 rounded-3xl text-black bold shadow w-80"
                 >
                   Create Account -&gt;
