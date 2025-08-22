@@ -1,6 +1,7 @@
 import { createFormHandler } from "/js/utils/formHandler.mjs";
 import {
   validateRequired,
+  validateName,
   validateEmail,
   validatePassword,
   validateConfirmPassword,
@@ -19,7 +20,7 @@ export function setupRegisterForm() {
   createFormHandler(
     "#registerForm",
     {
-      name: [validateRequired],
+      name: [validateName],
       email: [validateEmail],
       password: [validatePassword],
       confirmPassword: [

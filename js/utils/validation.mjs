@@ -1,5 +1,19 @@
-export function validateRequired(value, message = "This field is required") {
+export function validateRequired(
+  value,
+  _formData,
+  message = "This field is required",
+) {
   return value?.trim() ? { isValid: true } : { isValid: false, message };
+}
+
+export function validateName(value, _formData) {
+  if (!value || !value.trim()) {
+    return { isValid: false, message: "Name field is required" };
+  }
+  if (value.trim().length < 2) {
+    return { isValid: false, message: "Name must be at least 2 characters" };
+  }
+  return { isValid: true };
 }
 
 export function validateEmail(value) {

@@ -8,8 +8,13 @@ export function createFormHandler(formSelector, fieldsConfig, onSubmit) {
   if (!form) return;
 
   function showError(input, message) {
+    console.log("showError called with:", { inputName: input.name, message });
     const errorElem = form.querySelector(`#${input.name}Error`);
     if (errorElem) {
+      // Always convert message to a string for safety
+      if (typeof message === "object" && message !== null) {
+        message = message.message || JSON.stringify(message);
+      }
       errorElem.textContent = message || "";
       errorElem.classList.toggle("hidden", !message);
     }
