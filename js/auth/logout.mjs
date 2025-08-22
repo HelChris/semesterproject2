@@ -1,12 +1,7 @@
 import { getFromLocalStorage } from "/js/utils/localStorage.mjs";
-/**
- * Logs out the user by clearing localStorage and redirecting to login page
- */
-export function logout() {
-  // Clear all items from localStorage
-  localStorage.clear();
 
-  // Redirect to login page
+export function logout() {
+  localStorage.clear();
   window.location.href = "/index.html";
 }
 
@@ -45,9 +40,9 @@ export function updateNavigation() {
   } else {
     // user is not logged in - show login/register
     authNav.innerHTML = `<a href="/pages/login.html"
-        class="px-4 py-1 border-warm-terracotta bg-warm-terracotta hover:bg-hover-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold">Sign in</a>
+        class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow">Sign in</a>
       <a href="/pages/register.html"
-        class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-forest-green hover:border-soft-teal-2 border-2 rounded-3xl text-soft-teal-2 bold">Register</a>
+        class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow">Register</a>
     `;
   }
 }
