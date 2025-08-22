@@ -29,9 +29,9 @@ export function updateNavigation() {
       username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 
     //user is logged in - show profile and logout
-    authNav.innerHTML = `<span class="text-earthy-beige">Welcome, ${capitalizedUsername}</span><a href="/pages/profile.html" class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-forest-green hover:border-soft-teal-2 border-2 rounded-3xl text-soft-teal-2 bold">Profile</a>
+    authNav.innerHTML = `<span class="text-earthy-beige">Welcome, ${capitalizedUsername}</span><a href="/pages/profile.html" class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold">Profile</a>
       <button id="logout-button"
-        class="px-4 py-1 border-warm-terracotta bg-warm-terracotta hover:bg-hover-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold">Sign Out</button>
+        class="px-4 py-1 border-hover-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow">Sign Out</button>
     `;
 
     // add logout event listener
