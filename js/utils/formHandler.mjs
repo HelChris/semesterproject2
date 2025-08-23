@@ -10,6 +10,10 @@ export function createFormHandler(formSelector, fieldsConfig, onSubmit) {
   function showError(input, message) {
     const errorElem = form.querySelector(`#${input.name}Error`);
     if (errorElem) {
+      // Always convert message to a string for safety
+      if (typeof message === "object" && message !== null) {
+        message = message.message || JSON.stringify(message);
+      }
       errorElem.textContent = message || "";
       errorElem.classList.toggle("hidden", !message);
     }
