@@ -3,6 +3,7 @@ import { loginHandler } from "/js/auth/login.mjs";
 import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
 import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
 import { createListingHandler } from "./utils/createListingHandler.mjs";
+import { setupContactForm } from "/js/utils/contactFormHandler.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -49,6 +50,9 @@ function router() {
     case "/profile/":
       break;
     case "/pages/editProfile.html":
+      break;
+    case "/pages/contact.html":
+      setupContactForm();
       break;
   }
 }
