@@ -3,14 +3,178 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Contact | Spirit Bid</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/main.mjs" type="module"></script>
   </head>
 
   <body>
-    <header></header>
-    <main></main>
+    <header class="flex justify-between p-2 bg-forest-green">
+      <div class="flex items-center pl-2">
+        <a href="/index.html"
+          ><img src="/assets/img/logo.png" class="max-w-10 place-content-start"
+        /></a>
+        <a href="/index.html">
+          <p
+            class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
+          >
+            Spirit Bid
+          </p>
+        </a>
+        <nav class="flex items-center pl-10 text-earthy-beige gap-8 min-w-60">
+          <a href="/index.html" class="w-10 hover:font-bold">Home</a>
+          <a href="/pages/listings.html" class="w-10 hover:font-bold"
+            >Explore</a
+          >
+          <a href="#how-it-works" class="w-40 hover:font-bold">How it works</a>
+        </nav>
+      </div>
+      <div class="flex justify-end items-center gap-2">
+        <div
+          class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
+        >
+          <label for="site-search" hidden>Search the site:</label>
+          <input
+            placeholder="Search for item.."
+            id="site-search"
+            type="search"
+            aria-describedby="search-field"
+          />
+          <button
+            class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+          >
+            Search
+          </button>
+        </div>
+        <nav class="flex justify-end items-center p-2 gap-2">
+          <a
+            href="/pages/login.html"
+            class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+            >Sign in</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+            >Register</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="bg-soft-yellow p-6">
+      <section
+        class="pt-2 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
+      >
+        <!-- Contact form -->
+        <div class="p-8">
+          <h1 class="text-center text-3xl font-medium">Contact us</h1>
+          <form novalidate id="contactForm">
+            <fieldset>
+              <legend class="mb-4 text-center">Send us a message</legend>
+              <!-- id="message" is for displaying messages to the user-->
+              <div id="message"></div>
+              <!-- Title field-->
+              <div class="space-y-2">
+                <div class="border p-2 rounded-2xl">
+                  <label for="title">Title:</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    required
+                    placeholder="Subject.."
+                    class="pl-1"
+                  />
+                </div>
+                <div
+                  id="titleError"
+                  class="mb-3 pl-2 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter a title or subject for your message
+                </div>
+              </div>
+              <!-- Message field-->
+              <div class="space-y-2">
+                <div class="border p-2 rounded-2xl">
+                  <label for="contactMessage" class="align-top">Message:</label>
+                  <textarea
+                    id="contactMessage"
+                    name="message"
+                    required
+                    class="pl-1 w-full"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <div
+                  id="messageError"
+                  class="mb-3 pl-2 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter your message
+                </div>
+              </div>
+              <!-- Name field-->
+              <div class="space-y-2">
+                <div class="border p-2 rounded-2xl">
+                  <label for="name">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                    class="pl-1"
+                  />
+                </div>
+                <div
+                  id="nameError"
+                  class="mb-3 pl-2 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter your name
+                </div>
+              </div>
+              <!-- email field-->
+              <div class="space-y-2">
+                <div class="border p-2 rounded-2xl">
+                  <label for="email">Email:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="your@mail.com"
+                    class="pl-1"
+                  />
+                </div>
+                <div
+                  id="emailError"
+                  class="mb-3 pl-2 text-sm text-red-600 hidden"
+                  role="alert"
+                >
+                  Please enter your emailaddress
+                </div>
+              </div>
+              <div class="text-center my-6">
+                <button
+                  type="submit"
+                  id="contactFormButton"
+                  class="px-4 py-1.5 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-warm-terracotta border-2 rounded-3xl text-black bold w-80 text-center"
+                >
+                  Send
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+    </main>
     <footer
-      class="p-2 m-8 flex bg-earthy-beige text-soft-teal-2 gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
+      class="p-4 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
     >
       <section class="flex-col max-w-60 text-balance">
         <div class="pl-10 flex items-center">
