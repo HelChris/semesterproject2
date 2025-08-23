@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | Spirit Bid</title>
+    <title>About | Spirit Bid</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -12,7 +12,7 @@
     <script src="/js/main.mjs" type="module"></script>
   </head>
 
-  <body>
+  <body class="bg-earthy-beige">
     <header class="flex justify-between p-2 bg-forest-green">
       <div class="flex items-center pl-2">
         <a href="/index.html"
@@ -64,114 +64,9 @@
         </nav>
       </div>
     </header>
-    <main class="bg-soft-yellow p-6">
-      <section
-        class="pt-2 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
-      >
-        <!-- Contact form -->
-        <div class="p-8">
-          <h1 class="text-center text-3xl font-medium">Contact us</h1>
-          <form novalidate id="contactForm">
-            <fieldset>
-              <legend class="mb-4 text-center">Send us a message</legend>
-              <!-- id="message" is for displaying messages to the user-->
-              <div id="message"></div>
-              <!-- Title field-->
-              <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
-                  <label for="title">Title:</label>
-                  <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    required
-                    placeholder="Subject.."
-                    class="pl-1"
-                  />
-                </div>
-                <div
-                  id="titleError"
-                  class="mb-3 pl-2 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter a title or subject for your message
-                </div>
-              </div>
-              <!-- Message field-->
-              <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
-                  <label for="contactMessage" class="align-top">Message:</label>
-                  <textarea
-                    id="contactMessage"
-                    name="message"
-                    required
-                    class="pl-1 w-full"
-                    rows="4"
-                  ></textarea>
-                </div>
-                <div
-                  id="messageError"
-                  class="mb-3 pl-2 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your message
-                </div>
-              </div>
-              <!-- Name field-->
-              <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
-                  <label for="name">Name:</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Your name"
-                    class="pl-1"
-                  />
-                </div>
-                <div
-                  id="nameError"
-                  class="mb-3 pl-2 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your name
-                </div>
-              </div>
-              <!-- email field-->
-              <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
-                  <label for="email">Email:</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="your@mail.com"
-                    class="pl-1"
-                  />
-                </div>
-                <div
-                  id="emailError"
-                  class="mb-3 pl-2 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your emailaddress
-                </div>
-              </div>
-              <div class="text-center my-6">
-                <button
-                  type="submit"
-                  id="contactFormButton"
-                  class="px-4 py-1.5 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-warm-terracotta border-2 rounded-3xl text-black bold w-80 text-center"
-                >
-                  Send
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </section>
+    <main>
+      <h>Our Mission</h>
+      <p></p>
     </main>
     <footer
       class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
