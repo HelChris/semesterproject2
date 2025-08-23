@@ -12,7 +12,7 @@
     <script src="/js/main.mjs" type="module"></script>
   </head>
 
-  <body class="bg-earthy-beige">
+  <body>
     <header class="flex justify-between p-2 bg-forest-green">
       <div class="flex items-center pl-2">
         <a href="/index.html"
@@ -64,19 +64,16 @@
         </nav>
       </div>
     </header>
-    <main>
+    <main class="bg-soft-yellow p-6">
       <section
-        class="pt-8 px-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
+        class="pt-2 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
       >
-        <div>
-          <h1 class="text-black text-center text-3xl font-medium">
-            Contact us
-          </h1>
-        </div>
         <!-- Contact form -->
         <div class="p-8">
+          <h1 class="text-center text-3xl font-medium">Contact us</h1>
           <form novalidate id="contactForm">
             <fieldset>
+              <legend class="mb-4 text-center">Send us a message</legend>
               <!-- id="message" is for displaying messages to the user-->
               <div id="message"></div>
               <!-- Title field-->
@@ -96,7 +93,6 @@
                   id="titleError"
                   class="mb-3 pl-2 text-sm text-red-600 hidden"
                   role="alert"
-                  aria-describedby="title-error"
                 >
                   Please enter a title or subject for your message
                 </div>
@@ -104,7 +100,7 @@
               <!-- Message field-->
               <div class="space-y-2">
                 <div class="border p-2 rounded-2xl">
-                  <label for="message" class="align-top">Message:</label>
+                  <label for="contactMessage" class="align-top">Message:</label>
                   <textarea
                     id="contactMessage"
                     name="message"
@@ -117,7 +113,6 @@
                   id="messageError"
                   class="mb-3 pl-2 text-sm text-red-600 hidden"
                   role="alert"
-                  aria-describedby="message-error"
                 >
                   Please enter your message
                 </div>
@@ -139,7 +134,6 @@
                   id="nameError"
                   class="mb-3 pl-2 text-sm text-red-600 hidden"
                   role="alert"
-                  aria-describedby="name-error"
                 >
                   Please enter your name
                 </div>
@@ -161,7 +155,6 @@
                   id="emailError"
                   class="mb-3 pl-2 text-sm text-red-600 hidden"
                   role="alert"
-                  aria-describedby="email-error"
                 >
                   Please enter your emailaddress
                 </div>
@@ -181,7 +174,7 @@
       </section>
     </main>
     <footer
-      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
+      class="p-4 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
     >
       <section class="flex-col max-w-60 text-balance">
         <div class="pl-10 flex items-center">

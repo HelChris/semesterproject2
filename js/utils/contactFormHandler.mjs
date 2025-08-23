@@ -1,7 +1,7 @@
 import { createFormHandler } from "/js/utils/formHandler.mjs";
 import { validateRequired, validateEmail } from "/js/utils/validation.mjs";
 import { showError } from "/js/shared/errorHandling.mjs";
-import { showSuccess } from "/js/shared/successRegistrationHandling.mjs";
+import { showContactSuccess } from "../shared/successContactHandling.mjs";
 
 export function setupContactForm() {
   createFormHandler(
@@ -23,7 +23,7 @@ export function setupContactForm() {
     },
     async () => {
       try {
-        showSuccess("Your message has been sent!", "#message");
+        showContactSuccess("Your message has been sent!", "#message");
         const form = document.querySelector("#contactForm");
         if (form) form.reset();
       } catch (error) {

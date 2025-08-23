@@ -8,7 +8,6 @@ export function createFormHandler(formSelector, fieldsConfig, onSubmit) {
   if (!form) return;
 
   function showError(input, message) {
-    console.log("showError called with:", { inputName: input.name, message });
     const errorElem = form.querySelector(`#${input.name}Error`);
     if (errorElem) {
       // Always convert message to a string for safety

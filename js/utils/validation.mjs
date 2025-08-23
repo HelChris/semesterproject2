@@ -6,7 +6,7 @@ export function validateRequired(
   return value?.trim() ? { isValid: true } : { isValid: false, message };
 }
 
-export function validateName(value, _formData) {
+export function validateName(value) {
   if (!value || !value.trim()) {
     return { isValid: false, message: "Name field is required" };
   }
