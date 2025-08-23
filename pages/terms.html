@@ -3,14 +3,188 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Terms of Service | Spirit Bid</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/main.mjs" type="module"></script>
   </head>
 
   <body>
-    <header></header>
-    <main></main>
+    <header class="flex justify-between p-2 bg-forest-green">
+      <div class="flex items-center pl-2">
+        <a href="/index.html"
+          ><img src="/assets/img/logo.png" class="max-w-10 place-content-start"
+        /></a>
+        <a href="/index.html">
+          <p
+            class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
+          >
+            Spirit Bid
+          </p>
+        </a>
+        <nav class="flex items-center pl-10 text-earthy-beige gap-8 min-w-60">
+          <a href="/index.html" class="w-10 hover:font-bold">Home</a>
+          <a href="/pages/listings.html" class="w-10 hover:font-bold"
+            >Explore</a
+          >
+          <a href="#how-it-works" class="w-40 hover:font-bold">How it works</a>
+        </nav>
+      </div>
+      <div class="flex justify-end items-center gap-2">
+        <div
+          class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
+        >
+          <label for="site-search" hidden>Search the site:</label>
+          <input
+            placeholder="Search for item.."
+            id="site-search"
+            type="search"
+            aria-describedby="search-field"
+          />
+          <button
+            class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+          >
+            Search
+          </button>
+        </div>
+        <nav class="flex justify-end items-center p-2 gap-2">
+          <a
+            href="/pages/login.html"
+            class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+            >Sign in</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+            >Register</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="bg-forest-green/40">
+      <div class="max-w-xl m-auto text-balance text-left p-6">
+        <h1 class="text-3xl font-bold">Terms of Service</h1>
+        <p class="text-xs p-2">Last Updated: august 2025</p>
+        <p>By using our auction platform, you agree to these terms.</p>
+        <p>Please read them carefully.</p>
+        <ul class="p-2">
+          <h2 class="font-bold py-2">Account & Registration</h2>
+          <li class="list-disc py-1">You must be 18+ to use our service</li>
+          <li class="list-disc py-1">
+            Provide accurate, current information when registering
+          </li>
+          <li class="list-disc py-1">
+            You're responsible for maintaining account security
+          </li>
+          <li class="list-disc py-1">One account per person</li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">Auction Rules</h2>
+          <li class="list-disc py-1">
+            All bids are binding commitments to purchase
+          </li>
+          <li class="list-disc py-1">
+            Winning bidders must complete payment within 3 business days
+          </li>
+          <li class="list-disc py-1">Reserve prices may apply to listings</li>
+          <li class="list-disc py-1">
+            We reserve the right to cancel auctions for policy violations
+          </li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">User Responsibilities</h2>
+          <li class="list-disc py-1">List items accurately and honestly</li>
+          <li class="list-disc py-1">Honor all winning bids and sales</li>
+          <li class="list-disc py-1">Pay all applicable fees on time</li>
+          <li class="list-disc py-1">
+            Comply with applicable laws and regulations
+          </li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">Prohibited Items</h2>
+          <li class="list-disc py-1">Illegal, stolen, or counterfeit goods</li>
+          <li class="list-disc py-1">
+            Items violating intellectual property rights
+          </li>
+          <li class="list-disc py-1">Hazardous materials or weapons</li>
+          <li class="list-disc py-1">Adult content or services</li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">Fees & Payment</h2>
+          <li class="list-disc py-1">
+            Listing fees and commission rates are posted separately
+          </li>
+          <li class="list-disc py-1">All fees are non-refundable</li>
+          <li class="list-disc py-1">
+            Payment processing handled by third-party providers
+          </li>
+          <li class="list-disc py-1">
+            We may suspend accounts for unpaid fees
+          </li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">Limitation of Liability</h2>
+          <p>We provide the platform "as is" and aren't responsible for:</p>
+          <li class="list-disc py-1">Disputes between buyers and sellers</li>
+          <li class="list-disc py-1">
+            Item quality, authenticity, or delivery
+          </li>
+          <li class="list-disc py-1">
+            Technical issues or service interruptions
+          </li>
+          <li class="list-disc py-1">Third-party payment processing</li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">Dispute Resolution</h2>
+          <li class="list-disc py-1">
+            Users should attempt to resolve disputes directly
+          </li>
+          <li class="list-disc py-1">
+            We may provide mediation services at our discretion
+          </li>
+          <li class="list-disc py-1">Legal disputes subject to internet law</li>
+          <li class="list-disc py-1">
+            Binding arbitration required for claims over $100
+          </li>
+        </ul>
+
+        <ul>
+          <h2 class="font-bold py-2">Account Termination</h2>
+          <p>We may suspend or terminate accounts for:</p>
+          <li class="list-disc py-1">Terms of service violations</li>
+          <li class="list-disc py-1">Fraudulent activity</li>
+          <li class="list-disc py-1">Non-payment of fees</li>
+          <li class="list-disc py-1">Repeated user complaints</li>
+        </ul>
+
+        <h2 class="font-bold py-2">Changes to Terms</h2>
+        <p>
+          We may update these terms at any time. Continued use constitutes
+          acceptance of changes.
+        </p>
+        <h2 class="font-bold py-2">Contact</h2>
+        <p>
+          Questions about these terms?<br />
+          Contact us at spiritbid@contact.com
+        </p>
+
+        <p>
+          These terms constitute the entire <br />agreement between users and
+          Spirit Bid.
+        </p>
+      </div>
+    </main>
     <footer
-      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
+      class="p-2 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
     >
       <section class="flex-col max-w-60 text-balance">
         <div class="pl-10 flex items-center">
