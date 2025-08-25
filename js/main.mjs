@@ -4,6 +4,7 @@ import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
 import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
 import { createListingHandler } from "./utils/createListingHandler.mjs";
 import { setupContactForm } from "/js/utils/contactFormHandler.mjs";
+import { setupCreateListingModal } from "./utils/modalHandler.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -48,6 +49,9 @@ function router() {
       break;
     case "/pages/profile.html":
     case "/profile/":
+      handleListingsPage();
+      setupCreateListingModal();
+      createListingHandler();
       break;
     case "/pages/editProfile.html":
       break;
