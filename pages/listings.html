@@ -69,16 +69,249 @@
     <main>
       <section class="h-full">
         <h1
-          class="text-2xl font-semibold text-gray-900 text-center text-balance"
+          class="text-2xl p-4 font-semibold text-gray-900 text-center text-balance"
         >
           Discover Treasures
         </h1>
-        <!-- Posts List -->
-        <div id="display-container"></div>
-        <div
-          id="postsList"
-          class="grid grid-cols-1 m-4 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-        ></div>
+        <!-- CREATE NEW LISTING MODAL -->
+        <section>
+          <!-- Button to open modal -->
+          <div class="flex justify-end w-full my-4 pr-4">
+            <button
+              id="open-modal"
+              type="button"
+              class="px-4 py-1 bg-forest-green hover:bg-light-forest-green rounded-3xl text-earthy-beige text-bold shadow"
+            >
+              + Create New Listing
+            </button>
+          </div>
+
+          <!-- Modal Overlay -->
+          <div
+            id="createlisting-modal"
+            class="fixed inset-0 bg-light-forest-green bg-opacity-50 items-center justify-center z-50 hidden"
+          >
+            <!-- Modal Content -->
+            <section
+              class="bg-earthy-beige rounded-3xl max-w-2xl w-full p-4 sm:p-8 m-4 relative overflow-y-auto max-h-screen shadow-lg"
+            >
+              <!-- Close Button -->
+              <button
+                id="close-modal"
+                class="absolute top-4 right-4 text-2xl font-bold"
+                aria-label="Close modal"
+              >
+                &times;
+              </button>
+              <!-- Form Container -->
+              <div>
+                <h1 class="text-black text-center text-3xl font-medium mb-6">
+                  Create New Listing
+                </h1>
+                <form id="create-listing-form" novalidate>
+                  <fieldset>
+                    <div id="message"></div>
+
+                    <!-- Title field -->
+                    <div class="mb-5">
+                      <div
+                        class="border p-2 rounded-2xl flex items-center gap-2"
+                      >
+                        <label for="title" class="flex-shrink-0">Title:</label>
+                        <input
+                          type="text"
+                          id="title"
+                          name="title"
+                          required
+                          aria-describedby="title-error"
+                          placeholder="Enter auction title"
+                          class="pl-1 w-full flex-1"
+                        />
+                      </div>
+                      <div
+                        id="title-error"
+                        class="mt-1 text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter a title for your listing
+                      </div>
+                    </div>
+
+                    <!-- Description field -->
+                    <div class="mb-5">
+                      <div
+                        class="border p-2 rounded-2xl flex items-start gap-2"
+                      >
+                        <label
+                          for="description"
+                          class="flex-shrink-0 self-start"
+                          >Description:</label
+                        >
+                        <textarea
+                          id="description"
+                          name="description"
+                          required
+                          aria-describedby="description-error"
+                          placeholder="Describe your item in detail..."
+                          rows="4"
+                          class="pl-1 w-full flex-1 resize-y"
+                        ></textarea>
+                      </div>
+                      <div
+                        id="description-error"
+                        class="mt-1 text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter a description for your listing
+                      </div>
+                    </div>
+
+                    <!-- Tags field -->
+                    <div class="mb-5">
+                      <div
+                        class="border p-2 rounded-2xl flex items-center gap-2"
+                      >
+                        <label for="tags" class="flex-shrink-0">Tags:</label>
+                        <input
+                          type="text"
+                          id="tags"
+                          name="tags"
+                          aria-describedby="tags-help"
+                          placeholder="magical, rare, ancient (separate with commas)"
+                          class="pl-1 w-full flex-1"
+                        />
+                      </div>
+                      <div id="tags-help" class="mt-1 text-sm text-gray-600">
+                        Separate tags with commas. Examples: magical items, rare
+                        collectibles, ancient books, forest artifacts
+                      </div>
+                    </div>
+
+                    <!-- End date field -->
+                    <div class="mb-5">
+                      <div
+                        class="border p-2 rounded-2xl flex items-center gap-2"
+                      >
+                        <label for="endsAt" class="flex-shrink-0"
+                          >Auction End:</label
+                        >
+                        <input
+                          type="datetime-local"
+                          id="endsAt"
+                          name="endsAt"
+                          required
+                          aria-describedby="endsAt-error"
+                          class="pl-1 w-full flex-1"
+                        />
+                      </div>
+                      <div
+                        id="endsAt-error"
+                        class="mt-1 text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please select when the auction should end
+                      </div>
+                    </div>
+
+                    <!-- Media URLs -->
+                    <div class="mb-5">
+                      <h3 class="text-lg font-medium mb-3">Images</h3>
+
+                      <!-- Image 1 -->
+                      <div class="mb-3">
+                        <div
+                          class="border p-2 rounded-2xl flex items-center gap-2"
+                        >
+                          <label for="mediaUrl1" class="flex-shrink-0"
+                            >Image 1:</label
+                          >
+                          <input
+                            type="url"
+                            id="mediaUrl1"
+                            name="mediaUrl1"
+                            aria-describedby="mediaUrl1-help"
+                            placeholder="https://example.com/image1.jpg"
+                            class="pl-1 w-full flex-1"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Image 2 -->
+                      <div class="mb-3">
+                        <div
+                          class="border p-2 rounded-2xl flex items-center gap-2"
+                        >
+                          <label for="mediaUrl2" class="flex-shrink-0"
+                            >Image 2:</label
+                          >
+                          <input
+                            type="url"
+                            id="mediaUrl2"
+                            name="mediaUrl2"
+                            aria-describedby="mediaUrl2-help"
+                            placeholder="https://example.com/image2.jpg"
+                            class="pl-1 w-full flex-1"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Image 3 -->
+                      <div class="mb-3">
+                        <div
+                          class="border p-2 rounded-2xl flex items-center gap-2"
+                        >
+                          <label for="mediaUrl3" class="flex-shrink-0"
+                            >Image 3:</label
+                          >
+                          <input
+                            type="url"
+                            id="mediaUrl3"
+                            name="mediaUrl3"
+                            aria-describedby="mediaUrl3-help"
+                            placeholder="https://example.com/image3.jpg"
+                            class="pl-1 w-full flex-1"
+                          />
+                        </div>
+                      </div>
+
+                      <div id="media-help" class="mt-1 text-sm text-gray-600">
+                        Add up to 3 images for your listing. Only the first
+                        image is required.
+                      </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="text-center my-6">
+                      <button
+                        type="submit"
+                        id="submit-button"
+                        class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-forest-green border-soft-teal-2 border-2 rounded-3xl text-black font-bold shadow w-80"
+                      >
+                        Create Listing →
+                      </button>
+                    </div>
+
+                    <!-- Cancel link -->
+                    <p class="mt-4 text-center">
+                      <a
+                        href="/pages/listings.html"
+                        class="text-forest-green hover:underline"
+                      >
+                        Cancel and go back to listings
+                      </a>
+                    </p>
+                  </fieldset>
+                </form>
+              </div>
+            </section>
+          </div>
+          <!-- Posts List -->
+          <div id="display-container"></div>
+          <div
+            id="postsList"
+            class="grid grid-cols-1 m-4 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          ></div>
+        </section>
       </section>
     </main>
     <footer

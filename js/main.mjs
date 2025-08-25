@@ -40,10 +40,12 @@ function router() {
       break;
     case "/pages/listings.html":
     case "/listings/":
+      createListingHandler();
+      setupCreateListingModal();
       handleListingsPage();
       break;
     case "/pages/createListing.html":
-      createListingHandler();
+      setupCreateListingModal();
       break;
     case "/pages/item.html":
       break;
