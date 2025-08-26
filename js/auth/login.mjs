@@ -54,7 +54,6 @@ export function loginHandler() {
   }
 
   async function submitForm(event) {
-    // stop the default behavior where the form is submitted and the page reloaded.
     event.preventDefault();
 
     // getting the HTML element that triggered the event:
