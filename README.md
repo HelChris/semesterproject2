@@ -16,23 +16,26 @@ The website allows visitor to register users, users to create auctions, bid on o
 - "View more" button to load more listings
 - Search for listings in the navbar/on the front page.
 - Hero banner with buttons to start bidding and create listing
-- Explore category section links users to listings sorted by category containing certain keuwords
+- Explore category section links users to listings sorted by category containing certain keywords
+- Carousel with some listings
+- "How it works" section explaining three steps to get started
 - Featured Auction of the week section
-- What our users say with customer feedback
 - Register user CTA section, register now or learn more:
 - About page with information about the site
 - Footer with quicklinks and newsletter subscription signup
-- Users can bid directly from auction cards
+- Users can bid directly from auction cards 
 - Clicking a card navigates to a detailed view:
 - Item title, description, time left, image gallery
-- See current bid, place a bid
+- See current bid, place a bid if logged in
 - See bid history with user, amount, and time
 - Profile page:
-- Username, member since, credit balance
-- Sort content on profile page by: users listings, bid history, (watchlist?)
+- Username, member since, number of listings, credit balance
+- Sort content on profile page by: current bids, users listings, wins
 - Edit listing (modal), delete listing (modal/alert)
-- Update avatar, banner and bio
+- Edit profile button
+- Create new listing button with modal
 - Edit profile page:
+- Update avatar, banner and bio
 - User updates information, image, (wishlist?) saves changes (and can delete account?)
 - Contact page with a validated contact form
 - Uses .env for configuration
@@ -43,9 +46,9 @@ The website allows visitor to register users, users to create auctions, bid on o
 
 - A user with a stud.noroff.no email may register
 - A registered user may login and logout
-- A registered user may update their avatar and bio
+- A registered user may update their avatar
 - A registered user may view their credit balance
-- A registered user may create, edit, or delete a listing
+- A registered user may create and edit or delete their listing
 - A registered user may add a bid to other users’ listings
 - A registered user may view bids made on a listing
 - An unregistered user may search through listings
