@@ -24,10 +24,6 @@ export async function updateAvatar(newAvatarUrl) {
     body: JSON.stringify(body),
   };
 
-  // Debug logs
-  console.log("Request URL:", url);
-  console.log("Request Headers:", options.headers);
-  console.log("Request Body:", options.body);
 
   const response = await fetch(url, options);
 

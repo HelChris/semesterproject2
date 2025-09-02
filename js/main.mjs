@@ -4,10 +4,11 @@ import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
 import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
 import { createListingHandler } from "./utils/createListingHandler.mjs";
 import { setupContactForm } from "/js/utils/contactFormHandler.mjs";
-import { setupCreateListingModal } from "./utils/modalHandler.mjs";
-import { setupChangePhotoModal } from "/js/utils/modalHandler.mjs";
+import { setupCreateListingModal } from "./components/listings/setupCreateListingModal.mjs";
+import { setupChangePhotoModal } from "./utils/setupChangePhotoModal.mjs";
 import { loadUserProfile } from "./components/userProfile/loadUserProfile.mjs";
-import { setupEditProfileForm } from "./components/editProfile/editProfileHandler.mjs";
+import { setupEditProfileForm } from "/js/components/editProfile/setupEditProfileForm";
+
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -36,8 +37,8 @@ function router() {
       break;
     case "/pages/listings.html":
     case "/listings/":
-      createListingHandler();
       setupCreateListingModal();
+      createListingHandler();
       handleListingsPage();
       break;
     case "/pages/createListing.html":

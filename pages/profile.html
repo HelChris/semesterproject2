@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile | Spirit Bid</title>
+    <title>Profile || Spirit Bid</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -112,26 +112,25 @@
         <!-- Button to open modal -->
         <div class="flex justify-end w-full my-4 pr-4">
           <button
-            id="open-modal"
+            id="create-listing-modal-profile"
             type="button"
             class="px-4 py-1 bg-forest-green hover:bg-light-forest-green rounded-3xl text-earthy-beige text-bold shadow"
           >
             + Create New Listing
           </button>
         </div>
-
         <!-- Modal Overlay -->
         <div
           id="createlisting-modal"
-          class="fixed inset-0 bg-light-forest-green bg-opacity-50 items-center justify-center z-50 hidden"
+          class="fixed inset-0 bg-light-forest-green/90 items-center justify-center z-50 hidden"
         >
           <!-- Modal Content -->
           <section
-            class="bg-earthy-beige rounded-3xl max-w-2xl w-full p-4 sm:p-8 m-4 relative overflow-y-auto max-h-screen shadow-lg"
+            class="bg-earthy-beige rounded-3xl max-w-2xl w-full p-4 sm:p-8 m-4 relative overflow-y-auto max-h-screen shadow-lg flex flex-col"
           >
             <!-- Close Button -->
             <button
-              id="close-modal"
+              id="close-createlisting-modal"
               class="absolute top-4 right-4 text-2xl font-bold"
               aria-label="Close modal"
             >
@@ -145,7 +144,6 @@
               <form id="create-listing-form" novalidate>
                 <fieldset>
                   <div id="message"></div>
-
                   <!-- Title field -->
                   <div class="mb-5">
                     <div class="border p-2 rounded-2xl flex items-center gap-2">
