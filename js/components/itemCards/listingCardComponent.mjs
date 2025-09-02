@@ -33,10 +33,11 @@ export function createListingCard(listing) {
 
     <div class="flex items-center mb-3">
       <img
-        src="${listing.seller?.avatar?.url || "/assets/img/default-avatar.png"}"
+        src="${listing.seller?.avatar?.url || "/assets/img/avatar-placeholder.jpg"}"
+        id="profile-avatar"
         alt="${listing.seller?.name}"
         class="w-8 h-8 rounded-full mr-2"
-        onerror="this.src='/assets/img/default-avatar.png'"
+        onerror="this.src='/assets/img/avatar-placeholder.jpg'"
       />
       <span class="text-sm text-gray-700">by ${listing.seller?.name || "Unknown"}</span>
     </div>

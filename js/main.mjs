@@ -4,7 +4,11 @@ import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
 import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
 import { createListingHandler } from "./utils/createListingHandler.mjs";
 import { setupContactForm } from "/js/utils/contactFormHandler.mjs";
-import { setupCreateListingModal } from "./utils/modalHandler.mjs";
+import { setupCreateListingModal } from "./components/listings/setupCreateListingModal.mjs";
+import { setupChangePhotoModal } from "./utils/setupChangePhotoModal.mjs";
+import { loadUserProfile } from "./components/userProfile/loadUserProfile.mjs";
+import { setupEditProfileForm } from "/js/components/editProfile/setupEditProfileForm";
+
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -14,13 +18,6 @@ import { setupCreateListingModal } from "./utils/modalHandler.mjs";
  * page-specific handlers and event listeners.
  *
  * @returns {void}
- *
- * @example
- * // Call the router function when the application loads
- * document.addEventListener('DOMContentLoaded', () => {
- *   router();
- *   console.log('Application routing initialized');
- * });
  */
 function router() {
   const pathname = window.location.pathname;
@@ -40,8 +37,8 @@ function router() {
       break;
     case "/pages/listings.html":
     case "/listings/":
-      createListingHandler();
       setupCreateListingModal();
+      createListingHandler();
       handleListingsPage();
       break;
     case "/pages/createListing.html":
@@ -51,11 +48,15 @@ function router() {
       break;
     case "/pages/profile.html":
     case "/profile/":
+      loadUserProfile();
       handleListingsPage();
       setupCreateListingModal();
       createListingHandler();
       break;
     case "/pages/editProfile.html":
+      loadUserProfile();
+      setupEditProfileForm();
+      setupChangePhotoModal();
       break;
     case "/pages/contact.html":
       setupContactForm();
@@ -104,4 +105,8 @@ async function handleListingsPage() {
   }
 }
 
-router();
+// Wrap router call so it only runs after DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  router();
+  console.log("Application routing initialized");
+});

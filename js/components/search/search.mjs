@@ -69,7 +69,6 @@ async function performSearch(
   try {
     console.log(`Searching for: "${query}"`);
 
-    // Show loading state
     showLoadingState(resultsContainerSelector, loadingContainerSelector);
 
     // Perform search
