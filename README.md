@@ -16,7 +16,7 @@ The website allows visitor to register users, users to create auctions, bid on o
 - "View more" button to load more listings
 - Search for listings in the navbar/on the front page.
 - Hero banner with buttons to start bidding and create listing
-- Explore category section links users to listings sorted by category
+- Explore category section links users to listings sorted by category containing certain keuwords
 - Featured Auction of the week section
 - What our users say with customer feedback
 - Register user CTA section, register now or learn more:
