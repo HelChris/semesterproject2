@@ -20,15 +20,13 @@ export async function initListingsPage() {
   }
 
   try {
-    // Show loading state
     showLoadingState(containerSelector, loadingSelector);
 
-    // Fetch listings from API
+    // Fetch from API
     console.log("Fetching auction listings for display...");
     const response = await fetchAuctionListings(12, 1);
     console.log("Fetched listings:", response);
 
-    // Render the listings
     renderListingCards(response.data, containerSelector, loadingSelector);
   } catch (error) {
     console.error("Error loading listings:", error);
@@ -50,6 +48,4 @@ export function setupListingsPage() {
     "#postsList",
     "#display-container",
   );
-
-  console.log("Listings page setup complete");
 }

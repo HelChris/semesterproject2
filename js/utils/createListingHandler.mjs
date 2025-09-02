@@ -1,9 +1,7 @@
 import { createAuctionListing } from "/js/api/auctionListings.mjs";
 import { showError } from "/js/shared/errorHandling.mjs";
 
-/**
- * Handles the create listing form submission
- */
+
 export function createListingHandler() {
   const form = document.querySelector("#create-listing-form");
   if (form) {
@@ -11,9 +9,6 @@ export function createListingHandler() {
   }
 }
 
-/**
- * Processes the form data and creates a new listing
- */
 async function submitListing(event) {
   event.preventDefault();
 

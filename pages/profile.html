@@ -3,14 +3,350 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Profile || Spirit Bid</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/js/main.mjs" type="module"></script>
   </head>
 
   <body>
-    <header></header>
-    <main></main>
+    <header class="flex justify-between p-2 bg-forest-green">
+      <div class="flex items-center pl-2">
+        <a href="/index.html"
+          ><img src="/assets/img/logo.png" class="max-w-10 place-content-start"
+        /></a>
+        <a href="/index.html">
+          <p
+            class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
+          >
+            Spirit Bid
+          </p>
+        </a>
+        <nav class="flex items-center pl-10 text-earthy-beige gap-8 min-w-60">
+          <a href="/index.html" class="w-10 hover:font-bold">Home</a>
+          <a href="/pages/listings.html" class="w-10 hover:font-bold"
+            >Explore</a
+          >
+          <a href="#how-it-works" class="w-40 hover:font-bold">How it works</a>
+        </nav>
+      </div>
+      <div class="flex justify-end items-center gap-2">
+        <div
+          class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
+        >
+          <label for="site-search" hidden>Search the site:</label>
+          <input
+            placeholder="Search for item.."
+            id="site-search"
+            type="search"
+            aria-describedby="search-field"
+          />
+          <button
+            class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+          >
+            Search
+          </button>
+        </div>
+        <nav class="flex justify-end items-center p-2 gap-2">
+          <a
+            href="/pages/login.html"
+            class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+            >Sign in</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+            >Register</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="bg-soft-yellow flex justify-end pr-6 pt-3">
+          <a
+            href="/pages/editProfile.html"
+            class="px-4 py-1 bg-hover-terracotta hover:bg-warm-terracotta rounded-3xl text-earthy-beige text-bold shadow"
+            >Edit Profile</a
+          >
+        </div>
+        <div class="bg-soft-yellow flex flex-col items-center w-full">
+          <!-- Profile Info -->
+          <div
+            class="flex gap-4 pb-6 px-8 rounded-3xl max-w-xl w-full justify-center"
+          >
+            <img
+              class="w-40 h-40 rounded-full"
+              alt="profile image"
+              id="profile-avatar"
+            />
+            <div class="self-center-safe">
+              <h1 class="text-2xl font-bold">UserName</h1>
+              <p>Member since: july 2025</p>
+              <p>Credits: 1000</p>
+              <p>Listings: 13</p>
+            </div>
+          </div>
+          <!-- Nav: Sort listing by Bids, My listings, Wins: -->
+          <nav
+            class="list-none flex bg-soft-teal-1/50 font-bold w-full mt-4 overflow-hidden"
+          >
+            <li class="bg-forest-green p-3 w-1/3 text-center text-white">
+              Bids
+            </li>
+            <li class="p-3 w-1/3 text-center text-black bg-soft-teal-1/50">
+              My Listings
+            </li>
+            <li class="p-3 w-1/3 text-center text-black bg-soft-teal-1/50">
+              Wins
+            </li>
+          </nav>
+        </div>
+      </section>
+
+      <!-- CREATE NEW LISTING MODAL -->
+      <section>
+        <!-- Button to open modal -->
+        <div class="flex justify-end w-full my-4 pr-4">
+          <button
+            id="create-listing-modal-profile"
+            type="button"
+            class="px-4 py-1 bg-forest-green hover:bg-light-forest-green rounded-3xl text-earthy-beige text-bold shadow"
+          >
+            + Create New Listing
+          </button>
+        </div>
+        <!-- Modal Overlay -->
+        <div
+          id="createlisting-modal"
+          class="fixed inset-0 bg-light-forest-green/90 items-center justify-center z-50 hidden"
+        >
+          <!-- Modal Content -->
+          <section
+            class="bg-earthy-beige rounded-3xl max-w-2xl w-full p-4 sm:p-8 m-4 relative overflow-y-auto max-h-screen shadow-lg flex flex-col"
+          >
+            <!-- Close Button -->
+            <button
+              id="close-createlisting-modal"
+              class="absolute top-4 right-4 text-2xl font-bold"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+            <!-- Form Container -->
+            <div>
+              <h1 class="text-black text-center text-3xl font-medium mb-6">
+                Create New Listing
+              </h1>
+              <form id="create-listing-form" novalidate>
+                <fieldset>
+                  <div id="message"></div>
+                  <!-- Title field -->
+                  <div class="mb-5">
+                    <div class="border p-2 rounded-2xl flex items-center gap-2">
+                      <label for="title" class="flex-shrink-0">Title:</label>
+                      <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        required
+                        aria-describedby="title-error"
+                        placeholder="Enter auction title"
+                        class="pl-1 w-full flex-1"
+                      />
+                    </div>
+                    <div
+                      id="title-error"
+                      class="mt-1 text-sm text-red-600 hidden"
+                      role="alert"
+                    >
+                      Please enter a title for your listing
+                    </div>
+                  </div>
+
+                  <!-- Description field -->
+                  <div class="mb-5">
+                    <div class="border p-2 rounded-2xl flex items-start gap-2">
+                      <label for="description" class="flex-shrink-0 self-start"
+                        >Description:</label
+                      >
+                      <textarea
+                        id="description"
+                        name="description"
+                        required
+                        aria-describedby="description-error"
+                        placeholder="Describe your item in detail..."
+                        rows="4"
+                        class="pl-1 w-full flex-1 resize-y"
+                      ></textarea>
+                    </div>
+                    <div
+                      id="description-error"
+                      class="mt-1 text-sm text-red-600 hidden"
+                      role="alert"
+                    >
+                      Please enter a description for your listing
+                    </div>
+                  </div>
+
+                  <!-- Tags field -->
+                  <div class="mb-5">
+                    <div class="border p-2 rounded-2xl flex items-center gap-2">
+                      <label for="tags" class="flex-shrink-0">Tags:</label>
+                      <input
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        aria-describedby="tags-help"
+                        placeholder="magical, rare, ancient (separate with commas)"
+                        class="pl-1 w-full flex-1"
+                      />
+                    </div>
+                    <div id="tags-help" class="mt-1 text-sm text-gray-600">
+                      Separate tags with commas. Examples: magical items, rare
+                      collectibles, ancient books, forest artifacts
+                    </div>
+                  </div>
+
+                  <!-- End date field -->
+                  <div class="mb-5">
+                    <div class="border p-2 rounded-2xl flex items-center gap-2">
+                      <label for="endsAt" class="flex-shrink-0"
+                        >Auction End:</label
+                      >
+                      <input
+                        type="datetime-local"
+                        id="endsAt"
+                        name="endsAt"
+                        required
+                        aria-describedby="endsAt-error"
+                        class="pl-1 w-full flex-1"
+                      />
+                    </div>
+                    <div
+                      id="endsAt-error"
+                      class="mt-1 text-sm text-red-600 hidden"
+                      role="alert"
+                    >
+                      Please select when the auction should end
+                    </div>
+                  </div>
+
+                  <!-- Media URLs -->
+                  <div class="mb-5">
+                    <h3 class="text-lg font-medium mb-3">Images</h3>
+
+                    <!-- Image 1 -->
+                    <div class="mb-3">
+                      <div
+                        class="border p-2 rounded-2xl flex items-center gap-2"
+                      >
+                        <label for="mediaUrl1" class="flex-shrink-0"
+                          >Image 1:</label
+                        >
+                        <input
+                          type="url"
+                          id="mediaUrl1"
+                          name="mediaUrl1"
+                          aria-describedby="mediaUrl1-help"
+                          placeholder="https://example.com/image1.jpg"
+                          class="pl-1 w-full flex-1"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="mb-3">
+                      <div
+                        class="border p-2 rounded-2xl flex items-center gap-2"
+                      >
+                        <label for="mediaUrl2" class="flex-shrink-0"
+                          >Image 2:</label
+                        >
+                        <input
+                          type="url"
+                          id="mediaUrl2"
+                          name="mediaUrl2"
+                          aria-describedby="mediaUrl2-help"
+                          placeholder="https://example.com/image2.jpg"
+                          class="pl-1 w-full flex-1"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="mb-3">
+                      <div
+                        class="border p-2 rounded-2xl flex items-center gap-2"
+                      >
+                        <label for="mediaUrl3" class="flex-shrink-0"
+                          >Image 3:</label
+                        >
+                        <input
+                          type="url"
+                          id="mediaUrl3"
+                          name="mediaUrl3"
+                          aria-describedby="mediaUrl3-help"
+                          placeholder="https://example.com/image3.jpg"
+                          class="pl-1 w-full flex-1"
+                        />
+                      </div>
+                    </div>
+
+                    <div id="media-help" class="mt-1 text-sm text-gray-600">
+                      Add up to 3 images for your listing. Only the first image
+                      is required.
+                    </div>
+                  </div>
+
+                  <!-- Submit button -->
+                  <div class="text-center my-6">
+                    <button
+                      type="submit"
+                      id="submit-button"
+                      class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-forest-green border-soft-teal-2 border-2 rounded-3xl text-black font-bold shadow w-80"
+                    >
+                      Create Listing →
+                    </button>
+                  </div>
+
+                  <!-- Cancel link -->
+                  <p class="mt-4 text-center">
+                    <a
+                      href="/pages/listings.html"
+                      class="text-forest-green hover:underline"
+                    >
+                      Cancel and go back to listings
+                    </a>
+                  </p>
+                </fieldset>
+              </form>
+            </div>
+          </section>
+        </div>
+
+        <div class="">
+          <!-- Posts List -->
+          <div id="display-container"></div>
+          <div
+            id="postsList"
+            class="grid grid-cols-1 m-4 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          ></div>
+        </div>
+        <div class="justify-self-center p-6">
+          <button
+            class="px-4 py-1 bg-hover-terracotta hover:bg-warm-terracotta rounded-3xl text-earthy-beige text-bold shadow"
+          >
+            Load More
+          </button>
+        </div>
+      </section>
+    </main>
     <footer
-      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
+      class="p-2 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
     >
       <section class="flex-col max-w-60 text-balance">
         <div class="pl-10 flex items-center">
