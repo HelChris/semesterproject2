@@ -7,7 +7,7 @@ import { setupContactForm } from "/js/utils/contactFormHandler.mjs";
 import { setupCreateListingModal } from "./components/listings/setupCreateListingModal.mjs";
 import { setupChangePhotoModal } from "./utils/setupChangePhotoModal.mjs";
 import { loadUserProfile } from "./components/userProfile/loadUserProfile.mjs";
-import { setupEditProfileForm } from "/js/components/editProfile/setupEditProfileForm";
+import { setupEditProfileForm } from "/js/components/editProfile/setupEditProfileForm.mjs";
 
 
 /**
