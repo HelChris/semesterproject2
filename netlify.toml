@@ -1,0 +1,69 @@
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/index"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/login"
+  to = "/pages/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/login/"
+  to = "/pages/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/register"
+  to = "/pages/register.html"
+  status = 200
+
+[[redirects]]
+  from = "/register/"
+  to = "/pages/register.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/listings"
+  to = "/pages/listings.html"
+  status = 200
+
+[[redirects]]
+  from = "/listings/"
+  to = "/pages/listings.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/createListing"
+  to = "/pages/createListing.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/item"
+  to = "/pages/item.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/profile"
+  to = "/pages/profile.html"
+  status = 200
+
+[[redirects]]
+  from = "/profile/"
+  to = "/pages/profile.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/editProfile"
+  to = "/pages/editProfile.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/contact"
+  to = "/pages/contact.html"
+  status = 200
