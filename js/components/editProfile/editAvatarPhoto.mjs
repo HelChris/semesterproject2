@@ -10,6 +10,7 @@ export async function updateAvatar(newAvatarUrl) {
   const body = {
     avatar: {
       url: newAvatarUrl,
+      alt: "Avatar image",
     },
   };
 

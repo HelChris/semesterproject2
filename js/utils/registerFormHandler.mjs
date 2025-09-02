@@ -1,6 +1,5 @@
 import { createFormHandler } from "/js/utils/formHandler.mjs";
 import {
-  validateRequired,
   validateName,
   validateEmail,
   validatePassword,
@@ -35,7 +34,7 @@ export function setupRegisterForm() {
           email: formData.email,
           password: formData.password,
         });
-        showSuccess("Registration successful! Please log in.", "#message");
+        showSuccess("Registration successful!", "#message");
         const form = document.querySelector("#registerForm");
         if (form) form.reset();
         setTimeout(() => {

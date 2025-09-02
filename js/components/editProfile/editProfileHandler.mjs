@@ -11,12 +11,10 @@ export function setupEditProfileForm() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Get only the fields you want to send
     const avatarUrl = document.getElementById("avatar-url")?.value.trim();
     const bannerUrl = document.getElementById("banner-url")?.value.trim();
     const bio = document.getElementById("bio")?.value.trim();
 
-    // Optionally, get alt text or set a default
     const avatarAlt = "Avatar image";
     const bannerAlt = "Banner image";
 
@@ -24,17 +22,17 @@ export function setupEditProfileForm() {
     const accessToken = getFromLocalStorage("accessToken");
 
     const url = `${AUTH_ENDPOINTS.profiles}/${username}`;
-    const body = {
-      avatar: {
-        url: avatarUrl,
-        alt: avatarAlt,
-      },
-      banner: {
-        url: bannerUrl,
-        alt: bannerAlt,
-      },
-      bio: bio,
-    };
+    const body = {};
+
+    if (avatarUrl) {
+      body.avatar = { url: avatarUrl, alt: avatarAlt };
+    }
+    if (bannerUrl) {
+      body.banner = { url: bannerUrl, alt: bannerAlt };
+    }
+    if (bio) {
+      body.bio = bio;
+    }
 
     try {
       const response = await fetch(url, {
