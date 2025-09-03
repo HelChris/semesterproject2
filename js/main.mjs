@@ -50,7 +50,7 @@ function router() {
       break;
     case "/pages/listings.html":
     case "/listings":
-    case "listings/":
+    case "/pages/listings":
     case "/listings.html":
       console.log("📋 Listings page - calling handlers");
       handleListingsPage();
