@@ -5,6 +5,7 @@ import {
   showErrorState,
 } from "/js/components/render/render-listing-cards.mjs";
 
+
 /**
  * Sets up search functionality for the search input and button
  * @param {string} searchInputSelector - CSS selector for search input

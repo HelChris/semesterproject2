@@ -36,9 +36,9 @@ function router() {
       break;
     case "/pages/listings.html":
     case "/listings/":
+      handleListingsPage();
       setupCreateListingModal();
       createListingHandler();
-      handleListingsPage();
       break;
     case "/pages/create-listing.html":
       setupCreateListingModal();
