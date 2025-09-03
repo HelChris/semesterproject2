@@ -1,7 +1,7 @@
-import { createFormHandler } from "/js/utils/formHandler.mjs";
+import { createFormHandler } from "/js/utils/form-handler.mjs";
 import { validateRequired, validateEmail } from "/js/utils/validation.mjs";
-import { showError } from "/js/shared/errorHandling.mjs";
-import { showContactSuccess } from "../shared/successContactHandling.mjs";
+import { showError } from "/js/shared/error-handling.mjs";
+import { showContactSuccess } from "../shared/success-contact-handling.mjs";
 
 export function setupContactForm() {
   createFormHandler(

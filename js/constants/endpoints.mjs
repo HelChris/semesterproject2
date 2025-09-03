@@ -1,4 +1,4 @@
-import { BASE_URL } from "/js/constants/baseUrl.mjs";
+import { BASE_URL } from "/js/constants/base-url.mjs";
 
 export const AUTH_ENDPOINTS = {
   register: `${BASE_URL}auth/register`,

@@ -1,9 +1,9 @@
-import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
+import { fetchAuctionListings } from "/js/api/auction-listings.mjs";
 import {
   renderListingCards,
   showLoadingState,
   showErrorState,
-} from "/js/components/render/renderListingCards.mjs";
+} from "/js/components/render/render-listing-cards.mjs";
 import { setupSearch } from "/js/components/search/search.mjs";
 
 /**

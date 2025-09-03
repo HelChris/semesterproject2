@@ -1,5 +1,5 @@
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
-import { addToLocalStorage } from "/js/utils/localStorage.mjs";
+import { addToLocalStorage } from "/js/utils/local-storage.mjs";
 
 export async function register(user) {
   const options = {
