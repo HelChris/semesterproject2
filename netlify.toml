@@ -39,8 +39,8 @@
   status = 200
 
 [[redirects]]
-  from = "/pages/createListing"
-  to = "/pages/createListing.html"
+  from = "/pages/create-listing"
+  to = "/pages/create-listing.html"
   status = 200
 
 [[redirects]]
@@ -59,8 +59,8 @@
   status = 200
 
 [[redirects]]
-  from = "/pages/editProfile"
-  to = "/pages/editProfile.html"
+  from = "/pages/edit-profile"
+  to = "/pages/edit-profile.html"
   status = 200
 
 [[redirects]]

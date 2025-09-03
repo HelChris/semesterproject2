@@ -1,5 +1,5 @@
-import { createAuctionListing } from "/js/api/auctionListings.mjs";
-import { showError } from "/js/shared/errorHandling.mjs";
+import { createAuctionListing } from "/js/api/auction-listings.mjs";
+import { showError } from "/js/shared/error-handling.mjs";
 
 
 export function createListingHandler() {

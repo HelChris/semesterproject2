@@ -1,6 +1,6 @@
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
-import { addToLocalStorage } from "/js/utils/localStorage.mjs";
-import { showError } from "/js/shared/errorHandling.mjs";
+import { addToLocalStorage } from "/js/utils/local-storage.mjs";
+import { showError } from "/js/shared/error-handling.mjs";
 
 /**
  * Authenticates a user by sending login credentials to the server

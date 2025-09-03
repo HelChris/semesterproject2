@@ -1,4 +1,4 @@
-import { createListingCard } from "/js/itemCards/listingCardComponent.mjs";
+import { createListingCard } from "/js/item-cards/listing-card-component.mjs";
 
 /**
  * Renders auction listings as cards in the specified container

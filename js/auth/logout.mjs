@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from "/js/utils/localStorage.mjs";
+import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
 
 export function logout() {
   localStorage.clear();
