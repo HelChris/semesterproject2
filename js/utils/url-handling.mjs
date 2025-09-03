@@ -69,3 +69,4 @@ export function updateUrlWithTitle(id, title) {
 
   window.history.pushState({ id, title }, title, newUrl);
 }
+

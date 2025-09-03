@@ -36,9 +36,9 @@ function router() {
       break;
     case "/pages/listings.html":
     case "/listings/":
+      handleListingsPage();
       setupCreateListingModal();
       createListingHandler();
-      handleListingsPage();
       break;
     case "/pages/create-listing.html":
       setupCreateListingModal();
@@ -109,3 +109,4 @@ document.addEventListener("DOMContentLoaded", () => {
   router();
   console.log("Application routing initialized");
 });
+

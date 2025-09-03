@@ -60,3 +60,4 @@ export function createFormHandler(formSelector, fieldsConfig, onSubmit) {
     }
   });
 }
+

@@ -49,3 +49,4 @@ export function setupListingsPage() {
     "#display-container",
   );
 }
+

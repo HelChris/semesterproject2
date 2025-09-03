@@ -37,3 +37,4 @@ export function validateConfirmPassword(password, confirm) {
     return { isValid: false, message: "Passwords do not match" };
   return { isValid: true };
 }
+

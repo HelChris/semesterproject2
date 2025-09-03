@@ -20,3 +20,4 @@ export function showContactSuccess(message, targetSelector) {
 
   targetElement.appendChild(alertDiv);
 }
+

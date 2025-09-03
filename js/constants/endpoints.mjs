@@ -7,3 +7,4 @@ export const AUTH_ENDPOINTS = {
   searchListings: `${BASE_URL}auction/listings/search`,
   profiles: `${BASE_URL}auction/profiles`,
 };
+
