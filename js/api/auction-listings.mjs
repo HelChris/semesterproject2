@@ -113,3 +113,5 @@ export async function searchAuctionListings(query, limit = 12, page = 1) {
 
   return json;
 }
+
+

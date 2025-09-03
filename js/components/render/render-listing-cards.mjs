@@ -94,3 +94,4 @@ export function showErrorState(
     container.innerHTML = `<p class="text-center col-span-full text-red-600">${errorMessage}</p>`;
   }
 }
+

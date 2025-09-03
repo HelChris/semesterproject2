@@ -44,3 +44,4 @@ export function showSuccess(message, targetSelector) {
   //add to DOM
   targetElement.appendChild(alertDiv);
 }
+

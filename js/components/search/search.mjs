@@ -117,3 +117,4 @@ export async function clearSearch(
     showErrorState(error, resultsContainerSelector, loadingContainerSelector);
   }
 }
+

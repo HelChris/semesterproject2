@@ -109,3 +109,4 @@ document.addEventListener("DOMContentLoaded", () => {
   router();
   console.log("Application routing initialized");
 });
+

@@ -115,3 +115,4 @@ function placeBid(listingId) {
 
 // Make placeBid available globally so onclick can access it
 window.placeBid = placeBid;
+
