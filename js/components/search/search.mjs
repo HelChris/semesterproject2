@@ -1,9 +1,9 @@
-import { searchAuctionListings } from "/js/api/auctionListings.mjs";
+import { searchAuctionListings } from "/js/api/auction-listings.mjs";
 import {
   renderListingCards,
   showLoadingState,
   showErrorState,
-} from "/js/components/render/renderListingCards.mjs";
+} from "/js/components/render/render-listing-cards.mjs";
 
 /**
  * Sets up search functionality for the search input and button

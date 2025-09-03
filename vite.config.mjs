@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path";
+import { fileURLToPath } from "url";
 
-const rootDir = new URL(".", import.meta.url).pathname;
+const rootDir = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   plugins: [tailwindcss()],
@@ -12,8 +13,8 @@ export default defineConfig({
         main: resolve(rootDir, "index.html"),
         about: resolve(rootDir, "pages/about.html"),
         contact: resolve(rootDir, "pages/contact.html"),
-        createListing: resolve(rootDir, "pages/createListing.html"),
-        editProfile: resolve(rootDir, "pages/editProfile.html"),
+        createListing: resolve(rootDir, "pages/create-listing.html"),
+        editProfile: resolve(rootDir, "pages/edit-profile.html"),
         faq: resolve(rootDir, "pages/faq.html"),
         item: resolve(rootDir, "pages/item.html"),
         listings: resolve(rootDir, "pages/listings.html"),

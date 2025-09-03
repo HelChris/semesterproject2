@@ -1,4 +1,4 @@
-import { updateAvatar } from "../components/editProfile/editAvatarPhoto.mjs";
+import { updateAvatar } from "../components/edit-profile/edit-avatar-photo.mjs";
 
 export function setupChangePhotoModal() {
   const openBtn = document.getElementById("change-photo-modal-btn");
@@ -7,7 +7,7 @@ export function setupChangePhotoModal() {
   const changePhotoForm = document.getElementById("change-photo-form");
   const avatarImg = document.getElementById("profile-avatar");
   const avatarInput = document.getElementById("avatar-url"); // hidden input in edit form
-  const messageDiv = document.getElementById("message"); 
+  const messageDiv = document.getElementById("message");
 
   if (!openBtn || !closeBtn || !modal || !changePhotoForm || !avatarImg) return;
 

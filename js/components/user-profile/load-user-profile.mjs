@@ -1,6 +1,6 @@
-import { getFromLocalStorage } from "/js/utils/localStorage.mjs";
+import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
-import { API_KEY } from "/js/constants/apiKey.mjs";
+import { API_KEY } from "/js/constants/apikey.mjs";
 
 export async function loadUserProfile() {
   const username = getFromLocalStorage("username");

@@ -1,4 +1,4 @@
-import { createFormHandler } from "/js/utils/formHandler.mjs";
+import { createFormHandler } from "/js/utils/form-handler.mjs";
 import {
   validateName,
   validateEmail,
@@ -6,8 +6,8 @@ import {
   validateConfirmPassword,
 } from "/js/utils/validation.mjs";
 import { register } from "/js/auth/register.mjs";
-import { showError } from "/js/shared/errorHandling.mjs";
-import { showSuccess } from "/js/shared/successRegistrationHandling.mjs";
+import { showError } from "/js/shared/error-handling.mjs";
+import { showSuccess } from "/js/shared/success-registration-handling.mjs";
 
 function validateTerms(value) {
   return value === "on"

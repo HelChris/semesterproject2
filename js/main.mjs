@@ -1,14 +1,13 @@
-import { setupRegisterForm } from "./utils/registerFormHandler.mjs";
+import { setupRegisterForm } from "./utils/register-form-handler.mjs";
 import { loginHandler } from "/js/auth/login.mjs";
 import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
-import { fetchAuctionListings } from "/js/api/auctionListings.mjs";
-import { createListingHandler } from "./utils/createListingHandler.mjs";
-import { setupContactForm } from "/js/utils/contactFormHandler.mjs";
-import { setupCreateListingModal } from "./components/listings/setupCreateListingModal.mjs";
-import { setupChangePhotoModal } from "./utils/setupChangePhotoModal.mjs";
-import { loadUserProfile } from "./components/userProfile/loadUserProfile.mjs";
-import { setupEditProfileForm } from "/js/components/editProfile/setupEditProfileForm.mjs";
-
+import { fetchAuctionListings } from "/js/api/auction-listings.mjs";
+import { createListingHandler } from "./utils/create-listing-handler.mjs";
+import { setupContactForm } from "/js/utils/contact-form-handler.mjs";
+import { setupCreateListingModal } from "./components/listings/setup-create-listing-modal.mjs";
+import { setupChangePhotoModal } from "./utils/setup-change-photo-modal.mjs";
+import { loadUserProfile } from "./components/user-profile/load-user-profile.mjs";
+import { setupEditProfileForm } from "/js/components/edit-profile/setup-edit-profile-form.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -41,7 +40,7 @@ function router() {
       createListingHandler();
       handleListingsPage();
       break;
-    case "/pages/createListing.html":
+    case "/pages/create-listing.html":
       setupCreateListingModal();
       break;
     case "/pages/item.html":
@@ -53,7 +52,7 @@ function router() {
       setupCreateListingModal();
       createListingHandler();
       break;
-    case "/pages/editProfile.html":
+    case "/pages/edit-profile.html":
       loadUserProfile();
       setupEditProfileForm();
       setupChangePhotoModal();
@@ -82,7 +81,7 @@ async function handleListingsPage() {
     if (response.data && response.data.length > 0) {
       // Import the card component
       const { createListingCard } = await import(
-        "/js/components/itemCards/listingCardComponent.mjs"
+        "/js/components/item-cards/listing-card-component.mjs"
       );
 
       // Clear existing content
