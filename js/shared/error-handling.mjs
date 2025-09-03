@@ -51,3 +51,4 @@ export function showError(error, targetSelector) {
   //add to DOM
   targetElement.appendChild(alertDiv);
 }
+

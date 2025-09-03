@@ -127,3 +127,4 @@ export function filterByCategory(listings, categoryKey) {
     (listing) => categorizeListling(listing) === categoryKey,
   );
 }
+

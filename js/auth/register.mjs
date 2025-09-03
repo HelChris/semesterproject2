@@ -22,3 +22,4 @@ export async function register(user) {
 
   return json;
 }
+
