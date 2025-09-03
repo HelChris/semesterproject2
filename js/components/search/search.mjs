@@ -5,7 +5,6 @@ import {
   showErrorState,
 } from "/js/components/render/render-listing-cards.mjs";
 
-
 /**
  * Sets up search functionality for the search input and button
  * @param {string} searchInputSelector - CSS selector for search input
@@ -103,7 +102,9 @@ export async function clearSearch(
 ) {
   try {
     // Import here to avoid circular dependencies
-    const { fetchAuctionListings } = await import("/js/api/auctionListings.js");
+    const { fetchAuctionListings } = await import(
+      "/js/api/auction-listings.mjs"
+    );
 
     showLoadingState(resultsContainerSelector, loadingContainerSelector);
     const response = await fetchAuctionListings(12, 1);
@@ -117,4 +118,3 @@ export async function clearSearch(
     showErrorState(error, resultsContainerSelector, loadingContainerSelector);
   }
 }
-
