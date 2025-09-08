@@ -8,6 +8,7 @@ import { setupCreateListingModal } from "/js/components/listings/setup-create-li
 import { setupChangePhotoModal } from "/js/utils/setup-change-photo-modal.mjs";
 import { loadUserProfile } from "/js/components/user-profile/load-user-profile.mjs";
 import { setupEditProfileForm } from "/js/components/edit-profile/setup-edit-profile-form.mjs";
+import { setupGlobalSearch } from "./components/search/searchHandler.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -24,7 +25,7 @@ const isDev = !window.location.hostname.includes("netlify");
 let routerInitialized = false;
 
 if (isDev) {
-  console.log("🚀 main.mjs loaded successfully");
+  console.log("main.mjs loaded successfully");
   console.log("Current pathname:", window.location.pathname);
   console.log("Current hostname:", window.location.hostname);
 }
@@ -32,55 +33,55 @@ console.log("Is production:", window.location.hostname.includes("netlify"));
 
 // Route handlers
 function handleIndexPage() {
-  console.log("📄 Index page");
+  console.log("Index page");
 }
 
 function handleLoginPage() {
-  console.log("🔐 Login page");
+  console.log("Login page");
   loginHandler();
 }
 
 function handleRegisterPage() {
-  console.log("📝 Register page");
+  console.log("Register page");
   setupRegisterForm();
 }
 
 function handleListingsPageRoute() {
-  console.log("📋 Listings page - calling handlers");
+  console.log("Listings page - calling handlers");
   setupListingsPage();
   setupCreateListingModal();
   createListingHandler();
 }
 
 function handleCreateListingPage() {
-  console.log("📝 Create listing page");
+  console.log("Create listing page");
   setupCreateListingModal();
 }
 
 function handleItemPage() {
-  console.log("📦 Item page");
+  console.log("Item page");
 }
 
 function handleProfilePage() {
-  console.log("👤 Profile page");
+  console.log("Profile page");
   loadUserProfile();
   setupCreateListingModal();
   createListingHandler();
+  setupListingsPage();
 }
 
 function handleEditProfilePage() {
-  console.log("✏️ Edit profile page");
+  console.log("Edit profile page");
   loadUserProfile();
   setupEditProfileForm();
   setupChangePhotoModal();
 }
 
 function handleContactPage() {
-  console.log("📧 Contact page");
+  console.log("Contact page");
   setupContactForm();
 }
 
-// Route configuration
 const routes = {
   // Index routes
   "": handleIndexPage,
@@ -135,37 +136,60 @@ function router() {
     const pathname = window.location.pathname;
 
     if (isDev) {
-      console.log("🔍 Router called with pathname:", pathname);
+      console.log("Router called with pathname:", pathname);
     }
+
+    clearSearchOnNavigation(pathname);
 
     // Setup common functionality for all pages
     updateNavigation();
     setupLogoutListeners();
+    setupGlobalSearch();
 
     // Execute route handler
     const handler = routes[pathname];
     if (handler) {
       handler();
     } else {
-      console.log("❓ Unknown page:", pathname);
+      console.log("Unknown page:", pathname);
     }
   } catch (error) {
-    console.error("💥 Router error:", error);
+    console.error("Router error:", error);
+  }
+}
+
+function clearSearchOnNavigation(pathname) {
+  const isListingsPage = pathname.includes("listings");
+
+  if (!isListingsPage) {
+    const hadSearch = sessionStorage.getItem("searchQuery");
+    sessionStorage.removeItem("searchQuery");
+    sessionStorage.removeItem("searchResults");
+
+    // Clear search input
+    const searchInput = document.querySelector("#site-search");
+    if (searchInput) {
+      searchInput.value = "";
+    }
+
+    if (hadSearch) {
+      console.log("Navigated away from listings - cleared search");
+    }
   }
 }
 
 function initializeRouter() {
   if (routerInitialized) {
     if (isDev) {
-      console.log("🔄 Router already initialized, skipping...");
+      console.log("Router already initialized, skipping...");
     }
     return;
   }
   routerInitialized = true;
 
   if (isDev) {
-    console.log("📄 DOM loaded, initializing router...");
-    console.log("📄 Document state:", {
+    console.log("DOM loaded, initializing router...");
+    console.log("Document state:", {
       readyState: document.readyState,
       hasBody: !!document.body,
       bodyChildren: document.body?.children.length,
@@ -175,23 +199,12 @@ function initializeRouter() {
   router();
 
   if (isDev) {
-    console.log("🎯 Application routing initialized");
+    console.log("Application routing initialized");
   }
 }
 
-// Initialize router when DOM is ready
-document.addEventListener("DOMContentLoaded", initializeRouter);
-
-// Fallback for when DOM is already loaded
-if (document.readyState !== "loading") {
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeRouter);
+} else {
   initializeRouter();
-}
-
-// Optional: Window load event for additional debugging
-if (isDev) {
-  window.addEventListener("load", () => {
-    console.log("🎬 Window fully loaded");
-  });
-
-  console.log("📝 main.mjs file fully processed");
 }
