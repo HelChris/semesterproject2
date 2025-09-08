@@ -9,7 +9,7 @@ export function createListingCard(listing) {
   card.className =
     "bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow";
 
-  const imageUrl = listing.media?.[0]?.url || "/assets/img/placeholder.jpg";
+  const imageUrl = listing.media?.[0]?.url;
   const currentBid = listing.bids?.[0]?.amount || 0;
   const bidCount = listing._count?.bids || 0;
   const timeLeft = getTimeLeft(listing.endsAt);
@@ -20,7 +20,6 @@ export function createListingCard(listing) {
         src="${imageUrl}"
         alt="${listing.media?.[0]?.alt || listing.title}"
         class="w-full h-48 object-cover rounded-lg mb-4"
-        onerror="this.src='/assets/img/placeholder.jpg'"
       />
       <div class="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
         ${timeLeft}
@@ -33,11 +32,9 @@ export function createListingCard(listing) {
 
     <div class="flex items-center mb-3">
       <img
-        src="${listing.seller?.avatar?.url || "/assets/img/avatar-placeholder.jpg"}"
-        id="profile-avatar"
+        src="${listing.seller?.avatar?.url}"
         alt="${listing.seller?.name}"
-        class="w-8 h-8 rounded-full mr-2"
-        onerror="this.src='/assets/img/avatar-placeholder.jpg'"
+        class="w-8 h-8 rounded-full mr-2 seller-avatar"
       />
       <span class="text-sm text-gray-700">by ${listing.seller?.name || "Unknown"}</span>
     </div>
@@ -115,4 +112,3 @@ function placeBid(listingId) {
 
 // Make placeBid available globally so onclick can access it
 window.placeBid = placeBid;
-
