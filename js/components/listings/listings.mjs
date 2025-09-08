@@ -1,4 +1,4 @@
-import { fetchAuctionListings } from "/js/api/auction-listings.mjs";
+import { fetchLatestListings } from "/js/api/auction-listings.mjs";
 import {
   renderListingCards,
   showLoadingState,
@@ -24,12 +24,12 @@ export async function initListingsPage() {
 
     // Fetch from API
     console.log("Fetching auction listings for display...");
-    const response = await fetchAuctionListings(12, 1);
-    console.log("Fetched listings:", response);
+    const response = await fetchLatestListings(12, 1, { active: true });
+    console.log("Fetched latest listings:", response);
 
     renderListingCards(response.data, containerSelector, loadingSelector);
   } catch (error) {
-    console.error("Error loading listings:", error);
+    console.error("Error loading latest listings:", error);
     showErrorState(error, containerSelector, loadingSelector);
   }
 }
@@ -49,4 +49,3 @@ export function setupListingsPage() {
     "#display-container",
   );
 }
-
