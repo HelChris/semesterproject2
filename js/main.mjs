@@ -8,7 +8,7 @@ import { setupCreateListingModal } from "/js/components/listings/setup-create-li
 import { setupChangePhotoModal } from "/js/utils/setup-change-photo-modal.mjs";
 import { loadUserProfile } from "/js/components/user-profile/load-user-profile.mjs";
 import { setupEditProfileForm } from "/js/components/edit-profile/setup-edit-profile-form.mjs";
-import { setupGlobalSearch } from "./components/search/searchHandler.mjs";
+import { setupGlobalSearch } from "./components/search/search-handler.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path

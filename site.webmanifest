@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "SpiritBid": "",
+  "name": "Spirit Bid",
+  "short_name": "SpiritBid",
   "icons": [
     {
       "src": "/public/img/android-chrome-192x192.png",
@@ -8,7 +8,7 @@
       "type": "image/png"
     },
     {
-      "src": "/public/img//android-chrome-512x512.png",
+      "src": "/public/img/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
