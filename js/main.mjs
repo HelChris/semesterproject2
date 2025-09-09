@@ -9,6 +9,7 @@ import { setupChangePhotoModal } from "/js/utils/setup-change-photo-modal.mjs";
 import { loadUserProfile } from "/js/components/user-profile/load-user-profile.mjs";
 import { setupEditProfileForm } from "/js/components/edit-profile/setup-edit-profile-form.mjs";
 import { setupGlobalSearch } from "./components/search/search-handler.mjs";
+import { setupItemPage } from "/js/components/item/item-page-controller.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -60,6 +61,7 @@ function handleCreateListingPage() {
 
 function handleItemPage() {
   console.log("Item page");
+  setupItemPage();
 }
 
 function handleProfilePage() {

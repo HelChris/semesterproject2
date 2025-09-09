@@ -3,75 +3,97 @@
  * @param {object} listing - The auction listing data
  * @returns {HTMLElement} the created card element
  */
-
 export function createListingCard(listing) {
   const card = document.createElement("div");
   card.className =
-    "bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow";
+    "bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow flex flex-col h-full";
 
-  const imageUrl = listing.media?.[0]?.url;
-  const currentBid = listing.bids?.[0]?.amount || 0;
+  const imageUrl = listing.media?.[0]?.url || "/public/img/placeholder.jpg";
+  const currentBid =
+    listing.bids?.length > 0
+      ? Math.max(...listing.bids.map((bid) => bid.amount))
+      : 0;
+
   const bidCount = listing._count?.bids || 0;
   const timeLeft = getTimeLeft(listing.endsAt);
 
   card.innerHTML = `
-  <div class="relative">
+    <div class="relative mb-4">
       <img
         src="${imageUrl}"
         alt="${listing.media?.[0]?.alt || listing.title}"
-        class="w-full h-48 object-cover rounded-lg mb-4"
+        class="w-full h-48 object-cover rounded-lg"
+        onerror="this.src='/assets/img/placeholder.jpg'"
       />
       <div class="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
         ${timeLeft}
       </div>
     </div>
 
-    <h2 class="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">${listing.title}</h2>
+    <div class="flex-1 flex flex-col">
 
-    <p class="text-gray-600 mb-3 line-clamp-3">${listing.description || "No description available"}</p>
+      <h2 class="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">${listing.title}</h2>
 
-    <div class="flex items-center mb-3">
-      <img
-        src="${listing.seller?.avatar?.url}"
-        alt="${listing.seller?.name}"
-        class="w-8 h-8 rounded-full mr-2 seller-avatar"
-      />
-      <span class="text-sm text-gray-700">by ${listing.seller?.name || "Unknown"}</span>
-    </div>
-
-    <div class="flex justify-between items-center mb-4">
-      <div>
-        <p class="text-sm text-gray-600">${bidCount} bid${bidCount !== 1 ? "s" : ""}</p>
-        <p class="text-lg font-bold text-forest-green">$${currentBid}</p>
+      <div class="flex-1 mb-3">
+        <p class="text-gray-600 text-lg line-clamp-3">${listing.description || "No description available"}</p>
       </div>
-      <div class="flex flex-wrap gap-1">
-        ${
-          listing.tags
-            ?.slice(0, 2)
-            .map(
-              (tag) =>
-                `<span class="bg-soft-yellow text-soft-teal-2 px-2 py-1 rounded text-xs">${tag}</span>`,
-            )
-            .join("") || ""
-        }
+
+      <div class="flex items-center mb-3">
+        <img
+          src="${listing.seller?.avatar?.url || "/assets/img/default-avatar.png"}"
+          alt="${listing.seller?.name || "Unknown seller"}"
+          class="w-8 h-8 rounded-full mr-2 seller-avatar"
+          onerror="this.src='/assets/img/default-avatar.png'"
+        />
+        <span class="text-lg text-gray-700">by ${listing.seller?.name || "Unknown"}</span>
+      </div>
+
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <p class="text-sm text-gray-600">${
+            bidCount > 0
+              ? `<p class="text-lg font-bold text-forest-green">Current bid: ${currentBid} credits</p>
+               <p class="text-sm text-gray-600">${bidCount} bid${bidCount !== 1 ? "s" : ""}</p>`
+              : `<p class="text-lg font-bold text-gray-500">0 Bids</p>
+               <p class="text-sm text-gray-600">Be the first to bid!</p>`
+          }
+        </div>
+        <div class="flex flex-wrap gap-1">
+          ${
+            listing.tags
+              ?.slice(0, 2)
+              .map(
+                (tag) =>
+                  `<span class="bg-soft-yellow text-soft-teal-2 px-3 py-1 rounded text-md">${tag}</span>`,
+              )
+              .join("") || ""
+          }
+        </div>
       </div>
     </div>
 
     <div class="flex gap-2">
       <button
         class="flex-1 bg-warm-terracotta text-earthy-beige px-4 py-2 rounded hover:bg-hover-terracotta transition-colors"
-        onclick="placeBid('${listing.id}')"
+        data-listing-id="${listing.id}"
       >
         Place Bid
       </button>
       <a
         href="/pages/item.html?id=${listing.id}"
-        class="flex-1 bg-forest-green text-earthy-beige px-4 py-2 rounded hover:bg-soft-teal-2 transition-colors text-center"
+        class="flex-1 bg-forest-green text-earthy-beige px-4 py-2 rounded hover:bg-soft-teal-2 transition-colors text-center inline-block"
       >
         View Details
       </a>
     </div>
   `;
+
+  const placeBidButton = card.querySelector("[data-listing-id]");
+  if (placeBidButton) {
+    placeBidButton.addEventListener("click", () => {
+      handlePlaceBid(listing.id, listing.title);
+    });
+  }
 
   return card;
 }
@@ -81,8 +103,9 @@ export function createListingCard(listing) {
  * @param {string} endsAt - ISO date string
  * @returns {string} Formatted time remaining
  */
+export function getTimeLeft(endsAt) {
+  if (!endsAt) return "No end date";
 
-function getTimeLeft(endsAt) {
   const now = new Date();
   const end = new Date(endsAt);
   const diff = end - now;
@@ -100,15 +123,21 @@ function getTimeLeft(endsAt) {
 }
 
 /**
- * Placeholder function for placing bids
+ * Handle place bid action from listing card
  * @param {string} listingId - ID of the listing to bid on
+ * @param {string} listingTitle - Title of the listing for context
  */
+function handlePlaceBid(listingId, listingTitle) {
+  const authToken = localStorage.getItem("accessToken");
 
-function placeBid(listingId) {
-  // This will be implemented with your bid functionality
-  console.log(`Place bid on listing: ${listingId}`);
-  alert(`Bid functionality coming soon for listing: ${listingId}`);
+  if (!authToken) {
+    const confirmMessage = `Please log in to place a bid on "${listingTitle}"`;
+    if (confirm(confirmMessage)) {
+      const returnUrl = encodeURIComponent(window.location.href);
+      window.location.href = `/pages/login.html?returnTo=${returnUrl}`;
+    }
+    return;
+  }
+
+  window.location.href = `/pages/item.html?id=${listingId}`;
 }
-
-// Make placeBid available globally so onclick can access it
-window.placeBid = placeBid;
