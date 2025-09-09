@@ -40,16 +40,20 @@ export async function fetchAuctionById(id) {
     },
   };
 
+  try {
   const response = await fetch(url, options);
   const json = await response.json();
 
-  if (!response.ok) {
-    throw new Error(
-      json.errors?.[0]?.message || "Failed to fetch auction listing",
-    );
+    if (!response.ok) {
+      throw new Error(
+        json.errors?.[0]?.message || "Failed to fetch auction listing",
+      );
+    }
+    return json.data;
+  } catch (error) {
+    console.error('Error fetching auctions by ID:', error);
+    throw error;
   }
-
-  return json;
 }
 
 export async function fetchListingsByUser(username, limit = 12, page = 1) {
@@ -162,4 +166,41 @@ export async function searchAuctionListings(query, limit = 12, page = 1) {
   }
 
   return json;
+}
+
+export async function placeBidOnListing(listingId, amount) {
+  const authToken = getFromLocalStorage("accessToken");
+
+  if (!authToken) {
+    throw new Error("You must be logged in to place a bid");
+  }
+
+  try {
+    const url = `${AUTH_ENDPOINTS.auctionListings}/${listingId}/bids`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+        "X-Noroff-API-Key": API_KEY,
+      },
+      body: JSON.stringify({ amount: parseInt(amount) }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        errorData.errors?.[0]?.message ||
+          `Bid failed: ${response.status} ${response.statusText}`,
+      );
+    }
+
+    const result = await response.json();
+    console.log("Bid placed successfully:", result);
+    return result.data;
+  } catch (error) {
+    console.error("Error placing bid:", error);
+    throw error;
+  }
 }
