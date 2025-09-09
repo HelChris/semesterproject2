@@ -5,6 +5,7 @@ export function setupGlobalSearch() {
   if (!searchInput || !searchButton) {
     return;
   }
+git 
 
   const handleGlobalSearch = async (query) => {
     if (!query.trim()) {
