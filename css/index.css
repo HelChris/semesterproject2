@@ -2,9 +2,6 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 976px;
   --color-warm-terracotta: #e07a5f;
   --color-hover-terracotta: #d4634a; /* "darker terracota" */
   --color-soft-teal-1: #5e9ca2;
