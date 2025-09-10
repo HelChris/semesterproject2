@@ -20,6 +20,6 @@ export async function register(user) {
   addToLocalStorage("username", name);
   addToLocalStorage("email", email);
 
+
   return json;
 }
-

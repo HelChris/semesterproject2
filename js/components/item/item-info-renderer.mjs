@@ -115,7 +115,7 @@ export class ItemInfoRenderer {
 
     if (sellerAvatar) {
       sellerAvatar.src =
-        seller?.avatar?.url || "/assets/img/default-avatar.png";
+        seller?.avatar?.url || "/img/avatar1-placeholder.jpg";
       sellerAvatar.alt = `${seller?.name || "Unknown seller"}'s avatar`;
     }
 

@@ -25,30 +25,24 @@ export function showError(error, targetSelector) {
     return;
   }
 
-  // clear existing content
   targetElement.textContent = "";
 
-  //create alert container
   const alertDiv = document.createElement("div");
   alertDiv.className = "alert-error";
   alertDiv.setAttribute("role", "alert");
 
-  // Always extract a string message
   let message = "";
   if (error instanceof Error) {
     message = error.message;
   } else if (typeof error === "object" && error !== null) {
-    // Try to use .message property, else JSON.stringify
     message = error.message || JSON.stringify(error);
   } else {
     message = String(error);
   }
 
-  //create error text node
   const errorText = document.createTextNode(message);
   alertDiv.appendChild(errorText);
 
-  //add to DOM
   targetElement.appendChild(alertDiv);
 }
 

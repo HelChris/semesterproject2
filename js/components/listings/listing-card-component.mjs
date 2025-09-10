@@ -8,7 +8,7 @@ export function createListingCard(listing) {
   card.className =
     "bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow flex flex-col h-full";
 
-  const imageUrl = listing.media?.[0]?.url || "/public/img/placeholder.jpg";
+  const imageUrl = listing.media?.[0]?.url || "/img/placeholder.jpg";
   const currentBid =
     listing.bids?.length > 0
       ? Math.max(...listing.bids.map((bid) => bid.amount))
@@ -23,7 +23,7 @@ export function createListingCard(listing) {
         src="${imageUrl}"
         alt="${listing.media?.[0]?.alt || listing.title}"
         class="w-full h-48 object-cover rounded-lg"
-        onerror="this.src='/assets/img/placeholder.jpg'"
+        onerror="this.src='/img/placeholder.jpg'"
       />
       <div class="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
         ${timeLeft}
@@ -40,10 +40,10 @@ export function createListingCard(listing) {
 
       <div class="flex items-center mb-3">
         <img
-          src="${listing.seller?.avatar?.url || "/assets/img/default-avatar.png"}"
+          src="${listing.seller?.avatar?.url || "/img/default-avatar.png"}"
           alt="${listing.seller?.name || "Unknown seller"}"
           class="w-8 h-8 rounded-full mr-2 seller-avatar"
-          onerror="this.src='/assets/img/default-avatar.png'"
+          onerror="this.src='/img/default-avatar.png'"
         />
         <span class="text-lg text-gray-700">by ${listing.seller?.name || "Unknown"}</span>
       </div>

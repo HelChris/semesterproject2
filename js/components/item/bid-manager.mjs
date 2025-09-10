@@ -118,10 +118,6 @@ export class BidManager {
       this.placeBidButton.disabled = true;
       this.placeBidButton.textContent = "Placing Bid...";
 
-      console.log(
-        `Placing bid of ${bidAmount} credits on item ${this.itemData.id}`,
-      );
-
       const result = await placeBidOnListing(this.itemData.id, bidAmount);
 
       if (result) {
@@ -130,13 +126,18 @@ export class BidManager {
           duration: 5000,
         });
 
+        const userAvatar = getFromLocalStorage("userAvatar");
+
         this.itemData.bids = this.itemData.bids || [];
         this.itemData.bids.unshift({
           id: result.id,
           amount: bidAmount,
           bidder: {
             name: getFromLocalStorage("userName") || "You",
-            email: getFromLocalStorage("userEmail") || "",
+            avatar: {
+              url: userAvatar || "/img/avatar1-placeholder.jpg",
+              alt: `${getFromLocalStorage("userName") || "Your"} avatar`,
+            },
           },
           created: new Date().toISOString(),
         });

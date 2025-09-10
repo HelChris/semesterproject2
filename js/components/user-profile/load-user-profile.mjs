@@ -27,8 +27,7 @@ export async function loadUserProfile() {
 }
 
 function updateProfileAvatar(profileData) {
-  const avatarUrl =
-    profileData?.avatar?.url || "/public/img/avatar-placeholder.jpg";
+  const avatarUrl = profileData?.avatar?.url || "/img/avatar-placeholder.jpg";
 
   const avatarElements = document.querySelectorAll(
     "#profile-avatar, .profile-avatar, img[alt*='profile'], img[alt*='avatar']",
@@ -46,7 +45,7 @@ function updateProfileAvatar(profileData) {
     profilePageAvatar.src = avatarUrl;
     profilePageAvatar.alt = `${profileData?.name || "User"}'s profile picture}`;
     profilePageAvatar.onerror = () => {
-      profilePageAvatar.src = "/public/img/avatar1-placeholder.jpg";
+      profilePageAvatar.src = "/img/avatar1-placeholder.jpg";
     };
   }
 }
