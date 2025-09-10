@@ -108,7 +108,3 @@ BASE_URL=https://example.com/api
 - `npm run test` - Run tests
 - `npm run lint` - Run ESLint
 
-## Author
-
-FrontEnd: HelChris, 
-API functionality endpoints: Noroff
