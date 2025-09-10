@@ -30,7 +30,7 @@ export class BidHistoryRenderer {
 
   static createBidCard(bid, isHighest = false) {
     const timeAgo = this.getTimeAgo(bid.created);
-    const avatarUrl = bid.bidder?.avatar?.url || '/assets/img/default-avatar.png';
+    const avatarUrl = bid.bidder?.avatar?.url || '/img/avatar1-placeholder.jpg';
     const bidderName = bid.bidder?.name || 'Unknown Bidder';
 
     return `

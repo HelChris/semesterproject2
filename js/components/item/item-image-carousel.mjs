@@ -17,9 +17,7 @@ export class ItemImageCarousel {
   processMediaArray(mediaArray) {
     if (!Array.isArray(mediaArray) || mediaArray.length === 0) {
       console.log("No media provided, using placeholder");
-      return [
-        { url: "/public/img/placeholder.jpg", alt: "No image available" },
-      ];
+      return [{ url: "/img/placeholder.jpg", alt: "No image available" }];
     }
 
     const validMedia = mediaArray.filter((media) => {
@@ -36,9 +34,7 @@ export class ItemImageCarousel {
 
     if (validMedia.length === 0) {
       console.log("No valid media URLs found, using placeholder");
-      return [
-        { url: "/assets/img/placeholder.jpg", alt: "No image available" },
-      ];
+      return [{ url: "/img/placeholder.jpg", alt: "No image available" }];
     }
 
     return validMedia;
@@ -76,7 +72,7 @@ export class ItemImageCarousel {
 
       this.mainImage.onerror = () => {
         console.warn("Failed to load image:", currentMedia.url);
-        this.mainImage.src = "/assets/img/placeholder.jpg";
+        this.mainImage.src = "/img/placeholder.jpg";
       };
     }
 
@@ -100,7 +96,7 @@ export class ItemImageCarousel {
         <img src="${media.url}"
              alt="${media.alt || `Image ${index + 1}`}"
              class="w-full h-full object-cover"
-             onerror="this.src='/public/img/placeholder.jpg'">
+             onerror="this.src='/img/placeholder.jpg'">
       `;
 
       thumbnail.addEventListener("click", () => this.goToImage(index));
