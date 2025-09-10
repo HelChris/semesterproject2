@@ -1,5 +1,5 @@
 import { fetchLatestListings } from "/js/api/auction-listings.mjs";
-import { createListingCard } from "/js/components/item-cards/listing-card-component.mjs";
+import { createListingCard } from "/js/components/listings/listing-card-component.mjs";
 
 export class LoadMoreHandler {
   constructor(options = {}) {
