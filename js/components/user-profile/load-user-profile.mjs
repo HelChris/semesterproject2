@@ -5,6 +5,7 @@ import { API_KEY } from "/js/constants/apikey.mjs";
 export async function loadUserProfile() {
   const username = getFromLocalStorage("username");
   const accessToken = getFromLocalStorage("accessToken");
+
   const url = `${AUTH_ENDPOINTS.profiles}/${username}`;
 
   try {
@@ -15,39 +16,80 @@ export async function loadUserProfile() {
       },
     });
 
-    if (!response.ok) {
-      console.error(
-        "Failed to fetch profile:",
-        response.status,
-        response.statusText,
-      );
-      return;
-    }
+    const result = await response.json();
+    const profileData = result.data;
 
-    const data = await response.json();
-    const avatarUrl =
-      data.data?.avatar?.url || "/assets/img/avatar-placeholder.jpg";
-
-    // Update all elements with id="profile-avatar" (if you have more than one)
-    document.querySelectorAll("#profile-avatar").forEach((img) => {
-      img.src = avatarUrl;
-    });
-
-    // Update hidden avatar input for edit profile form
-    const avatarInput = document.getElementById("avatar-url");
-    if (avatarInput && data.data?.avatar?.url) {
-      avatarInput.value = data.data.avatar.url;
-    }
-
-    // Optionally update other profile info here (e.g., username, bio, etc.)
-    // Example:
-    // const usernameElem = document.getElementById("profile-username");
-    // if (usernameElem) usernameElem.textContent = data.name;
-
-    console.log("Profile loaded, avatar URL:", avatarUrl);
+    updateProfileAvatar(profileData);
+    updateProfileInfo(profileData);
   } catch (error) {
-    console.error("Error loading user profile:", error);
-    // Optionally show a message to the
+    console.error("error loading user profile:", error);
   }
 }
 
+function updateProfileAvatar(profileData) {
+  const avatarUrl =
+    profileData?.avatar?.url || "/public/img/avatar-placeholder.jpg";
+
+  const avatarElements = document.querySelectorAll(
+    "#profile-avatar, .profile-avatar, img[alt*='profile'], img[alt*='avatar']",
+  );
+
+  avatarElements.forEach((img) => {
+    img.src = avatarUrl;
+    img.alt = `${profileData?.name || "User"}'s profile picture`;
+  });
+
+  const profilePageAvatar = document.querySelector(
+    ".w-24.h-24.rounded-full, .w-20.h-20.rounded-full",
+  );
+  if (profilePageAvatar) {
+    profilePageAvatar.src = avatarUrl;
+    profilePageAvatar.alt = `${profileData?.name || "User"}'s profile picture}`;
+    profilePageAvatar.onerror = () => {
+      profilePageAvatar.src = "/public/img/avatar1-placeholder.jpg";
+    };
+  }
+}
+
+function updateProfileInfo(profileData) {
+  const usernameElements = document.querySelectorAll(
+    "#profile-username, .profile-username",
+  );
+  usernameElements.forEach((elem) => {
+    if (elem) elem.textContent = profileData?.name || "Unknown User";
+  });
+
+  updateBio(profileData?.bio);
+  updateCredits(profileData?.credits);
+  updateListingsCount(profileData?._count?.listings);
+}
+
+function updateBio(bio) {
+  const bioElement = document.getElementById("profile-bio");
+  if (bioElement) {
+    bioElement.textContent = bio || "No bio available";
+  }
+
+  const bioTextarea = document.getElementById("bio");
+  if (bioTextarea) {
+    bioTextarea.value = bio || "";
+  }
+}
+
+function updateCredits(credits) {
+  const creditsElement = document.getElementById("profile-credits");
+  const creditAmount = credits !== undefined ? credits : 0;
+
+  if (creditsElement) {
+    creditsElement.textContent = `Credits: ${creditAmount}`;
+  }
+}
+
+function updateListingsCount(listingsCount) {
+  const listingsElement = document.getElementById("profile-listings-count");
+  const count = listingsCount !== undefined ? listingsCount : 0;
+
+  if (listingsElement) {
+    listingsElement.textContent = `Listings: ${count}`;
+  }
+}
