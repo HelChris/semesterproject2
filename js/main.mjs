@@ -1,6 +1,7 @@
+import { initializeNavigation } from "./components/nav/nav.mjs";
 import { setupRegisterForm } from "/js/utils/register-form-handler.mjs";
 import { loginHandler } from "/js/auth/login.mjs";
-import { updateNavigation, setupLogoutListeners } from "/js/auth/logout.mjs";
+import { setupLogoutListeners } from "/js/auth/logout.mjs";
 import { setupListingsPage } from "/js/components/listings/listings.mjs";
 import { createListingHandler } from "/js/utils/create-listing-handler.mjs";
 import { setupContactForm } from "/js/utils/contact-form-handler.mjs";
@@ -144,7 +145,7 @@ function router() {
     clearSearchOnNavigation(pathname);
 
     // Setup common functionality for all pages
-    updateNavigation();
+    initializeNavigation();
     setupLogoutListeners();
     setupGlobalSearch();
 

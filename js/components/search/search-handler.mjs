@@ -2,9 +2,8 @@ export function setupGlobalSearch() {
   const searchInput = document.querySelector("#site-search");
   const searchButton = document.querySelector("#search-button");
 
-  if (!searchInput || !searchButton) {
-    return;
-  }
+  const mobileSearchInput = document.querySelector("#site-search-mobile");
+  const mobileSearchButton = document.querySelector("#search-button-mobile");
 
   const handleGlobalSearch = async (query) => {
     if (!query.trim()) {
@@ -23,23 +22,48 @@ export function setupGlobalSearch() {
       window.location.href = "/pages/listings.html";
     } catch (error) {
       console.error("Enhanced search failed:", error);
-      // Fallback: store just the query and let listings page handle the search
       sessionStorage.setItem("searchQuery", query.trim());
       sessionStorage.removeItem("searchResults");
       window.location.href = "/pages/listings.html";
     }
   };
 
-  searchButton.addEventListener("click", () => {
-    handleGlobalSearch(searchInput.value);
-  });
-
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      handleGlobalSearch(searchInput.value);
+  const closeMobileMenu = () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenu) {
+      mobileMenu.classList.add("translate-x-full");
+      document.body.style.overflow = "";
     }
-  });
+  };
+
+  if (searchInput && searchButton) {
+    searchButton.addEventListener("click", () => {
+      handleGlobalSearch(searchInput.value);
+    });
+
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        handleGlobalSearch(searchInput.value);
+      }
+    });
+  }
+
+  if (mobileSearchInput && mobileSearchButton) {
+    mobileSearchButton.addEventListener("click", () => {
+      closeMobileMenu();
+      handleGlobalSearch(mobileSearchInput.value);
+    });
+
+    mobileSearchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        closeMobileMenu();
+        handleGlobalSearch(mobileSearchInput.value);
+      }
+    });
+  }
 }
+
+// ---------------------------------------------------
 
 async function performEnhancedSearch(query) {
   const { API_KEY } = await import("/js/constants/apikey.mjs");
