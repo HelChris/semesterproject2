@@ -47,7 +47,9 @@
           >
             <a href="/index.html" class="hover:font-bold">Home</a>
             <a href="/pages/listings.html" class="hover:font-bold">Explore</a>
-            <a href="#how-it-works" class="hover:font-bold">How it works</a>
+            <a href="/index.html#how-it-works" class="hover:font-bold"
+              >How it works</a
+            >
           </nav>
         </div>
 
@@ -160,7 +162,7 @@
                   >Home</a
                 >
                 <a
-                  href="#how-it-works"
+                  href="/index.html#how-it-works"
                   class="block text-earthy-beige hover:text-soft-yellow"
                   >How it works</a
                 >
@@ -288,16 +290,23 @@
             </button>
             <!-- Form Container -->
             <div>
-              <h1 class="text-black text-center text-3xl font-medium mb-6">
+              <h1
+                class="text-black text-center text-2xl sm:text-3xl font-medium mb-4 sm:mb-6"
+              >
                 Create New Listing
               </h1>
               <form id="create-listing-form" novalidate>
                 <fieldset>
                   <div id="message"></div>
+
                   <!-- Title field -->
-                  <div class="mb-5">
-                    <div class="border p-2 rounded-2xl flex items-center gap-2">
-                      <label for="title" class="flex-shrink-0">Title:</label>
+                  <div class="mb-4 sm:mb-5">
+                    <div
+                      class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-2"
+                    >
+                      <label for="title" class="flex-shrink-0 min-w-fit"
+                        >Title:</label
+                      >
                       <input
                         type="text"
                         id="title"
@@ -318,9 +327,13 @@
                   </div>
 
                   <!-- Description field -->
-                  <div class="mb-5">
-                    <div class="border p-2 rounded-2xl flex items-start gap-2">
-                      <label for="description" class="flex-shrink-0 self-start"
+                  <div class="mb-4 sm:mb-5">
+                    <div
+                      class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-start gap-2"
+                    >
+                      <label
+                        for="description"
+                        class="flex-shrink-0 min-w-fit sm:self-start"
                         >Description:</label
                       >
                       <textarea
@@ -343,9 +356,13 @@
                   </div>
 
                   <!-- Tags field -->
-                  <div class="mb-5">
-                    <div class="border p-2 rounded-2xl flex items-center gap-2">
-                      <label for="tags" class="flex-shrink-0">Tags:</label>
+                  <div class="mb-4 sm:mb-5">
+                    <div
+                      class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-2"
+                    >
+                      <label for="tags" class="flex-shrink-0 min-w-fit"
+                        >Tags:</label
+                      >
                       <input
                         type="text"
                         id="tags"
@@ -355,16 +372,21 @@
                         class="pl-1 w-full flex-1"
                       />
                     </div>
-                    <div id="tags-help" class="mt-1 text-sm text-gray-600">
+                    <div
+                      id="tags-help"
+                      class="mt-1 text-sm text-gray-600 text-balance"
+                    >
                       Separate tags with commas. Examples: magical items, rare
                       collectibles, ancient books, forest artifacts
                     </div>
                   </div>
 
                   <!-- End date field -->
-                  <div class="mb-5">
-                    <div class="border p-2 rounded-2xl flex items-center gap-2">
-                      <label for="endsAt" class="flex-shrink-0"
+                  <div class="mb-4 sm:mb-5">
+                    <div
+                      class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-2"
+                    >
+                      <label for="endsAt" class="flex-shrink-0 min-w-fit"
                         >Auction End:</label
                       >
                       <input
@@ -386,15 +408,17 @@
                   </div>
 
                   <!-- Media URLs -->
-                  <div class="mb-5">
-                    <h3 class="text-lg font-medium mb-3">Images</h3>
+                  <div class="mb-4 sm:mb-5">
+                    <h3 class="text-base sm:text-lg font-medium mb-3">
+                      Images
+                    </h3>
 
                     <!-- Image 1 -->
                     <div class="mb-3">
                       <div
-                        class="border p-2 rounded-2xl flex items-center gap-2"
+                        class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-2"
                       >
-                        <label for="mediaUrl1" class="flex-shrink-0"
+                        <label for="mediaUrl1" class="flex-shrink-0 min-w-fit"
                           >Image 1:</label
                         >
                         <input
@@ -403,7 +427,7 @@
                           name="mediaUrl1"
                           aria-describedby="mediaUrl1-help"
                           placeholder="https://example.com/image1.jpg"
-                          class="pl-1 w-full flex-1"
+                          class="pl-1 w-full flex-1 text-sm sm:text-base"
                         />
                       </div>
                     </div>
@@ -411,9 +435,9 @@
                     <!-- Image 2 -->
                     <div class="mb-3">
                       <div
-                        class="border p-2 rounded-2xl flex items-center gap-2"
+                        class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-2"
                       >
-                        <label for="mediaUrl2" class="flex-shrink-0"
+                        <label for="mediaUrl2" class="flex-shrink-0 min-w-fit"
                           >Image 2:</label
                         >
                         <input
@@ -422,7 +446,7 @@
                           name="mediaUrl2"
                           aria-describedby="mediaUrl2-help"
                           placeholder="https://example.com/image2.jpg"
-                          class="pl-1 w-full flex-1"
+                          class="pl-1 w-full flex-1 text-sm sm:text-base"
                         />
                       </div>
                     </div>
@@ -430,9 +454,9 @@
                     <!-- Image 3 -->
                     <div class="mb-3">
                       <div
-                        class="border p-2 rounded-2xl flex items-center gap-2"
+                        class="border p-2 rounded-2xl flex flex-col sm:flex-row sm:items-center gap-2"
                       >
-                        <label for="mediaUrl3" class="flex-shrink-0"
+                        <label for="mediaUrl3" class="flex-shrink-0 min-w-fit"
                           >Image 3:</label
                         >
                         <input
@@ -441,30 +465,33 @@
                           name="mediaUrl3"
                           aria-describedby="mediaUrl3-help"
                           placeholder="https://example.com/image3.jpg"
-                          class="pl-1 w-full flex-1"
+                          class="pl-1 w-full flex-1 text-sm sm:text-base"
                         />
                       </div>
                     </div>
 
-                    <div id="media-help" class="mt-1 text-sm text-gray-600">
+                    <div
+                      id="media-help"
+                      class="mt-1 text-sm text-gray-600 text-balance"
+                    >
                       Add up to 3 images for your listing. Only the first image
                       is required.
                     </div>
                   </div>
 
                   <!-- Submit button -->
-                  <div class="text-center my-6">
+                  <div class="text-center my-4 sm:my-6">
                     <button
                       type="submit"
                       id="submit-button"
-                      class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-forest-green border-soft-teal-2 border-2 rounded-3xl text-black font-bold shadow w-80"
+                      class="px-4 sm:px-6 py-2 sm:py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-forest-green border-soft-teal-2 border-2 rounded-3xl text-black font-bold shadow w-full max-w-80"
                     >
                       Create Listing →
                     </button>
                   </div>
 
                   <!-- Cancel link -->
-                  <p class="mt-4 text-center">
+                  <p class="mt-4 text-center text-sm sm:text-base">
                     <a
                       href="/pages/listings.html"
                       class="text-forest-green hover:underline"
@@ -540,7 +567,7 @@
           >Explore</a
         >
         <a
-          href="/index.html/#how-it-works"
+          href="/index.html#how-it-works"
           class="flex pb-2 w-40 hover:font-medium"
           >How It Works</a
         >
