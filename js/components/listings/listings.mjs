@@ -5,6 +5,7 @@ import {
   showErrorState,
 } from "/js/components/render/render-listing-cards.mjs";
 import { LoadMoreHandler } from "./load-more-handler.mjs";
+import { initializeCategoryHandler } from "/js/components/categories/category-handler.mjs";
 
 let loadMoreHandler = null;
 
@@ -19,7 +20,20 @@ export async function initListingsPage(options = {}) {
   }
 
   try {
+    // Check if we have a category parameter first
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category");
+
+    if (category) {
+      // Handle category filtering - category handler manages its own loading state
+      await initializeCategoryHandler();
+      return; // Exit early, category handler takes over
+    }
+
+    // For non-category pages, show loading state
     showLoadingState(containerSelector, loadingSelector);
+
+    // Check for cached search results
     const cachedResults = sessionStorage.getItem("searchResults");
 
     if (cachedResults) {
@@ -30,11 +44,20 @@ export async function initListingsPage(options = {}) {
         buttonSelector,
       );
     } else {
-      await handleNormalListings(
-        containerSelector,
-        loadingSelector,
-        buttonSelector,
-      );
+      // Check if we want organized view (all listings by categories) or normal listings
+      const showOrganized = options.organizeByCategories || false;
+
+      if (showOrganized) {
+        // Load all listings organized by categories
+        await initializeCategoryHandler();
+      } else {
+        // Load normal paginated listings
+        await handleNormalListings(
+          containerSelector,
+          loadingSelector,
+          buttonSelector,
+        );
+      }
     }
   } catch (error) {
     console.error("Error loading listings:", error);
