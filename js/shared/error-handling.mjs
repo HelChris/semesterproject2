@@ -17,7 +17,8 @@
  *   console.error('Login failed:', error.message);
  * }
  */
-export function showError(error, targetSelector) {
+export function showError(error, targetSelector, options = {}) {
+  const { scrollToTop = true } = options;
   const targetElement = document.querySelector(targetSelector);
 
   if (!targetElement) {
@@ -44,5 +45,27 @@ export function showError(error, targetSelector) {
   alertDiv.appendChild(errorText);
 
   targetElement.appendChild(alertDiv);
-}
+  if (scrollToTop) {
+    const modal = targetElement.closest('[id*="modal"]');
 
+    if (modal) {
+      modal.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      const modalContent = modal.querySelector('[class*="overflow-y-auto"]');
+      if (modalContent) {
+        modalContent.scrollTo({
+          tio: 0,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }
+}
