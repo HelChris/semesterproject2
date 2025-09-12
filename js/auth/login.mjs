@@ -39,12 +39,16 @@ export async function login(user) {
     throw new Error(json.errors?.[0]?.message || "Oh no, login failed");
   }
 
-  const { accessToken, name, email } = json.data;
+  const { accessToken, name, email, avatar } = json.data;
   addToLocalStorage("accessToken", accessToken);
   addToLocalStorage("username", name);
   addToLocalStorage("email", email);
 
-  return json;
+  if (avatar?.url) {
+    addToLocalStorage("userAvatar", avatar.url);
+
+    return json;
+  }
 }
 
 export function loginHandler() {

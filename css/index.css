@@ -36,3 +36,35 @@
   border-radius: 0.375rem;
   margin-bottom: 1rem;
 }
+#mobile-menu .overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+#mobile-menu .overflow-y-auto::-webkit-scrollbar-track {
+  border-radius: 9999px;
+  background-color: var(--color-forest-green);
+}
+
+#mobile-menu .overflow-y-auto::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background-color: color-mix(
+    in srgb,
+    var(--color-earthy-beige) 50%,
+    transparent
+  );
+}
+
+#mobile-menu .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-earthy-beige);
+}
+
+/* Firefox support */
+#mobile-menu .overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(
+      in srgb,
+      var(--color-earthy-beige) 50%,
+      transparent
+    )
+    var(--color-forest-green);
+}
