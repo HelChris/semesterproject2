@@ -27,58 +27,185 @@
   </head>
 
   <body>
-    <header class="flex justify-between p-2 bg-forest-green">
-      <div class="flex items-center pl-2">
-        <a href="/index.html"
-          ><img src="/img/logo.png" class="max-w-10 place-content-start"
-        /></a>
-        <a href="/index.html">
-          <p
-            class="text-earthy-beige font-serif font font-thin pl-2 text-2xl min-w-fit"
+    <header class="bg-forest-green">
+      <div class="flex justify-between items-center p-2">
+        <!-- Left side: Logo + Brand + Desktop Nav -->
+        <div class="flex items-center pl-2">
+          <a href="/index.html">
+            <img src="/img/logo.png" class="max-w-10" alt="Spirit Bid Logo" />
+          </a>
+          <a href="/index.html">
+            <p
+              class="text-earthy-beige font-serif font-thin pl-2 text-xl md:text-2xl"
+            >
+              Spirit Bid
+            </p>
+          </a>
+          <!-- Desktop: Visible nav items -->
+          <nav
+            class="hidden sm:flex items-center pl-4 md:pl-10 text-earthy-beige gap-4 md:gap-8"
           >
-            Spirit Bid
-          </p>
-        </a>
-        <nav class="flex items-center pl-10 text-earthy-beige gap-8 min-w-60">
-          <a href="/index.html" class="w-10 hover:font-bold">Home</a>
-          <a href="/pages/listings.html" class="w-10 hover:font-bold"
-            >Explore</a
-          >
-          <a href="/index.html/#how-it-works" class="w-40 hover:font-bold"
-            >How it works</a
-          >
-        </nav>
-      </div>
-      <div class="flex justify-end items-center gap-2">
-        <div
-          class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
-        >
-          <label for="site-search" hidden>Search the site:</label>
-          <input
-            placeholder="Search for item.."
-            id="site-search"
-            type="search"
-            aria-describedby="search-field"
-          />
+            <a href="/index.html" class="hover:font-bold">Home</a>
+            <a href="/pages/listings.html" class="hover:font-bold">Explore</a>
+            <a href="#how-it-works" class="hover:font-bold">How it works</a>
+          </nav>
+        </div>
+
+        <!-- Right side: Desktop Search + Auth OR Mobile Menu Button -->
+        <div class="flex items-center gap-2">
+          <!-- Desktop: Search + Auth -->
+          <div class="hidden xl:flex justify-end items-center gap-2">
+            <div class="search-container">
+              <div
+                class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
+              >
+                <label for="site-search" hidden>Search the site:</label>
+                <input
+                  placeholder="Search for item.."
+                  id="site-search"
+                  type="search"
+                  aria-describedby="search-field"
+                />
+                <button
+                  id="search-button"
+                  class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+            <nav class="auth-nav flex gap-2">
+              <a
+                href="/pages/login.html"
+                class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+                >Sign in</a
+              >
+              <a
+                href="/pages/register.html"
+                class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+                >Register</a
+              >
+            </nav>
+          </div>
           <button
-            id="search-button"
-            class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+            id="mobile-menu-btn"
+            class="xl:hidden p-2 text-earthy-beige"
+            aria-label="Open mobile menu"
           >
-            Search
+            <div class="space-y-1">
+              <span class="block w-6 h-0.5 bg-earthy-beige"></span>
+              <span class="block w-6 h-0.5 bg-earthy-beige"></span>
+              <span class="block w-6 h-0.5 bg-earthy-beige"></span>
+            </div>
           </button>
         </div>
-        <nav class="flex justify-end items-center p-2 gap-2">
-          <a
-            href="/pages/login.html"
-            class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
-            >Sign in</a
+      </div>
+      <!-- mobile menu overlay -->
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-forest-green z-50 transform translate-x-full transition-transform duration-300 xl:hidden"
+      >
+        <div class="flex flex-col h-full">
+          <!-- Menu Header -->
+          <div
+            class="flex justify-between items-center p-4 border-b border-earthy-beige/20"
           >
-          <a
-            href="/pages/register.html"
-            class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
-            >Register</a
-          >
-        </nav>
+            <div class="flex items-center">
+              <img
+                src="/img/logo.png"
+                class="max-w-8 mr-2"
+                alt="Spirit Bid Logo"
+              />
+              <span class="text-earthy-beige font-serif text-xl"
+                >Spirit Bid</span
+              >
+            </div>
+            <button id="close-menu-btn" class="text-earthy-beige text-2xl">
+              &times;
+            </button>
+          </div>
+
+          <!-- Menu Content -->
+          <div class="flex-1 overflow-y-auto p-4 space-y-6">
+            <!-- Search -->
+            <div
+              class="w-full md:max-w-md md:mx-auto border-b border-earthy-beige/20 pb-6"
+            >
+              <h3 class="text-earthy-beige font-semibold mb-3">Search</h3>
+              <div class="flex justify-center">
+                <input
+                  id="site-search-mobile"
+                  type="search"
+                  placeholder="Search for item.."
+                  class="flex-1 px-3 border-1 border-black bg-earthy-beige py-2 rounded-l-lg text-soft-teal-2"
+                />
+                <button
+                  id="search-button-mobile"
+                  class="bg-soft-yellow text-soft-teal-2 px-4 py-2 rounded-r-lg hover:bg-yellow-400"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="border-b pt-3 border-earthy-beige/20 pb-6">
+              <h3 class="text-left text-earthy-beige font-semibold mb-3">
+                Menu
+              </h3>
+              <nav class="space-y-3 text-center">
+                <a
+                  href="/index.html"
+                  class="block text-earthy-beige hover:text-soft-yellow"
+                  >Home</a
+                >
+                <a
+                  href="#how-it-works"
+                  class="block text-earthy-beige hover:text-soft-yellow"
+                  >How it works</a
+                >
+                <a
+                  href="/pages/listings.html"
+                  class="block text-earthy-beige hover:text-soft-yellow"
+                  >Explore</a
+                >
+                <a
+                  href="/pages/create-listing.html"
+                  class="block text-earthy-beige hover:text-soft-yellow"
+                  >Create Listing</a
+                >
+                <a
+                  href="/pages/about.html"
+                  class="block text-earthy-beige hover:text-soft-yellow"
+                  >About Us</a
+                >
+                <a
+                  href="/pages/contact.html"
+                  class="block text-earthy-beige hover:text-soft-yellow"
+                  >Contact Us</a
+                >
+              </nav>
+            </div>
+            <!-- Auth -->
+            <section id="mobile-auth-section">
+              <h3 class="text-earthy-beige font-semibold mb-3">Account</h3>
+              <div class="space-y-3">
+                <a
+                  href="/pages/login.html"
+                  class="block text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg"
+                >
+                  Sign in
+                </a>
+                <a
+                  href="/pages/register.html"
+                  class="block text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg"
+                >
+                  Register
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
     </header>
     <main class="bg-soft-yellow/50 p-4 flex">
