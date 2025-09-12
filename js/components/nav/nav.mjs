@@ -40,13 +40,6 @@ function setupMobileMenu() {
 
   closeMenuBtn.addEventListener("click", closeMobileMenu);
 
-  // Close on backdrop click
-  mobileMenu.addEventListener("click", (e) => {
-    if (e.target === mobileMenu) {
-      closeMobileMenu();
-    }
-  });
-
   mobileMenu.addEventListener("click", (e) => {
     if (e.target.tagName === "A") {
       console.log("Mobile menu link clicked:", e.target.href);
@@ -71,7 +64,13 @@ function updateDesktopNavigation() {
   if (user) {
     // User is logged in - show welcome + profile + logout
     authNav.innerHTML = `
-      <span class="text-earthy-beige">Welcome, ${user.displayName}</span>
+    <img
+        src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
+        alt="${user.displayName}'s avatar"
+        class="w-8 h-8 rounded-full border-2 border-earthy-beige object-cover"
+        onerror="this.src='/img/avatar1-placeholder.jpg'"
+      />
+      <span class="text-earthy-beige flex items-center">Welcome, ${user.displayName}</span>
       <a href="/pages/profile.html"
          class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold">
         Profile
@@ -112,7 +111,6 @@ function updateMobileNavigation() {
   const user = getCurrentUser();
 
   updateMobileUserGreeting(user);
-  updateMobileMenuAvatar(user);
   updateMobileAuthSection(user);
 }
 
@@ -131,7 +129,7 @@ function updateMobileUserGreeting(user) {
     // Add user greeting
     const userGreeting = document.createElement("div");
     userGreeting.id = "mobile-user-greeting";
-    userGreeting.className = "flex items-center gap-2 xl:hidden";
+    userGreeting.className = "flex items-center gap-2 md:hidden";
 
     userGreeting.innerHTML = `
       <img
@@ -146,47 +144,6 @@ function updateMobileUserGreeting(user) {
     mobileMenuBtn.parentNode.insertBefore(userGreeting, mobileMenuBtn);
   }
 }
-/**
- * Add/remove user avatar at top of mobile menu (above search)
- */
-function updateMobileMenuAvatar(user) {
-  const existingAvatar = document.getElementById("mobile-menu-avatar");
-  if (existingAvatar) existingAvatar.remove();
-
-  if (user) {
-    const avatarElement = document.createElement("div");
-    avatarElement.id = "mobile-menu-avatar";
-    avatarElement.className =
-      "flex justify-center align-center pb-4 border-b border-earthy-beige/20 mb-6";
-
-    avatarElement.innerHTML = `
-      <section class="flex flex-col">
-        <div class="m-auto">
-          <img
-            src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
-            alt="${user.displayName}'s avatar"
-            class="w-20 h-20 rounded-full border-2 border-earthy-beige object-cover"
-            onerror="this.src='/img/avatar1-placeholder.jpg'"
-          />
-        </div>
-        <div class=" text-earthy-beige mb-3">
-            Welcome, ${user.displayName}!
-          </div>
-      </section>
-    `;
-
-    const mobileMenuContent =
-      document.querySelector("#mobile-menu .flex-1.overflow-y-auto") ||
-      document.querySelector("#mobile-menu .space-y-6");
-
-    if (mobileMenuContent) {
-      mobileMenuContent.insertBefore(
-        avatarElement,
-        mobileMenuContent.firstChild,
-      );
-    }
-  }
-}
 
 /**
  * Update mobile menu auth section
@@ -198,13 +155,27 @@ function updateMobileAuthSection(user) {
   if (user) {
     // User is logged in - show welcome + profile + logout)
     mobileAuthSection.innerHTML = `
+      <h3 class="text-earthy-beige font-semibold mb-3">Account</h3>
       <div class="space-y-3">
+      <div class="flex justify-center pb-4 border-b border-earthy-beige/20 mb-4">
+          <div class="flex flex-col items-center">
+            <img
+              src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
+              alt="${user.displayName}'s avatar"
+              class="w-16 h-16 rounded-full border-2 border-earthy-beige object-cover mb-2"
+              onerror="this.src='/img/avatar1-placeholder.jpg'"
+            />
+            <div class="text-earthy-beige text-center">
+              Welcome, ${user.displayName}!
+            </div>
+          </div>
+        </div>
         <a href="/pages/profile.html"
-           class="block w-full text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg">
+           class="block mb-4 mx-auto max-w-96 text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg">
           Profile
         </a>
         <button id="mobile-logout-button"
-                class="block w-full text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg">
+                class="block w-full mx-auto max-w-96 text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg">
           Sign Out
         </button>
       </div>
@@ -219,16 +190,16 @@ function updateMobileAuthSection(user) {
       });
     }
   } else {
-    // User is not logged in - show "Account" heading + login/register
+    // User is not logged in - show login/register
     mobileAuthSection.innerHTML = `
       <h3 class="text-earthy-beige font-semibold mb-3">Account</h3>
       <div class="space-y-3">
         <a href="/pages/login.html"
-           class="block w-full text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg">
+           class="block max-w-96 mx-auto mb-4 text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg">
           Sign in
         </a>
         <a href="/pages/register.html"
-           class="block w-full text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg">
+           class="block max-w-96 mx-auto text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg">
           Register
         </a>
       </div>

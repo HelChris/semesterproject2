@@ -63,7 +63,6 @@ export function setupGlobalSearch() {
   }
 }
 
-// ---------------------------------------------------
 
 async function performEnhancedSearch(query) {
   const { API_KEY } = await import("/js/constants/apikey.mjs");
