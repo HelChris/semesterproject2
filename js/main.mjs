@@ -11,6 +11,8 @@ import { loadUserProfile } from "/js/components/user-profile/load-user-profile.m
 import { setupEditProfileForm } from "/js/components/edit-profile/setup-edit-profile-form.mjs";
 import { setupGlobalSearch } from "./components/search/search-handler.mjs";
 import { setupItemPage } from "/js/components/item/item-page-controller.mjs";
+import { initializeProfileListingsSorter } from "/js/components/user-profile/user-profile-listings-sorting.mjs";
+import { initializeEditListingModal } from "/js/components/user-profile/edit-listing.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -68,9 +70,10 @@ function handleItemPage() {
 function handleProfilePage() {
   console.log("Profile page");
   loadUserProfile();
+  initializeProfileListingsSorter();
+  initializeEditListingModal();
   setupCreateListingModal();
   createListingHandler();
-  setupListingsPage();
 }
 
 function handleEditProfilePage() {
@@ -211,4 +214,3 @@ if (document.readyState === "loading") {
 } else {
   initializeRouter();
 }
-
