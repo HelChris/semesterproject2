@@ -60,6 +60,7 @@ function handleListingsPageRoute() {
 function handleCreateListingPage() {
   console.log("Create listing page");
   setupCreateListingModal();
+  createListingHandler();
 }
 
 function handleItemPage() {
