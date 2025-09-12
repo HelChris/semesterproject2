@@ -41,8 +41,8 @@ export async function fetchAuctionById(id) {
   };
 
   try {
-  const response = await fetch(url, options);
-  const json = await response.json();
+    const response = await fetch(url, options);
+    const json = await response.json();
 
     if (!response.ok) {
       throw new Error(
@@ -51,7 +51,7 @@ export async function fetchAuctionById(id) {
     }
     return json.data;
   } catch (error) {
-    console.error('Error fetching auctions by ID:', error);
+    console.error("Error fetching auctions by ID:", error);
     throw error;
   }
 }
@@ -80,7 +80,7 @@ export async function fetchListingsByUser(username, limit = 12, page = 1) {
 
   if (!response.ok) {
     throw new Error(
-      json.errors?.[0]?.message || "Failed to fecth user listings",
+      json.errors?.[0]?.message || "Failed to fetch user listings",
     );
   }
   return json;
@@ -203,4 +203,148 @@ export async function placeBidOnListing(listingId, amount) {
     console.error("Error placing bid:", error);
     throw error;
   }
+}
+
+/**
+ * Update an auction listing
+ * @param {string} listingId - The ID of the listing to update
+ * @param {Object} updateData - The data to update
+ * @returns {Promise<Object>} Updated listing data
+ */
+export async function updateAuctionListing(listingId, updateData) {
+  const accessToken = getFromLocalStorage("accessToken");
+
+  if (!accessToken) {
+    throw new Error("You must be logged in to update a listing");
+  }
+
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+    body: JSON.stringify(updateData),
+  };
+
+  const response = await fetch(
+    `${AUTH_ENDPOINTS.auctionListings}/${listingId}`,
+    options,
+  );
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      json.errors?.[0]?.message || "Failed to update auction listing",
+    );
+  }
+
+  return json;
+}
+
+/**
+ * Delete an auction listing
+ * @param {string} listingId - The ID of the listing to delete
+ * @returns {Promise<void>}
+ */
+export async function deleteAuctionListing(listingId) {
+  const accessToken = getFromLocalStorage("accessToken");
+
+  if (!accessToken) {
+    throw new Error("You must be logged in to delete a listing");
+  }
+
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  };
+
+  const response = await fetch(
+    `${AUTH_ENDPOINTS.auctionListings}/${listingId}`,
+    options,
+  );
+
+  if (!response.ok) {
+    const json = await response.json();
+    throw new Error(
+      json.errors?.[0]?.message || "Failed to delete auction listing",
+    );
+  }
+
+  return;
+}
+
+/**
+ * Fetch user's active bids
+ * @param {string} username - The username
+ * @param {number} limit - Number of items per page
+ * @param {number} page - Page number
+ * @returns {Promise<Object>} API response with user's bids
+ */
+export async function fetchUserBids(username, limit = 12, page = 1) {
+  const accessToken = getFromLocalStorage("accessToken");
+
+  if (!accessToken) {
+    throw new Error("You must be logged in to view bids");
+  }
+
+  const url = `${AUTH_ENDPOINTS.profiles}/${username}/bids?limit=${limit}&page=${page}&_listings=true&_seller=true`;
+
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  };
+
+  const response = await fetch(url, options);
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to fetch user bids");
+  }
+
+  return json;
+}
+
+/**
+ * Fetch user's auction wins
+ * @param {string} username - The username
+ * @param {number} limit - Number of items per page
+ * @param {number} page - Page number
+ * @returns {Promise<Object>} API response with user's wins
+ */
+export async function fetchUserWins(username, limit = 12, page = 1) {
+  const accessToken = getFromLocalStorage("accessToken");
+
+  if (!accessToken) {
+    throw new Error("You must be logged in to view wins");
+  }
+
+  const url = `${AUTH_ENDPOINTS.profiles}/${username}/wins?limit=${limit}&page=${page}&_bids=true&_seller=true`;
+
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  };
+
+  const response = await fetch(url, options);
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to fetch user wins");
+  }
+
+  return json;
 }

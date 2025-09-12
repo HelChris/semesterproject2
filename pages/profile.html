@@ -245,18 +245,34 @@
             </p>
           </div>
         </div>
-        <!-- Nav: Sort listing by Bids, My listings, Wins: -->
-        <nav
-          class="list-none flex bg-soft-teal-1/50 font-bold w-full mt-4 overflow-hidden"
-        >
-          <li class="bg-forest-green p-3 w-1/3 text-center text-white">Bids</li>
-          <li class="p-3 w-1/3 text-center text-black bg-soft-teal-1/50">
-            My Listings
-          </li>
-          <li class="p-3 w-1/3 text-center text-black bg-soft-teal-1/50">
-            Wins
-          </li>
-        </nav>
+        <!-- Sort listing by Bids, My listings, Wins: -->
+        <section class="profile-listings-filter">
+          <div
+            class="list-none flex bg-soft-teal-1/50 font-bold w-full mt-4 overflow-hidden"
+          >
+            <button
+              id="filter-bids"
+              class="filter-btn bg-forest-green p-3 w-1/3 text-center text-white active"
+              data-filter="bids"
+            >
+              Bids
+            </button>
+            <button
+              id="filter-listings"
+              class="filter-btn p-3 w-1/3 text-center text-black bg-soft-teal-1/50"
+              data-filter="listings"
+            >
+              My Listings
+            </button>
+            <button
+              id="filter-wins"
+              class="filter-btn p-3 w-1/3 text-center text-black bg-soft-teal-1/50"
+              data-filter="wins"
+            >
+              Wins
+            </button>
+          </div>
+        </section>
       </section>
 
       <!-- CREATE NEW LISTING MODAL -->
@@ -515,7 +531,7 @@
         </div>
         <div class="justify-self-center p-6">
           <button
-            id="load-more-button"
+            id="load-more-btn"
             class="px-4 py-1 bg-hover-terracotta hover:bg-warm-terracotta rounded-3xl text-earthy-beige text-bold shadow"
           >
             Load More
