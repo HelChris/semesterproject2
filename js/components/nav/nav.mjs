@@ -129,7 +129,7 @@ function updateMobileUserGreeting(user) {
     // Add user greeting
     const userGreeting = document.createElement("div");
     userGreeting.id = "mobile-user-greeting";
-    userGreeting.className = "flex items-center gap-2 md:hidden";
+    userGreeting.className = "flex items-center gap-2 xl:hidden";
 
     userGreeting.innerHTML = `
       <img
