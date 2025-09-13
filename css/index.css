@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap");
 @import "tailwindcss";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -10,13 +11,35 @@
   --color-soft-yellow: #f2cc87;
   --color-light-forest-green: #81b29a;
   --color-forest-green: #487961;
+
+  --font-family-heading: "Playfair Display", serif;
+  --font-family-body: "Inter", sans-serif;
+}
+
+/* utility classes */
+.font-heading {
+  font-family: "Playfair Display", serif;
+}
+
+.font-body {
+  font-family: "Inter", sans-serif;
 }
 
 :root {
-  font-family:;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
 }
 
 .alert-error {

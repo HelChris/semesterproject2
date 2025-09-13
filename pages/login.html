@@ -211,24 +211,27 @@
       </div>
     </header>
     <main
-      class="bg-gradient-to-r from-forest-green from-15% via-soft-yellow via-55% to-forest-green to-80% bg-cover p-8"
+      class="bg-light-forest-green min-h-screen grid place-items-center p-4"
     >
-      <section
-        class="pt-8 px-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
-      >
-        <div>
+      <section class="w-full max-w-md rounded-3xl bg-earthy-beige shadow-xl">
+        <div class="pt-8">
           <h1 class="text-black text-center text-3xl font-medium">Sign In</h1>
         </div>
         <!-- Login form -->
         <div class="p-8">
           <form novalidate id="loginForm">
             <fieldset>
-              <!-- id="message" is for displaying messages to the user-->
               <div id="message"></div>
               <!-- Email field-->
               <div class="space-y-5">
-                <div class="border p-2 rounded-2xl">
-                  <label for="email">Email:</label>
+                <div
+                  class="border p-2 rounded-2xl flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                >
+                  <label
+                    for="email"
+                    class="lg:w-20 lg:flex-shrink-0 text-sm lg:text-base"
+                    >Email:</label
+                  >
                   <input
                     type="email"
                     id="email"
@@ -236,7 +239,7 @@
                     autocomplete="email"
                     required
                     placeholder="example@stud.noroff.no"
-                    class="pl-1"
+                    class="pl-1 w-full lg:flex-1"
                   />
                 </div>
                 <div
@@ -250,8 +253,14 @@
               </div>
               <!-- Password field-->
               <div class="space-y-5">
-                <div class="border p-2 rounded-2xl">
-                  <label for="Password">Password:</label>
+                <div
+                  class="border p-2 rounded-2xl flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                >
+                  <label
+                    for="password"
+                    class="lg:w-20 lg:flex-shrink-0 text-sm lg:text-base"
+                    >Password:</label
+                  >
                   <input
                     type="password"
                     id="password"
@@ -259,7 +268,7 @@
                     autocomplete="password"
                     required
                     placeholder="********"
-                    class="pl-1"
+                    class="pl-1 w-full lg:flex-1"
                   />
                 </div>
                 <div
@@ -279,9 +288,9 @@
                 <button
                   type="submit"
                   id="loginButton"
-                  class="px-4 py-1.5 hover:border-warm-terracotta hover:bg-warm-terracotta bg-hover-terracotta border-warm-terracotta border-2 rounded-3xl text-black bold w-80 text-center"
+                  class="items-center px-8 py-3 bg-forest-green text-earthy-beige rounded-full hover:bg-soft-teal-2 transition-all duration-300 font-medium shadow-lg hover:shadow-xl w-full max-w-xs mx-auto"
                 >
-                  Sign in -&gt;
+                  Sign in
                 </button>
               </div>
               <!-- Register Link -->
@@ -295,108 +304,103 @@
         </div>
       </section>
     </main>
-    <footer
-      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
-    >
-      <section class="flex-col max-w-60 text-balance">
-        <div class="pl-10 flex items-center">
-          <img src="/img/logo.png" class="max-w-10" />
-          <p class="font-serif font-thin pl-2 text-2xl min-w-fit">Spirit Bid</p>
+    <footer class="bg-earthy-beige text-forest-green py-8 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col items-center text-center md:flex-row md:justify-between md:text-left md:items-start gap-8"
+        >
+          <section class="max-w-60 text-balance">
+            <div class="pl-10 flex items-center">
+              <img src="/img/logo.png" class="max-w-10" />
+              <p class="font-serif font-thin pl-2 text-2xl min-w-fit">
+                Spirit Bid
+              </p>
+            </div>
+            <blockquote
+              class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
+            >
+              A magical marketplace for unique and enchanted items.
+            </blockquote>
+            <section
+              class="flex pt-4 justify-center"
+              aria-describedby="Social media links"
+            >
+              <a
+                href="www.instagram.com"
+                class="p-2"
+                aria-describedby="Instagram"
+                ><img
+                  src="/img/instagram.png"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+              /></a>
+              <a href="www.x.com" class="p-2" aria-describedby="X"
+                ><img
+                  src="/img/x.png"
+                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+              ><a href="www.discord.com" class="p-2" aria-describedby="discord"
+                ><img
+                  src="/img/discord1.png"
+                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+              ><a
+                href="www.facebook.com"
+                class="p-2"
+                aria-describedby="facebook"
+                ><img
+                  src="/img/facebook.png"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+              /></a>
+            </section>
+          </section>
+          <section class="flex-col">
+            <h3 class="font-black text-xl pb-2">Quick Links</h3>
+            <a href="/index.html" class="flex pb-2 w-40 hover:font-medium"
+              >Home</a
+            >
+            <a
+              href="/pages/listings.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Explore</a
+            >
+            <a
+              href="/index.html#how-it-works"
+              class="flex pb-2 w-40 hover:font-medium"
+              >How It Works</a
+            >
+            <a
+              href="/pages/create-listing.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Create Listing</a
+            >
+            <a
+              href="/pages/profile.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >My Account</a
+            >
+          </section>
+          <section class="">
+            <h3 class="font-black text-xl pb-2">Help & Support</h3>
+            <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
+              >FAQ</a
+            >
+            <a href="/pages/about.html" class="flex pb-2 w-40 hover:font-medium"
+              >About Us</a
+            >
+            <a
+              href="/pages/contact.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Contact Us</a
+            >
+            <a
+              href="/pages/privacy.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Privacy Policy</a
+            >
+            <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
+              >Terms of Services</a
+            >
+          </section>
         </div>
-        <blockquote
-          class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
-        >
-          A magical marketplace for unique and enchanted items.
-        </blockquote>
-        <section
-          class="flex pt-2 justify-center"
-          aria-describedby="Social media links"
-        >
-          <a href="www.instagram.com" class="p-2" aria-describedby="Instagram"
-            ><img
-              src="/img/instagram.png"
-              class="max-h-6 opacity-70 hover:opacity-100"
-          /></a>
-          <a href="www.x.com" class="p-2" aria-describedby="X"
-            ><img
-              src="/img/x.png"
-              class="max-h-6 opacity-70 hover:opacity-100" /></a
-          ><a href="www.discord.com" class="p-2" aria-describedby="discord"
-            ><img
-              src="/img/discord1.png"
-              class="max-h-6 opacity-70 hover:opacity-100" /></a
-          ><a href="www.facebook.com" class="p-2" aria-describedby="facebook"
-            ><img
-              src="/img/facebook.png"
-              class="max-h-6 opacity-70 hover:opacity-100"
-          /></a>
-        </section>
-      </section>
-      <section class="flex-col">
-        <h3 class="font-bold pb-2">Quick Links</h3>
-        <a href="/index.html" class="flex pb-2 w-40 hover:font-medium">Home</a>
-        <a href="/pages/listings.html" class="flex pb-2 w-40 hover:font-medium"
-          >Explore</a
-        >
-        <a
-          href="/index.html#how-it-works"
-          class="flex pb-2 w-40 hover:font-medium"
-          >How It Works</a
-        >
-        <a
-          href="/pages/create-listing.html"
-          class="flex pb-2 w-40 hover:font-medium"
-          >Create Listing</a
-        >
-        <a href="/pages/profile.html" class="flex pb-2 w-40 hover:font-medium"
-          >My Account</a
-        >
-      </section>
-      <div class="">
-        <h3 class="font-bold pb-2">Help & Support</h3>
-        <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
-          >FAQ</a
-        >
-        <a href="/pages/about.html" class="flex pb-2 w-40 hover:font-medium"
-          >About Us</a
-        >
-        <a href="/pages/contact.html" class="flex pb-2 w-40 hover:font-medium"
-          >Contact Us</a
-        >
-        <a href="/pages/privacy.html" class="flex pb-2 w-40 hover:font-medium"
-          >Privacy Policy</a
-        >
-        <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
-          >Terms of Services</a
-        >
       </div>
-      <section class="">
-        <h3 class="font-bold pb-2">Newsletter</h3>
-        <p class="text-balance pb-2 max-w-60">
-          Subscribe to get updates on new magical items and exclusive auctions.
-        </p>
-        <div class="flex pt-2">
-          <div
-            class="pl-2 border-forest-green border-2 border-r-0 rounded-l-3xl max-w-fit content-center"
-          >
-            <input
-              type="email"
-              id="newsletter-email"
-              name="newsletter-email"
-              autocomplete="email"
-              required
-              aria-describedby="enter email to subscribe to newsletter"
-              placeholder="example@mail.com"
-              class="pl-2 focus:border-0"
-            />
-          </div>
-          <button
-            class="bg-warm-terracotta text-earthy-beige rounded-r-3xl justify-between px-4 py-1.5 border-warm-terracotta border-2 border-l-0 font-semibold"
-          >
-            Subscribe
-          </button>
-        </div>
-      </section>
     </footer>
   </body>
 </html>
