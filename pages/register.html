@@ -200,18 +200,18 @@
         </div>
       </div>
     </header>
-    <main class="bg-light-forest-green p-10">
+    <main class="bg-light-forest-green p-4 sm:p-10">
       <section
-        class="pt-8 px-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
+        class="pt-4 sm:pt-8 px-4 sm:px-8 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
       >
         <div>
-          <h1 class="text-black text-center text-3xl font-medium">
+          <h1 class="text-black text-center text-2xl sm:text-3xl font-medium">
             Create Account
           </h1>
           <p class="text-center italic pt-2">Join our bidding community</p>
         </div>
         <!-- register form -->
-        <div class="pb-8 pt-4 px-8">
+        <div class="pb-4 sm:pb-8 pt-1 px-1 sm:px-8">
           <form id="registerForm" novalidate>
             <fieldset>
               <div id="message"></div>
@@ -286,8 +286,12 @@
               </div>
               <!-- Confirm Password field-->
               <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="confirmPassword" class="flex-shrink-0"
+                <div
+                  class="border p-2 rounded-2xl flex flex-col xs:flex-row xs:items-center gap-2"
+                >
+                  <label
+                    for="confirmPassword"
+                    class="flex-shrink-0 text-sm xs:text-base"
                     >Confirm Password:</label
                   >
                   <input
