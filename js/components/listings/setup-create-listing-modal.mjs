@@ -1,3 +1,5 @@
+import { requireAuth } from "/js/utils/route-guard.mjs";
+
 export function setupCreateListingModal() {
   const modal = document.getElementById("createlisting-modal");
   const closeBtn = document.getElementById("close-createlisting-modal");
@@ -11,8 +13,16 @@ export function setupCreateListingModal() {
   if (!modal || !closeBtn) return;
 
   function openModal() {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
+    const isAuthenticated = requireAuth({
+      redirectMessage:
+        "You need to be logged in to create a listing. Please sign in to continue.",
+      containerSelector: "body",
+    });
+
+    if (isAuthenticated) {
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
   }
   function closeModal() {
     modal.classList.remove("flex");
@@ -27,4 +37,3 @@ export function setupCreateListingModal() {
     if (e.target === modal) closeModal();
   });
 }
-
