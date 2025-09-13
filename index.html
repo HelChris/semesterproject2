@@ -79,12 +79,12 @@
             <nav class="auth-nav flex gap-2">
               <a
                 href="/pages/login.html"
-                class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+                class="px-4 py-1 border-hover-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-white font-bold text-bold shadow"
                 >Sign in</a
               >
               <a
                 href="/pages/register.html"
-                class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+                class="px-4 py-1 border-soft-teal-2 bg-white hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow"
                 >Register</a
               >
             </nav>
@@ -213,18 +213,18 @@
     <main>
       <!--HERO BANNER w/bg-img + link-buttons-->
       <section
-        class="min-h-90 content-center bg-cover bg-[url('/img/landscape.jpg')] bg-blend-overlay bg-white/50"
+        class="min-h-screen content-center relative bg-cover before:absolute before:inset-0 before:bg-[url('/img/sky-banner.jpg')] before:bg-cover before:opacity-30 before:-z-10"
       >
         <div
           class="justify-items-center place-content-center min-h-90 min-w-full"
         >
           <h1
-            class="font-black text-soft-teal-2 rounded-full p-4 text-2xl md:text-5xl lg:text-6xl text-center max-w-4xl"
+            class="font-black text-teal-900 rounded-full p-4 text-2xl md:text-5xl lg:text-6xl text-center max-w-4xl"
           >
             Discover Magical Treasures
           </h1>
           <p
-            class="font-bold text-soft-teal-2 rounded-full p-4 text-balance text-center text-lg md:text-xl lg:text-2xl max-w-3xl mt-4"
+            class="font-bold text-teal-900 rounded-full p-4 text-balance text-center text-lg md:text-xl lg:text-3xl max-w-3xl mt-4"
           >
             Find unique items in our enchanted marketplace where every item
             tells a story.
@@ -232,12 +232,12 @@
           <div class="m-8 flex gap-4">
             <a
               href="/pages/listings.html"
-              class="px-6 py-3 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige font-bold shadow text-lg"
+              class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-soft-teal-2 border-soft-teal-2 text-white border-2 rounded-3xl hover:text-soft-teal-2 font-bold shadow text-lg"
               >Start Bidding</a
             >
             <a
               href="/pages/create-listing.html"
-              class="px-6 py-3 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow text-lg"
+              class="px-6 py-3 border-soft-teal-2 bg-white hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow text-lg"
               >Create Listing</a
             >
           </div>
@@ -657,80 +657,102 @@
         </section>
       </section>
     </main>
-    <footer
-      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
-    >
-      <section class="flex-col max-w-60 text-balance">
-        <div class="pl-10 flex items-center">
-          <img src="/img/logo.png" class="max-w-10" />
-          <p class="font-serif font-thin pl-2 text-2xl min-w-fit">Spirit Bid</p>
+    <footer class="bg-earthy-beige text-forest-green py-8 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col items-center text-center md:flex-row md:justify-between md:text-left md:items-start gap-8"
+        >
+          <section class="max-w-60 text-balance">
+            <div class="pl-10 flex items-center">
+              <img src="/img/logo.png" class="max-w-10" />
+              <p class="font-serif font-thin pl-2 text-2xl min-w-fit">
+                Spirit Bid
+              </p>
+            </div>
+            <blockquote
+              class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
+            >
+              A magical marketplace for unique and enchanted items.
+            </blockquote>
+            <section
+              class="flex pt-4 justify-center"
+              aria-describedby="Social media links"
+            >
+              <a
+                href="www.instagram.com"
+                class="p-2"
+                aria-describedby="Instagram"
+                ><img
+                  src="/img/instagram.png"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+              /></a>
+              <a href="www.x.com" class="p-2" aria-describedby="X"
+                ><img
+                  src="/img/x.png"
+                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+              ><a href="www.discord.com" class="p-2" aria-describedby="discord"
+                ><img
+                  src="/img/discord1.png"
+                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+              ><a
+                href="www.facebook.com"
+                class="p-2"
+                aria-describedby="facebook"
+                ><img
+                  src="/img/facebook.png"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+              /></a>
+            </section>
+          </section>
+          <section class="flex-col">
+            <h3 class="font-black text-xl pb-2">Quick Links</h3>
+            <a href="/index.html" class="flex pb-2 w-40 hover:font-medium"
+              >Home</a
+            >
+            <a
+              href="/pages/listings.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Explore</a
+            >
+            <a
+              href="/index.html#how-it-works"
+              class="flex pb-2 w-40 hover:font-medium"
+              >How It Works</a
+            >
+            <a
+              href="/pages/create-listing.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Create Listing</a
+            >
+            <a
+              href="/pages/profile.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >My Account</a
+            >
+          </section>
+          <section class="">
+            <h3 class="font-black text-xl pb-2">Help & Support</h3>
+            <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
+              >FAQ</a
+            >
+            <a href="/pages/about.html" class="flex pb-2 w-40 hover:font-medium"
+              >About Us</a
+            >
+            <a
+              href="/pages/contact.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Contact Us</a
+            >
+            <a
+              href="/pages/privacy.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Privacy Policy</a
+            >
+            <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
+              >Terms of Services</a
+            >
+          </section>
         </div>
-        <blockquote
-          class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
-        >
-          A magical marketplace for unique and enchanted items.
-        </blockquote>
-        <section
-          class="flex pt-2 justify-center"
-          aria-describedby="Social media links"
-        >
-          <a href="www.instagram.com" class="p-2" aria-describedby="Instagram"
-            ><img
-              src="/img/instagram.png"
-              class="max-h-6 opacity-70 hover:opacity-100"
-          /></a>
-          <a href="www.x.com" class="p-2" aria-describedby="X"
-            ><img
-              src="/img/x.png"
-              class="max-h-6 opacity-70 hover:opacity-100" /></a
-          ><a href="www.discord.com" class="p-2" aria-describedby="discord"
-            ><img
-              src="/img/discord1.png"
-              class="max-h-6 opacity-70 hover:opacity-100" /></a
-          ><a href="www.facebook.com" class="p-2" aria-describedby="facebook"
-            ><img
-              src="/img/facebook.png"
-              class="max-h-6 opacity-70 hover:opacity-100"
-          /></a>
-        </section>
-      </section>
-      <section class="flex-col">
-        <h3 class="font-bold pb-2">Quick Links</h3>
-        <a href="/index.html" class="flex pb-2 w-40 hover:font-medium">Home</a>
-        <a href="/pages/listings.html" class="flex pb-2 w-40 hover:font-medium"
-          >Explore</a
-        >
-        <a
-          href="/index.html#how-it-works"
-          class="flex pb-2 w-40 hover:font-medium"
-          >How It Works</a
-        >
-        <a
-          href="/pages/create-listing.html"
-          class="flex pb-2 w-40 hover:font-medium"
-          >Create Listing</a
-        >
-        <a href="/pages/profile.html" class="flex pb-2 w-40 hover:font-medium"
-          >My Account</a
-        >
-      </section>
-      <div class="">
-        <h3 class="font-bold pb-2">Help & Support</h3>
-        <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
-          >FAQ</a
-        >
-        <a href="/pages/about.html" class="flex pb-2 w-40 hover:font-medium"
-          >About Us</a
-        >
-        <a href="/pages/contact.html" class="flex pb-2 w-40 hover:font-medium"
-          >Contact Us</a
-        >
-        <a href="/pages/privacy.html" class="flex pb-2 w-40 hover:font-medium"
-          >Privacy Policy</a
-        >
-        <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
-          >Terms of Services</a
-        >
       </div>
     </footer>
   </body>
