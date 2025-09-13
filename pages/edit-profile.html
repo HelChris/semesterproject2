@@ -210,421 +210,577 @@
         </div>
       </div>
     </header>
-    <main class="bg-soft-yellow/50 p-4 flex">
-      <section class="p-4 ml-9">
-        <h1 class="text-2xl font-bold">Edit Profile</h1>
-        <p>Manage your account settings and preferences</p>
-        <nav
-          class="rounded-lg p-2 mt-4 bg-earthy-beige max-w-fit min-w-70 shadow"
-        >
-          <li
-            class="flex items-center gap-2 py-2 ml-2 mt-2 bg-hover-terracotta font text-white rounded-lg"
-          >
-            <!-- User Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-              />
-            </svg>
-            Personal Information
-          </li>
-          <li class="flex items-center ml-2 gap-2 py-2">
-            <!-- Credit Card Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"
-              />
-            </svg>
-            Credits & Billing
-          </li>
-          <li class="flex items-center ml-2 gap-2 py-2">
-            <!-- Heart Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-              />
-            </svg>
-            Wishlist
-          </li>
-          <li class="flex items-center ml-2 gap-2 py-2">
-            <!-- Bell Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-              />
-            </svg>
-            Notifications
-          </li>
-          <li class="flex items-center ml-2 gap-2 py-2">
-            <!-- Lock Closed Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-              />
-            </svg>
-            Security
-          </li>
-          <li class="flex items-center ml-2 gap-2 py-2 text-red-600">
-            <!-- Trash Icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5 text-red-600"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-              />
-            </svg>
-            Delete Account
-          </li>
-        </nav>
+    <main
+      class="bg-soft-yellow/50 min-h-screen flex flex-col lg:flex-row gap-4 p-2 md:p-4 lg:p-6"
+    >
+      <!-- Left Sidebar Section -->
+      <section class="w-full lg:w-80 lg:flex-shrink-0 p-2 md:p-4 lg:p-6">
+        <div class="space-y-4">
+          <div>
+            <h1 class="text-xl md:text-2xl font-bold">Edit Profile</h1>
+            <p class="text-sm md:text-base text-gray-600">
+              Manage your account settings and preferences
+            </p>
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="bg-earthy-beige rounded-lg shadow-md overflow-hidden">
+            <ul class="divide-y divide-gray-200">
+              <li class="bg-hover-terracotta text-white">
+                <div class="flex items-center gap-3 px-3 md:px-4 py-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 flex-shrink-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base truncate"
+                    >Personal Information</span
+                  >
+                </div>
+              </li>
+              <li class="hover:bg-gray-50 cursor-pointer transition-colors">
+                <div class="flex items-center gap-3 px-3 md:px-4 py-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 flex-shrink-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base truncate"
+                    >Credits & Billing</span
+                  >
+                </div>
+              </li>
+              <li class="hover:bg-gray-50 cursor-pointer transition-colors">
+                <div class="flex items-center gap-3 px-3 md:px-4 py-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 flex-shrink-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base truncate">Wishlist</span>
+                </div>
+              </li>
+              <li class="hover:bg-gray-50 cursor-pointer transition-colors">
+                <div class="flex items-center gap-3 px-3 md:px-4 py-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 flex-shrink-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base truncate"
+                    >Notifications</span
+                  >
+                </div>
+              </li>
+              <li class="hover:bg-gray-50 cursor-pointer transition-colors">
+                <div class="flex items-center gap-3 px-3 md:px-4 py-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 flex-shrink-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base truncate">Security</span>
+                </div>
+              </li>
+              <li class="hover:bg-red-50 cursor-pointer transition-colors">
+                <div
+                  class="flex items-center gap-3 px-3 md:px-4 py-3 text-red-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 flex-shrink-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base truncate"
+                    >Delete Account</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </section>
-      <section class="pt-8 px-8 max-w-2xl mx-auto rounded-3xl bg-earthy-beige">
-        <div class="pb-8 pt-4 px-8">
-          <h2 class="text-1xl font-bold py-2">Personal Information</h2>
-          <p class="text-gray-600">Profile Picture</p>
-          <div class="flex p-2 gap-6">
-            <img
-              id="profile-avatar"
-              class="avatar-img max-h-20 rounded-full border-gray-600 border-2"
-            />
-            <div class="flex gap-4 items-center">
-              <button
-                id="change-photo-modal-btn"
-                class="border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow max-h-fit px-4 py-1"
-              >
-                Change Photo
-              </button>
-              <button class="text-red-600">Remove</button>
+
+      <!-- Right Form Section -->
+      <section class="flex-1 min-w-0">
+        <div class="bg-earthy-beige rounded-3xl shadow-lg h-fit">
+          <div class="p-4 md:p-6 lg:p-8">
+            <div class="space-y-6">
+              <!-- Header -->
+              <div>
+                <h2 class="text-lg md:text-xl font-bold">
+                  Personal Information
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 mt-1">
+                  Profile Picture
+                </p>
+              </div>
+
+              <!-- Profile Picture Section -->
+              <div class="flex flex-col sm:flex-row gap-4 items-start">
+                <img
+                  id="profile-avatar"
+                  class="avatar-img w-16 h-16 md:w-20 md:h-20 rounded-full border-gray-600 border-2 flex-shrink-0"
+                />
+                <div
+                  class="flex flex-col sm:flex-row gap-3 items-start sm:items-center"
+                >
+                  <button
+                    id="change-photo-modal-btn"
+                    class="px-4 py-2 border-2 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige rounded-3xl text-soft-teal-2 font-bold shadow transition-colors text-sm md:text-base"
+                  >
+                    Change Photo
+                  </button>
+                  <button
+                    class="text-red-600 text-sm md:text-base hover:underline"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+              <!--EDIT PROFILE FORM -->
+              <form id="editProfile-form" novalidate class="space-y-6">
+                <fieldset>
+                  <div id="message"></div>
+                  <input type="hidden" id="avatar-url" name="avatar" value="" />
+
+                  <!-- Banner field -->
+                  <div class="m-2">
+                    <input
+                      type="hidden"
+                      id="banner-alt"
+                      name="banner-alt"
+                      value="Banner image"
+                    />
+                    <div class="border p-3 rounded-2xl">
+                      <div
+                        class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                      >
+                        <label
+                          for="banner-url"
+                          class="lg:w-32 lg:flex-shrink-0 text-sm md:text-base font-medium"
+                        >
+                          Banner Image URL:
+                        </label>
+                        <input
+                          type="url"
+                          id="banner-url"
+                          name="banner-url"
+                          placeholder="https://example.com/banner.jpg"
+                          class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div
+                      id="banner-url-error"
+                      class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                      role="alert"
+                    >
+                      Please enter a valid banner image URL
+                    </div>
+                  </div>
+
+                  <!-- Username field -->
+                  <div>
+                    <div class="border p-3 rounded-2xl m-2">
+                      <div
+                        class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                      >
+                        <label
+                          for="username"
+                          class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                        >
+                          Username:
+                        </label>
+                        <input
+                          type="text"
+                          id="username"
+                          name="username"
+                          required
+                          aria-describedby="username-error"
+                          placeholder="Jane"
+                          class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      id="username-error"
+                      class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                      role="alert"
+                    >
+                      Please enter your username
+                    </div>
+                  </div>
+
+                  <!-- First Name & Last Name -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="firstName"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            First Name:
+                          </label>
+                          <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            required
+                            aria-describedby="firstName-error"
+                            placeholder="Jane"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="firstName-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your first name
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="lastName"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            Last Name:
+                          </label>
+                          <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            required
+                            aria-describedby="lastName-error"
+                            placeholder="Doe"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="lastName-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your last name
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Email & Phone -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="email"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            Email:
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            aria-describedby="email-error"
+                            placeholder="example@stud.noroff.no"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="email-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your email
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="phone"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            Phone:
+                          </label>
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            required
+                            aria-describedby="phone-error"
+                            placeholder="+47 11 22 33 44"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="phone-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your phone number
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bio field -->
+                  <div>
+                    <div class="border p-3 rounded-2xl m-2">
+                      <div
+                        class="flex flex-col lg:flex-row lg:items-start lg:gap-3"
+                      >
+                        <label
+                          for="bio"
+                          class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                        >
+                          Bio:
+                        </label>
+                        <textarea
+                          id="bio"
+                          name="bio"
+                          required
+                          aria-describedby="bio-error"
+                          placeholder="Tell us about yourself.."
+                          rows="4"
+                          class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 resize-y text-sm md:text-base"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div
+                      id="bio-error"
+                      class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                      role="alert"
+                    >
+                      Please write a bio
+                    </div>
+                  </div>
+
+                  <!-- Country & City -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="country"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            Country:
+                          </label>
+                          <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            required
+                            aria-describedby="country-error"
+                            placeholder="Norway"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="country-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your country
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="city"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            City:
+                          </label>
+                          <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            required
+                            aria-describedby="city-error"
+                            placeholder="Oslo"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="city-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your city
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Address & Postal Code -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="address"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            Address:
+                          </label>
+                          <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            required
+                            aria-describedby="address-error"
+                            placeholder="Example Road"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="address-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your address
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="border p-3 rounded-2xl">
+                        <div
+                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
+                        >
+                          <label
+                            for="postalcode"
+                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
+                          >
+                            Postal Code:
+                          </label>
+                          <input
+                            type="text"
+                            id="postalcode"
+                            name="postalcode"
+                            required
+                            aria-describedby="postalcode-error"
+                            placeholder="1234"
+                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        id="postalcode-error"
+                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
+                        role="alert"
+                      >
+                        Please enter your postal code
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Submit Section -->
+                  <div
+                    class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6"
+                  >
+                    <a
+                      href="/pages/profile.html"
+                      class="text-gray-600 hover:underline text-sm md:text-base"
+                    >
+                      Cancel
+                    </a>
+                    <button
+                      type="submit"
+                      id="submit-button"
+                      class="px-6 py-2 bg-hover-terracotta hover:bg-warm-terracotta rounded-3xl text-earthy-beige font-bold shadow transition-colors text-sm md:text-base"
+                    >
+                      Save Changes
+                    </button>
+                  </div>
+                </fieldset>
+              </form>
             </div>
           </div>
-          <!--EDIT PROFILE FORM -->
-          <form id="editProfile-form" novalidate>
-            <fieldset>
-              <div id="message"></div>
-              <input type="hidden" id="avatar-url" name="avatar" value="" />
-              <!-- Banner field -->
-              <div class="mb-5">
-                <input
-                  type="hidden"
-                  id="banner-alt"
-                  name="banner-alt"
-                  value="Banner image"
-                />
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="banner-url" class="flex-shrink-0"
-                    >Banner Image URL:</label
-                  >
-                  <input
-                    type="url"
-                    id="banner-url"
-                    name="banner-url"
-                    placeholder="https://example.com/banner.jpg"
-                    class="pl-1 w-full flex-1"
-                    required
-                  />
-                </div>
-                <div
-                  id="banner-url-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter a valid banner image URL
-                </div>
-              </div>
-              <!-- Username field -->
-              <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="username" class="flex-shrink-0">Username:</label>
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    required
-                    aria-describedby="username-error"
-                    placeholder="Jane"
-                    class="pl-1 w-full flex-1"
-                  />
-                </div>
-                <div
-                  id="username-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your username
-                </div>
-              </div>
-              <!-- First Name field -->
-              <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="firstName" class="flex-shrink-0"
-                    >First Name:</label
-                  >
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    required
-                    aria-describedby="firstName-error"
-                    placeholder="Jane"
-                    class="pl-1 w-full flex-1"
-                  />
-                </div>
-                <div
-                  id="firstName-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your first name
-                </div>
-              </div>
-              <!-- Last Name field -->
-              <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="lastName" class="flex-shrink-0">Last Name:</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    required
-                    aria-describedby="lastName-error"
-                    placeholder="Doe"
-                    class="pl-1 w-full flex-1"
-                  />
-                </div>
-                <div
-                  id="lastName-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your last name
-                </div>
-              </div>
-              <!-- Email field -->
-              <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="email" class="flex-shrink-0">Email:</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    aria-describedby="email-error"
-                    placeholder="example@stud.noroff.no"
-                    class="pl-1 w-full flex-1"
-                  />
-                </div>
-                <div
-                  id="email-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your email
-                </div>
-              </div>
-              <!-- Phone field -->
-              <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-center gap-2">
-                  <label for="phone" class="flex-shrink-0">Phone Number:</label>
-                  <input
-                    type="number"
-                    id="phone"
-                    name="phone"
-                    required
-                    aria-describedby="phone-error"
-                    placeholder="+47 11 22 33 44"
-                    class="pl-1 w-full flex-1"
-                  />
-                </div>
-                <div
-                  id="phone-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please enter your phone number
-                </div>
-              </div>
-              <!-- Bio field -->
-              <div class="mb-5">
-                <div class="border p-2 rounded-2xl flex items-start gap-2">
-                  <label for="bio" class="flex-shrink-0 self-start">Bio:</label>
-                  <textarea
-                    id="bio"
-                    name="bio"
-                    required
-                    aria-describedby="bio-error"
-                    placeholder="Tell us about yourself.."
-                    rows="4"
-                    class="pl-1 w-full flex-1 resize-y"
-                  ></textarea>
-                </div>
-                <div
-                  id="bio-error"
-                  class="mt-1 text-sm text-red-600 hidden"
-                  role="alert"
-                >
-                  Please write a bio
-                </div>
-              </div>
-              <section class="flex gap-4">
-                <!-- Country field -->
-                <div class="mb-5">
-                  <div class="border p-2 rounded-2xl flex items-center gap-2">
-                    <label for="country" class="flex-shrink-0">Country:</label>
-                    <input
-                      type="text"
-                      id="country"
-                      name="country"
-                      required
-                      aria-describedby="country-error"
-                      placeholder="Norway"
-                      class="pl-1 w-full flex-1"
-                    />
-                  </div>
-                  <div
-                    id="country-error"
-                    class="mt-1 text-sm text-red-600 hidden"
-                    role="alert"
-                  >
-                    Please enter your country
-                  </div>
-                </div>
-                <!-- City field -->
-                <div class="mb-5">
-                  <div class="border p-2 rounded-2xl flex items-center gap-2">
-                    <label for="city" class="flex-shrink-0">City:</label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      required
-                      aria-describedby="city-error"
-                      placeholder="Oslo"
-                      class="pl-1 w-full flex-1"
-                    />
-                  </div>
-                  <div
-                    id="city-error"
-                    class="mt-1 text-sm text-red-600 hidden"
-                    role="alert"
-                  >
-                    Please enter your city
-                  </div>
-                </div>
-              </section>
-              <section class="flex gap-4">
-                <!-- Street Address field -->
-                <div class="mb-5">
-                  <div class="border p-2 rounded-2xl flex items-center gap-2">
-                    <label for="address" class="flex-shrink-0"
-                      >Street Address:</label
-                    >
-                    <input
-                      type="text"
-                      id="address"
-                      name="address"
-                      required
-                      aria-describedby="address-error"
-                      placeholder="Example Road"
-                      class="pl-1 w-full flex-1"
-                    />
-                  </div>
-                  <div
-                    id="address-error"
-                    class="mt-1 text-sm text-red-600 hidden"
-                    role="alert"
-                  >
-                    Please enter your country
-                  </div>
-                </div>
-                <!-- Postal Code field -->
-                <div class="mb-5">
-                  <div class="border p-2 rounded-2xl flex items-center gap-2">
-                    <label for="postalcode" class="flex-shrink-0"
-                      >Postal Code:</label
-                    >
-                    <input
-                      type="text"
-                      id="postalcode"
-                      name="postalcode"
-                      required
-                      aria-describedby="postalcode-error"
-                      placeholder="1234"
-                      class="pl-1 w-full flex-1"
-                    />
-                  </div>
-                  <div
-                    id="postalcode-error"
-                    class="mt-1 text-sm text-red-600 hidden"
-                    role="alert"
-                  >
-                    Please enter your postal code
-                  </div>
-                </div>
-              </section>
-              <!-- Submit button -->
-              <div class="text-center flex items-center gap-4 justify-center">
-                <a href="pages/profile.html" class="text-gray-600">Cancel</a>
-                <button
-                  type="submit"
-                  id="submit-button"
-                  class="px-4 py-1 bg-hover-terracotta hover:bg-warm-terracotta rounded-3xl text-earthy-beige text-bold shadow"
-                >
-                  Save Changes
-                </button>
-              </div>
-            </fieldset>
-          </form>
         </div>
       </section>
     </main>
