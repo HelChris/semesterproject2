@@ -219,7 +219,7 @@
           class="justify-items-center place-content-center min-h-90 min-w-full"
         >
           <h1
-            class="font-black text-teal-900 rounded-full p-4 text-2xl md:text-5xl lg:text-6xl text-center max-w-4xl"
+            class="font-black text-teal-900 rounded-full p-4 text-4xl md:text-5xl lg:text-6xl text-center max-w-4xl"
           >
             Discover Magical Treasures
           </h1>
@@ -229,7 +229,7 @@
             Find unique items in our enchanted marketplace where every item
             tells a story.
           </p>
-          <div class="m-8 flex gap-4">
+          <div class="m-8 flex gap-4 flex-col md:flex-row">
             <a
               href="/pages/listings.html"
               class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-soft-teal-2 border-soft-teal-2 text-white border-2 rounded-3xl hover:text-soft-teal-2 font-bold shadow text-lg"
@@ -278,7 +278,7 @@
                   <!-- Content -->
                   <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
                     <h3
-                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                      class="text-xl font-bold mb-2 group-hover:text-white transition-colors"
                     >
                       Magical Items
                     </h3>
@@ -305,7 +305,7 @@
                   <!-- Content -->
                   <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
                     <h3
-                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                      class="text-xl font-bold mb-2 group-hover:text-white transition-colors"
                     >
                       Ancient Books
                     </h3>
@@ -332,7 +332,7 @@
                   <!-- Content -->
                   <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
                     <h3
-                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                      class="text-xl font-bold mb-2 group-hover:text-white transition-colors"
                     >
                       Rare Collectibles
                     </h3>
@@ -359,7 +359,7 @@
                   <!-- Content -->
                   <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
                     <h3
-                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                      class="text-xl font-bold mb-2 group-hover:text-white transition-colors"
                     >
                       Forest Artifacts
                     </h3>
@@ -396,26 +396,6 @@
           </div>
         </div>
       </section>
-      <!-- LATEST AUCTIONS CAROUSEL SECTION-->
-      <section class="bg-white min-h-80 justify-items-center p-4">
-        <div class="place-content-center">
-          <h2 class="text-center text-xl font-medium p-4">Latest Auctions</h2>
-          <div class="flex flex-row gap-2">
-            <div class="m-auto font-black">&lt;-</div>
-            <div class="h-50 w-120 border-2 place-content-center">
-              <p class="m-2 text-center">
-                Carousel w/auction cards coming here....
-              </p>
-            </div>
-            <div class="m-auto font-black">-&gt;</div>
-          </div>
-        </div>
-        <button
-          class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow flex my-4"
-        >
-          View More Listings -&gt;
-        </button>
-      </section>
       <!-- HOW IT WORKS SECTION-->
       <section
         id="how-it-works"
@@ -448,7 +428,7 @@
                 </div>
 
                 <div
-                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 flex flex-col w-64 h-64"
+                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl flex flex-col w-64 h-64"
                 >
                   <div
                     class="w-12 h-12 bg-forest-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-green/20 transition-colors"
@@ -491,7 +471,7 @@
                 </div>
 
                 <div
-                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 flex flex-col w-64 h-64"
+                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl flex flex-col w-64 h-64"
                 >
                   <div
                     class="w-12 h-12 bg-forest-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-green/20 transition-colors"
@@ -534,7 +514,7 @@
                 </div>
 
                 <div
-                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 flex flex-col w-64 h-64"
+                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl flex flex-col w-64 h-64"
                 >
                   <div
                     class="w-12 h-12 bg-forest-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-green/20 transition-colors"
@@ -599,62 +579,6 @@
             </div>
           </div>
         </div>
-      </section>
-      <!-- FEATURED AUCTION OF THE WEEK -->
-      <section class="bg-earthy-beige min-h-80 justify-items-center p-4">
-        <div class="flex p-8 gap-8">
-          <div class="bg-black h-50 w-120"></div>
-          <div>
-            <div class="place-content-center w-fit">
-              <h2 class="text-center text-xl font-medium p-4">
-                Featured Auction of the Week
-              </h2>
-              <p class="text-center text-balance p-2 max-w-80">
-                This rare flying castle miniature is our most magical item this
-                week. It levitates slightly above any surface and glows softly
-                at night, bringing wonder to any collection.
-              </p>
-            </div>
-            <button
-              id="place-bid"
-              class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow flex my-4 justify-self-center"
-            >
-              Place a Bid
-            </button>
-          </div>
-        </div>
-        <!-- JOIN COMMUNITY BANNER -->
-        <section class="w-full">
-          <div
-            class="justify-items-center place-content-center min-h-90 min-w-full bg-light-forest-green"
-          >
-            <h2
-              class="shadow font-medium p-1 m-2 text-xs text-hover-terracotta bg-soft-yellow rounded-2xl"
-            >
-              Join Our Community
-            </h2>
-            <h3 class="text-2xl font-bold text-white p-4">
-              Start Your Magical Auction Journey Today
-            </h3>
-            <p class="text-white text-balance max-w-120">
-              Create an account to bid on unique items, list your own treasures,
-              and become part of our enchanted marketplace community.
-            </p>
-
-            <div class="m-8 flex gap-4">
-              <a
-                href="/pages/register.html"
-                class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
-                >Create Account</a
-              >
-              <a
-                href="/index.html#how-it-works"
-                class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
-                >Learn More</a
-              >
-            </div>
-          </div>
-        </section>
       </section>
     </main>
     <footer class="bg-earthy-beige text-forest-green py-8 px-6">
@@ -743,9 +667,7 @@
               class="flex pb-2 w-40 hover:font-medium"
               >Contact Us</a
             >
-            <a
-              href="/pages/privacy.html"
-              class="flex pb-2 w-40 hover:font-medium"
+            <a href="#" class="flex pb-2 w-40 hover:font-medium"
               >Privacy Policy</a
             >
             <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
