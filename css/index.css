@@ -3,12 +3,13 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-  --color-warm-terracotta: #e07a5f;
-  --color-hover-terracotta: #d4634a; /* "darker terracota" */
-  --color-soft-teal-1: #5e9ca2;
-  --color-soft-teal-2: #3a7d7e;
+  --color-warm-terracotta: #8b4513;
+  --color-hover-terracotta: #7a3f12;
+  --color-soft-teal-1: #2d5a5f;
+  --color-soft-teal-2: #1e4347;
   --color-earthy-beige: #f5f3eb;
   --color-soft-yellow: #f2cc87;
+  --color-super-soft-yellow: #fef7e6;
   --color-light-forest-green: #81b29a;
   --color-forest-green: #487961;
 
@@ -62,12 +63,12 @@ h6 {
 
 /* Primary Button - Soft Teal with White Text */
 .btn-primary {
-  @apply inline-flex items-center px-6 py-3 bg-soft-teal-2 hover:bg-earthy-beige border-2 border-soft-teal-2 hover:border-soft-teal-2 text-white hover:text-soft-teal-2 rounded-3xl font-bold shadow-lg hover:shadow-xl transition-all duration-300;
+  @apply inline-flex items-center px-6 py-2 bg-soft-teal-2 hover:bg-earthy-beige border-2 border-soft-teal-2 hover:border-soft-teal-2 text-white hover:text-soft-teal-2 rounded-3xl font-bold shadow-lg hover:shadow-xl transition-all duration-300;
 }
 
 /* Secondary Button - White with Soft Teal Text */
 .btn-secondary {
-  @apply inline-flex items-center px-6 py-3 bg-white hover:bg-soft-teal-1 border-2 border-soft-teal-2 hover:border-soft-teal-2 hover:text-earthy-beige text-soft-teal-2 rounded-3xl font-bold shadow-lg hover:shadow-xl transition-all duration-300;
+  @apply inline-flex items-center px-6 py-2 bg-white hover:bg-soft-teal-1 border-2 border-soft-teal-2 hover:border-soft-teal-2 hover:text-earthy-beige text-soft-teal-2 rounded-3xl font-bold shadow-lg hover:shadow-xl transition-all duration-300;
 }
 
 /* Mobile versions - Block display */

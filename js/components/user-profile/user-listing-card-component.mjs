@@ -60,7 +60,7 @@ export function createUserListingCard(listing) {
             ?.slice(0, 2)
             .map(
               (tag) =>
-                `<span class="bg-soft-yellow text-soft-teal-2 px-3 py-1 rounded text-md">${tag}</span>`,
+                `<span class="bg-super-soft-yellow text-black px-3 py-1 rounded text-md">${tag}</span>`,
             )
             .join("") || ""
         }
