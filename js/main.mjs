@@ -60,8 +60,16 @@ function handleListingsPageRoute() {
 
 function handleCreateListingPage() {
   console.log("Create listing page");
-  setupCreateListingModal();
-  createListingHandler();
+  checkAuthAndRender(
+    () => {
+      createListingHandler();
+    },
+    {
+      redirectMessage:
+        "You need to be logged in to create listings. Join our community to start selling!",
+      containerSelector: "main",
+    },
+  );
 }
 
 function handleItemPage() {
