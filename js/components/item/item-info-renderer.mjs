@@ -87,7 +87,7 @@ export class ItemInfoRenderer {
     const tagsHTML = tags
       .map(
         (tag) =>
-          `<span class="inline-block bg-soft-yellow text-soft-teal-2 px-3 py1 rounded-full text-md font-medium mr-2 mb-2">
+          `<span class="inline-block bg-super-soft-yellow text-black px-3 py1 rounded-full text-md font-medium mr-2 mb-2">
       ${tag}
       </span>`,
       )

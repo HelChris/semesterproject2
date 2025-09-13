@@ -1,4 +1,5 @@
 import { getCurrentUser, logout } from "/js/auth/logout.mjs";
+import { BUTTON_CONFIG } from "/js/constants/button-styles.mjs";
 
 /**
  * Initialize navigation - setup mobile menu and update auth state
@@ -7,6 +8,7 @@ export function initializeNavigation() {
   setupMobileMenu();
   updateNavigation();
 }
+
 /**
  * Update both desktop and mobile navigation based on auth state
  */
@@ -41,8 +43,8 @@ function setupMobileMenu() {
   closeMenuBtn.addEventListener("click", closeMobileMenu);
 
   mobileMenu.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-      console.log("Mobile menu link clicked:", e.target.href);
+    if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
+      console.log("Mobile menu item clicked:", e.target);
       closeMobileMenu();
     }
   });
@@ -62,27 +64,33 @@ function updateDesktopNavigation() {
   const user = getCurrentUser();
 
   if (user) {
-    // User is logged in - show welcome + profile + logout
+    // User is logged in - show avatar + welcome + profile + logout
     authNav.innerHTML = `
-    <img
-        src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
-        alt="${user.displayName}'s avatar"
-        class="w-8 h-8 rounded-full border-2 border-earthy-beige object-cover"
-        onerror="this.src='/img/avatar1-placeholder.jpg'"
-      />
-      <span class="text-earthy-beige flex items-center">Welcome, ${user.displayName}</span>
-      <a href="/pages/profile.html"
-         class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold">
-        Profile
+      <div class="flex items-center gap-2">
+        <img
+          src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
+          alt="${user.displayName}'s avatar"
+          class="w-8 h-8 rounded-full border-2 border-earthy-beige object-cover shadow-lg"
+          onerror="this.src='/img/avatar1-placeholder.jpg'"
+        />
+        <span class="text-earthy-beige text-sm font-medium hidden lg:block">Hi, ${user.displayName}</span>
+      </div>
+
+      <a href="${BUTTON_CONFIG.LOGGED_IN.desktop.profile.href}"
+         class="${BUTTON_CONFIG.LOGGED_IN.desktop.profile.style}">
+        ${BUTTON_CONFIG.LOGGED_IN.desktop.profile.text}
       </a>
-      <button id="logout-button"
-              class="px-4 py-1 border-hover-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow">
-        Sign Out
+
+      <button id="${BUTTON_CONFIG.LOGGED_IN.desktop.logout.id}"
+              class="${BUTTON_CONFIG.LOGGED_IN.desktop.logout.style}">
+        ${BUTTON_CONFIG.LOGGED_IN.desktop.logout.text}
       </button>
     `;
 
     // Add logout event listener
-    const logoutButton = document.getElementById("logout-button");
+    const logoutButton = document.getElementById(
+      BUTTON_CONFIG.LOGGED_IN.desktop.logout.id,
+    );
     if (logoutButton) {
       logoutButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -92,13 +100,14 @@ function updateDesktopNavigation() {
   } else {
     // User is not logged in - show login/register
     authNav.innerHTML = `
-      <a href="/pages/login.html"
-         class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow">
-        Sign in
+      <a href="${BUTTON_CONFIG.LOGGED_OUT.desktop.signIn.href}"
+         class="${BUTTON_CONFIG.LOGGED_OUT.desktop.signIn.style}">
+        ${BUTTON_CONFIG.LOGGED_OUT.desktop.signIn.text}
       </a>
-      <a href="/pages/register.html"
-         class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow">
-        Register
+
+      <a href="${BUTTON_CONFIG.LOGGED_OUT.desktop.register.href}"
+         class="${BUTTON_CONFIG.LOGGED_OUT.desktop.register.style}">
+        ${BUTTON_CONFIG.LOGGED_OUT.desktop.register.text}
       </a>
     `;
   }
@@ -109,7 +118,6 @@ function updateDesktopNavigation() {
  */
 function updateMobileNavigation() {
   const user = getCurrentUser();
-
   updateMobileUserGreeting(user);
   updateMobileAuthSection(user);
 }
@@ -135,7 +143,7 @@ function updateMobileUserGreeting(user) {
       <img
         src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
         alt="${user.displayName}'s avatar"
-        class="w-8 h-8 rounded-full border-2 border-earthy-beige object-cover"
+        class="w-8 h-8 rounded-full border-2 border-earthy-beige object-cover shadow-lg"
         onerror="this.src='/img/avatar1-placeholder.jpg'"
       />
       <span class="text-earthy-beige text-sm font-medium">Hi, ${user.displayName}</span>
@@ -146,43 +154,50 @@ function updateMobileUserGreeting(user) {
 }
 
 /**
- * Update mobile menu auth section
+ * Update mobile menu auth section with consistent, centered buttons
  */
 function updateMobileAuthSection(user) {
   const mobileAuthSection = document.getElementById("mobile-auth-section");
   if (!mobileAuthSection) return;
 
   if (user) {
-    // User is logged in - show welcome + profile + logout)
+    // User is logged in - show welcome + profile + logout
     mobileAuthSection.innerHTML = `
       <h3 class="text-earthy-beige font-semibold mb-3">Account</h3>
       <div class="space-y-3">
-      <div class="flex justify-center pb-4 border-b border-earthy-beige/20 mb-4">
+        <div class="flex justify-center pb-4 border-b border-earthy-beige/20 mb-4">
           <div class="flex flex-col items-center">
             <img
               src="${user.userAvatar || "/img/avatar1-placeholder.jpg"}"
               alt="${user.displayName}'s avatar"
-              class="w-16 h-16 rounded-full border-2 border-earthy-beige object-cover mb-2"
+              class="w-16 h-16 rounded-full border-2 border-earthy-beige object-cover mb-2 shadow-lg"
               onerror="this.src='/img/avatar1-placeholder.jpg'"
             />
-            <div class="text-earthy-beige text-center">
+            <div class="text-earthy-beige text-center font-medium">
               Welcome, ${user.displayName}!
             </div>
           </div>
         </div>
-        <a href="/pages/profile.html"
-           class="block mb-4 mx-auto max-w-96 text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg">
-          Profile
-        </a>
-        <button id="mobile-logout-button"
-                class="block w-full mx-auto max-w-96 text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg">
-          Sign Out
-        </button>
+
+        <!-- Centered button container -->
+        <div class="flex flex-col items-center space-y-3 max-w-xs mx-auto">
+          <a href="${BUTTON_CONFIG.LOGGED_IN.mobile.profile.href}"
+             class="${BUTTON_CONFIG.LOGGED_IN.mobile.profile.style} w-full">
+            ${BUTTON_CONFIG.LOGGED_IN.mobile.profile.text}
+          </a>
+
+          <button id="${BUTTON_CONFIG.LOGGED_IN.mobile.logout.id}"
+                  class="${BUTTON_CONFIG.LOGGED_IN.mobile.logout.style} w-full">
+            ${BUTTON_CONFIG.LOGGED_IN.mobile.logout.text}
+          </button>
+        </div>
       </div>
     `;
 
     // Add mobile logout event listener
-    const mobileLogoutButton = document.getElementById("mobile-logout-button");
+    const mobileLogoutButton = document.getElementById(
+      BUTTON_CONFIG.LOGGED_IN.mobile.logout.id,
+    );
     if (mobileLogoutButton) {
       mobileLogoutButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -190,17 +205,20 @@ function updateMobileAuthSection(user) {
       });
     }
   } else {
-    // User is not logged in - show login/register
+    // User is not logged in - show login/register with consistent styling
     mobileAuthSection.innerHTML = `
       <h3 class="text-earthy-beige font-semibold mb-3">Account</h3>
-      <div class="space-y-3">
-        <a href="/pages/login.html"
-           class="block max-w-96 mx-auto mb-4 text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg">
-          Sign in
+
+      <!-- Centered button container -->
+      <div class="flex flex-col items-center space-y-3 max-w-xs mx-auto">
+        <a href="${BUTTON_CONFIG.LOGGED_OUT.mobile.signIn.href}"
+           class="${BUTTON_CONFIG.LOGGED_OUT.mobile.signIn.style} w-full">
+          ${BUTTON_CONFIG.LOGGED_OUT.mobile.signIn.text}
         </a>
-        <a href="/pages/register.html"
-           class="block max-w-96 mx-auto text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg">
-          Register
+
+        <a href="${BUTTON_CONFIG.LOGGED_OUT.mobile.register.href}"
+           class="${BUTTON_CONFIG.LOGGED_OUT.mobile.register.style} w-full">
+          ${BUTTON_CONFIG.LOGGED_OUT.mobile.register.text}
         </a>
       </div>
     `;

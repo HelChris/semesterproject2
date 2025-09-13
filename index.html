@@ -61,32 +61,25 @@
               <div
                 class="rounded-r- pl-2 border-earthy-beige rounded-3xl border-r-0 bg-earthy-beige text-soft-teal-2 text-left"
               >
-                <label for="site-search" hidden>Search the site:</label>
+                <label for="site-search" class="sr-only"
+                  >Search for items</label
+                >
                 <input
                   placeholder="Search for item.."
                   id="site-search"
                   type="search"
-                  aria-describedby="search-field"
                 />
                 <button
                   id="search-button"
-                  class="bg-soft-yellow text-soft-teal-2 rounded-r-3xl justify-between border-soft-yellow border-2 border-l-0 py-1 px-1.5 hover:font-bold w-20"
+                  class="bg-forest-green text-earthy-beige rounded-r-3xl justify-between border-white border-2 border-l-0 py-1 px-1.5 hover:bg-soft-teal-2 w-20 transition-colors"
                 >
                   Search
                 </button>
               </div>
             </div>
             <nav class="auth-nav flex gap-2">
-              <a
-                href="/pages/login.html"
-                class="px-4 py-1 border-hover-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-white font-bold text-bold shadow"
-                >Sign in</a
-              >
-              <a
-                href="/pages/register.html"
-                class="px-4 py-1 border-soft-teal-2 bg-white hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow"
-                >Register</a
-              >
+              <a href="/pages/login.html" class="btn-primary">Sign in</a>
+              <a href="/pages/register.html" class="btn-secondary">Register</a>
             </nav>
           </div>
           <button
@@ -135,6 +128,9 @@
             >
               <h3 class="text-earthy-beige font-semibold mb-3">Search</h3>
               <div class="flex justify-center">
+                <label for="site-search-mobile" class="sr-only"
+                  >Search for items</label
+                >
                 <input
                   id="site-search-mobile"
                   type="search"
@@ -143,7 +139,7 @@
                 />
                 <button
                   id="search-button-mobile"
-                  class="bg-soft-yellow text-soft-teal-2 px-4 py-2 rounded-r-lg hover:bg-yellow-400"
+                  class="bg-forest-green border-2 border-white text-earthy-beige px-4 py-2 rounded-r-lg hover:bg-soft-teal-2 transition-colors"
                 >
                   Search
                 </button>
@@ -192,16 +188,10 @@
             <section id="mobile-auth-section">
               <h3 class="text-earthy-beige font-semibold mb-3">Account</h3>
               <div class="space-y-3">
-                <a
-                  href="/pages/login.html"
-                  class="block text-center py-2 bg-hover-terracotta hover:bg-warm-terracotta text-earthy-beige rounded-lg"
-                >
+                <a href="/pages/login.html" class="btn-primary-mobile">
                   Sign in
                 </a>
-                <a
-                  href="/pages/register.html"
-                  class="block text-center py-2 bg-earthy-beige hover:bg-soft-teal-1 text-soft-teal-2 hover:text-earthy-beige rounded-lg"
-                >
+                <a href="/pages/register.html" class="btn-secondary-mobile">
                   Register
                 </a>
               </div>
@@ -230,14 +220,10 @@
             tells a story.
           </p>
           <div class="m-8 flex gap-4 flex-col md:flex-row">
-            <a
-              href="/pages/listings.html"
-              class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-soft-teal-2 border-soft-teal-2 text-white border-2 rounded-3xl hover:text-soft-teal-2 font-bold shadow text-lg"
+            <a href="/pages/listings.html" class="btn-primary text-lg"
               >Start Bidding</a
             >
-            <a
-              href="/pages/create-listing.html"
-              class="px-6 py-3 border-soft-teal-2 bg-white hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow text-lg"
+            <a href="/pages/create-listing.html" class="btn-secondary text-lg"
               >Create Listing</a
             >
           </div>
@@ -268,7 +254,7 @@
                 class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
               >
                 <div
-                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                  class="relative h-64 bg-soft-teal-2/20 rounded-t-4xl text-pretty text-center"
                 >
                   <img
                     src="/img/magical-items.jpg"
@@ -295,7 +281,7 @@
                 class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
               >
                 <div
-                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                  class="relative h-64 bg-soft-teal-2/20 rounded-t-4xl text-pretty text-center"
                 >
                   <img
                     src="/img/ancient-books.jpg"
@@ -322,7 +308,7 @@
                 class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
               >
                 <div
-                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                  class="relative h-64 bg-soft-teal-2/20 rounded-t-4xl text-pretty text-center"
                 >
                   <img
                     src="/img/rare-collectibles.jpg"
@@ -349,7 +335,7 @@
                 class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
               >
                 <div
-                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                  class="relative h-64 bg-soft-teal-2/20 rounded-t-4xl text-pretty text-center"
                 >
                   <img
                     src="/img/forest-artifacts.jpg"
@@ -399,18 +385,16 @@
       <!-- HOW IT WORKS SECTION-->
       <section
         id="how-it-works"
-        class="bg-forest-green min-h-screen flex items-center py-8"
+        class="bg-light-forest-green/30 min-h-screen flex items-center py-8 text-black"
       >
         <div class="max-w-6xl mx-auto px-6 lg:max-w-5xl w-full">
           <header class="text-center mb-8">
             <h2
-              class="text-2xl md:text-3xl lg:text-3xl font-serif font-bold text-earthy-beige mb-3"
+              class="text-2xl md:text-3xl lg:text-3xl font-serif font-bold mb-3"
             >
               How It Works
             </h2>
-            <p
-              class="text-sm lg:text-base text-earthy-beige max-w-lg lg:max-w-xl mx-auto"
-            >
+            <p class="text-sm lg:text-base max-w-lg lg:max-w-xl mx-auto">
               Join our magical marketplace in three simple steps and start
               discovering enchanted treasures today.
             </p>
@@ -450,10 +434,10 @@
                   </div>
 
                   <div class="flex-1 flex flex-col justify-center">
-                    <h3 class="text-lg font-bold text-forest-green mb-2">
+                    <h3 class="text-lg font-bold mb-2">
                       Register with Your Email
                     </h3>
-                    <p class="text-sm text-gray-800 leading-relaxed">
+                    <p class="text-sm leading-relaxed">
                       Sign up using your student email to create your auction
                       account and get started with 1000 credits.
                     </p>
@@ -493,10 +477,8 @@
                   </div>
 
                   <div class="flex-1 flex flex-col justify-center">
-                    <h3 class="text-lg font-bold text-forest-green mb-2">
-                      Create Your Listing
-                    </h3>
-                    <p class="text-sm text-gray-800 leading-relaxed">
+                    <h3 class="text-lg font-bold mb-2">Create Your Listing</h3>
+                    <p class="text-sm leading-relaxed">
                       Upload images, set a deadline, and describe your magical
                       item to attract bidders from across the realm.
                     </p>
@@ -536,10 +518,10 @@
                   </div>
 
                   <div class="flex-1 flex flex-col justify-center">
-                    <h3 class="text-lg font-bold text-forest-green mb-2">
+                    <h3 class="text-lg font-bold mb-2">
                       Start Bidding & Trading
                     </h3>
-                    <p class="text-sm text-gray-800 leading-relaxed">
+                    <p class="text-sm leading-relaxed">
                       Browse magical listings, place strategic bids, and track
                       your auctions to win enchanted treasures.
                     </p>
@@ -551,10 +533,7 @@
 
           <div class="text-center">
             <div class="inline-flex flex-col sm:flex-row gap-3">
-              <a
-                href="/pages/register.html"
-                class="inline-flex items-center px-6 py-2 bg-earthy-beige text-forest-green border-2 border-earthy-beige rounded-full hover:bg-white hover:border-white transition-all duration-300 font-medium shadow-lg hover:shadow-xl text-sm"
-              >
+              <a href="/pages/register.html" class="btn-secondary text-sm">
                 Get Started Today
                 <svg
                   class="ml-2 w-4 h-4"
@@ -570,10 +549,7 @@
                   ></path>
                 </svg>
               </a>
-              <a
-                href="/pages/listings.html"
-                class="inline-flex items-center justify-center px-6 py-2 bg-transparent border-2 border-earthy-beige text-earthy-beige rounded-full hover:bg-earthy-beige hover:text-forest-green transition-all duration-300 font-medium text-sm"
-              >
+              <a href="/pages/listings.html" class="btn-primary text-sm">
                 Explore Listings
               </a>
             </div>
@@ -588,7 +564,7 @@
         >
           <section class="max-w-60 text-balance">
             <div class="pl-10 flex items-center">
-              <img src="/img/logo.png" class="max-w-10" />
+              <img src="/img/logo.png" class="max-w-10" alt="Spirit Bid Logo" />
               <p class="font-serif font-thin pl-2 text-2xl min-w-fit">
                 Spirit Bid
               </p>
@@ -600,31 +576,41 @@
             </blockquote>
             <section
               class="flex pt-4 justify-center"
-              aria-describedby="Social media links"
+              aria-label="Social media links"
             >
               <a
-                href="www.instagram.com"
+                href="https://www.instagram.com"
                 class="p-2"
-                aria-describedby="Instagram"
+                aria-label="Visit our Instagram page"
                 ><img
                   src="/img/instagram.png"
                   class="max-h-6 opacity-70 hover:opacity-100"
+                  alt="Instagram"
               /></a>
-              <a href="www.x.com" class="p-2" aria-describedby="X"
+              <a
+                href="https://www.x.com"
+                class="p-2"
+                aria-label="Visit our X (Twitter) page"
                 ><img
                   src="/img/x.png"
-                  class="max-h-6 opacity-70 hover:opacity-100" /></a
-              ><a href="www.discord.com" class="p-2" aria-describedby="discord"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+                  alt="X (Twitter)" /></a
+              ><a
+                href="https://www.discord.com"
+                class="p-2"
+                aria-label="Join our Discord server"
                 ><img
                   src="/img/discord1.png"
-                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+                  class="max-h-6 opacity-70 hover:opacity-100"
+                  alt="Discord" /></a
               ><a
-                href="www.facebook.com"
+                href="https://www.facebook.com"
                 class="p-2"
-                aria-describedby="facebook"
+                aria-label="Visit our Facebook page"
                 ><img
                   src="/img/facebook.png"
                   class="max-h-6 opacity-70 hover:opacity-100"
+                  alt="Facebook"
               /></a>
             </section>
           </section>
