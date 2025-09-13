@@ -19,7 +19,6 @@ export default defineConfig({
         item: resolve(rootDir, "pages/item.html"),
         listings: resolve(rootDir, "pages/listings.html"),
         login: resolve(rootDir, "pages/login.html"),
-        privacy: resolve(rootDir, "pages/privacy.html"),
         profile: resolve(rootDir, "pages/profile.html"),
         register: resolve(rootDir, "pages/register.html"),
         terms: resolve(rootDir, "pages/terms.html"),
