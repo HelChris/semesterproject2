@@ -1,4 +1,5 @@
 import { isLoggedIn } from "/js/auth/logout.mjs";
+import { BUTTON_STYLES } from "/js/constants/button-styles.mjs";
 
 /**
  * Protects routes that require authentication
@@ -56,12 +57,9 @@ function showLoginPrompt(message, containerSelector) {
 
       <!-- Action Buttons -->
       <div class="space-y-3">
-        <a
-          href="/pages/login.html"
-          class="inline-flex items-center justify-center w-full px-6 py-3 bg-forest-green text-earthy-beige rounded-full hover:bg-soft-teal-2 transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
-        >
-          Sign In
-        </a>
+        <a href="/pages/login.html" class="${BUTTON_STYLES.PRIMARY}">
+        Sign In
+      </a>
 
         <p class="text-sm text-gray-500">
           Don't have an account?
