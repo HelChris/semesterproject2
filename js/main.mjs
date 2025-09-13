@@ -13,6 +13,7 @@ import { setupGlobalSearch } from "./components/search/search-handler.mjs";
 import { setupItemPage } from "/js/components/item/item-page-controller.mjs";
 import { initializeProfileListingsSorter } from "/js/components/user-profile/user-profile-listings-sorting.mjs";
 import { initializeEditListingModal } from "/js/components/user-profile/edit-listing.mjs";
+import { checkAuthAndRender } from "/js/utils/route-guard.mjs";
 
 /**
  * Routes to the appropriate handler based on the current URL path
@@ -70,11 +71,20 @@ function handleItemPage() {
 
 function handleProfilePage() {
   console.log("Profile page");
-  loadUserProfile();
-  initializeProfileListingsSorter();
-  initializeEditListingModal();
-  setupCreateListingModal();
-  createListingHandler();
+  checkAuthAndRender(
+    () => {
+      loadUserProfile();
+      initializeProfileListingsSorter();
+      initializeEditListingModal();
+      setupCreateListingModal();
+      createListingHandler();
+    },
+    {
+      redirectMessage:
+        "You need to be logged in to access your profile. Please sign in to continue.",
+      containerSelector: "main",
+    },
+  );
 }
 
 function handleEditProfilePage() {

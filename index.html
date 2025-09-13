@@ -79,12 +79,12 @@
             <nav class="auth-nav flex gap-2">
               <a
                 href="/pages/login.html"
-                class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+                class="px-4 py-1 border-hover-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-white font-bold text-bold shadow"
                 >Sign in</a
               >
               <a
                 href="/pages/register.html"
-                class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+                class="px-4 py-1 border-soft-teal-2 bg-white hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow"
                 >Register</a
               >
             </nav>
@@ -213,18 +213,18 @@
     <main>
       <!--HERO BANNER w/bg-img + link-buttons-->
       <section
-        class="min-h-90 content-center bg-cover bg-[url('/img/landscape.jpg')]"
+        class="min-h-screen content-center relative bg-cover before:absolute before:inset-0 before:bg-[url('/img/sky-banner.jpg')] before:bg-cover before:opacity-30 before:-z-10"
       >
         <div
-          class="justify-items-center place-content-center min-h-90 min-w-full bg-white/30 backdrop-invert backdrop-opacity-10"
+          class="justify-items-center place-content-center min-h-90 min-w-full"
         >
           <h1
-            class="font-black text-shadow-sm text-soft-teal-2 rounded-full p-1.5 bg-white/30 backdrop-invert backdrop-opacity-5"
+            class="font-black text-teal-900 rounded-full p-4 text-2xl md:text-5xl lg:text-6xl text-center max-w-4xl"
           >
             Discover Magical Treasures
           </h1>
           <p
-            class="font-bold text-shadow-sm text-soft-teal-2 bg-white/30 backdrop-invert backdrop-opacity-5 rounded-full p-1.5 text-balance text-center"
+            class="font-bold text-teal-900 rounded-full p-4 text-balance text-center text-lg md:text-xl lg:text-3xl max-w-3xl mt-4"
           >
             Find unique items in our enchanted marketplace where every item
             tells a story.
@@ -232,49 +232,168 @@
           <div class="m-8 flex gap-4">
             <a
               href="/pages/listings.html"
-              class="px-4 py-1 border-warm-terracotta bg-hover-terracotta hover:bg-warm-terracotta hover:border-hover-terracotta border-2 rounded-3xl text-earthy-beige text-bold shadow"
+              class="px-6 py-3 hover:border-soft-teal-2 hover:bg-earthy-beige bg-soft-teal-2 border-soft-teal-2 text-white border-2 rounded-3xl hover:text-soft-teal-2 font-bold shadow text-lg"
               >Start Bidding</a
             >
             <a
               href="/pages/create-listing.html"
-              class="px-4 py-1 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 bold shadow"
+              class="px-6 py-3 border-soft-teal-2 bg-white hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige border-2 rounded-3xl text-soft-teal-2 font-bold shadow text-lg"
               >Create Listing</a
             >
           </div>
         </div>
       </section>
       <!-- EXPLORE CATEGORIES SECTION-->
-      <section class="bg-earthy-beige min-h-52">
-        <h2 class="text-center text-xl font-medium m-4">Explore Categories</h2>
-        <div class="flex m-4 justify-center">
-          <article class="bg-white h-36 w-44 flex m-4 rounded-lg">
-            <div class="place-content-center justify-items-center m-auto">
-              <img />
-              <h3>Magical Items</h3>
-              <p>24 listings</p>
+      <section class="py-16 bg-soft-yellow/20">
+        <div class="max-w-7xl mx-auto px-6">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <h2
+              class="text-4xl md:text-5xl font-serif font-bold text-forest-green mb-4"
+            >
+              Explore Categories
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover enchanted treasures organized by their magical essence.
+              Each category holds unique wonders waiting to be found.
+            </p>
+          </div>
+
+          <!-- Categories Grid -->
+          <div class="w-full max-w-xs mx-auto sm:max-w-xl lg:max-w-7xl">
+            <div class="flex flex-wrap justify-center gap-6">
+              <!-- Magical Items Category -->
+              <a
+                href="/pages/listings.html?category=magical-items"
+                class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
+              >
+                <div
+                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                >
+                  <img
+                    src="/img/magical-items.jpg"
+                    alt="Magical Items - Enchanted crystals, wands, and mystical artifacts"
+                    class="w-full h-35 mx-auto rounded-t-4xl transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <!-- Content -->
+                  <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
+                    <h3
+                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                    >
+                      Magical Items
+                    </h3>
+                    <p class="text-sm opacity-90">
+                      Enchanted artifacts with mystical powers
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              <!-- Ancient Books Category -->
+              <a
+                href="/pages/listings.html?category=ancient-books"
+                class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
+              >
+                <div
+                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                >
+                  <img
+                    src="/img/ancient-books.jpg"
+                    alt="Ancient Books - Old tomes, manuscripts, and mystical writings"
+                    class="w-full h-35 mx-auto rounded-t-4xl transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <!-- Content -->
+                  <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
+                    <h3
+                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                    >
+                      Ancient Books
+                    </h3>
+                    <p class="text-sm opacity-90">
+                      Mysterious tomes and ancient manuscripts
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              <!-- Rare Collectibles Category -->
+              <a
+                href="/pages/listings.html?category=rare-collectibles"
+                class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
+              >
+                <div
+                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                >
+                  <img
+                    src="/img/rare-collectibles.jpg"
+                    alt="Rare Collectibles - Vintage treasures and unique collector items"
+                    class="w-full h-35 mx-auto rounded-t-4xl transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <!-- Content -->
+                  <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
+                    <h3
+                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                    >
+                      Rare Collectibles
+                    </h3>
+                    <p class="text-sm opacity-90">
+                      Precious vintage items and unique finds
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              <!-- Forest Artifacts Category -->
+              <a
+                href="/pages/listings.html?category=forest-artifacts"
+                class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-64 flex-shrink-0"
+              >
+                <div
+                  class="relative h-64 bg-soft-teal-2/70 rounded-t-4xl text-pretty text-center"
+                >
+                  <img
+                    src="/img/forest-artifacts.jpg"
+                    alt="Forest Artifacts - Natural woodland treasures and botanical items"
+                    class="w-full h-35 mx-auto rounded-t-4xl transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <!-- Content -->
+                  <div class="absolute bottom-0 left-0 right-0 p-6 text-black">
+                    <h3
+                      class="text-xl font-bold mb-2 group-hover:text-soft-yellow transition-colors"
+                    >
+                      Forest Artifacts
+                    </h3>
+                    <p class="text-sm opacity-90">
+                      Natural wonders from enchanted forests
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
-          </article>
-          <article class="bg-white h-36 w-44 flex m-4 rounded-lg">
-            <div class="place-content-center justify-items-center m-auto">
-              <img />
-              <h3>Rare Collectibles</h3>
-              <p>24 listings</p>
-            </div>
-          </article>
-          <article class="bg-white h-36 w-44 flex m-4 rounded-lg">
-            <div class="place-content-center justify-items-center m-auto">
-              <img />
-              <h3>Ancient Books</h3>
-              <p>24 listings</p>
-            </div>
-          </article>
-          <article class="bg-white h-36 w-44 flex m-4 rounded-lg">
-            <div class="place-content-center justify-items-center m-auto">
-              <img />
-              <h3>Forest Artifacts</h3>
-              <p>24 listings</p>
-            </div>
-          </article>
+          </div>
+
+          <!-- View All Categories Link -->
+          <div class="text-center mt-12">
+            <a
+              href="/pages/listings.html"
+              class="inline-flex items-center px-8 py-3 bg-forest-green text-earthy-beige rounded-full hover:bg-soft-teal-2 transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
+            >
+              View All Listings
+              <svg
+                class="ml-2 w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5-5 5M6 12h12"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
       <!-- LATEST AUCTIONS CAROUSEL SECTION-->
@@ -298,88 +417,186 @@
         </button>
       </section>
       <!-- HOW IT WORKS SECTION-->
-      <section class="bg-forest-green min-h-80 justify-items-center p-4">
-        <div class="place-content-center" id="how-it-works">
-          <h2 class="text-center text-xl font-medium p-4">How it works</h2>
-          <div class="flex m-4 justify-center">
-            <article class="bg-white h-50 w-60 flex m-4 rounded-lg">
-              <div class="place-content-center justify-items-center m-auto">
-                <div class="pb-1 text-forest-green">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-8"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
-                    />
-                  </svg>
+      <section
+        id="how-it-works"
+        class="bg-forest-green min-h-screen flex items-center py-8"
+      >
+        <div class="max-w-6xl mx-auto px-6 lg:max-w-5xl w-full">
+          <header class="text-center mb-8">
+            <h2
+              class="text-2xl md:text-3xl lg:text-3xl font-serif font-bold text-earthy-beige mb-3"
+            >
+              How It Works
+            </h2>
+            <p
+              class="text-sm lg:text-base text-earthy-beige max-w-lg lg:max-w-xl mx-auto"
+            >
+              Join our magical marketplace in three simple steps and start
+              discovering enchanted treasures today.
+            </p>
+          </header>
+
+          <div
+            class="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-6 mb-8"
+          >
+            <article class="group text-center flex-shrink-0">
+              <div class="relative">
+                <div
+                  class="absolute -top-4 -left-4 w-10 h-10 bg-earthy-beige border-2 border-forest-green rounded-full flex items-center justify-center shadow-lg"
+                >
+                  <span class="text-forest-green font-bold text-base">1</span>
                 </div>
-                <img />
-                <h3 class="font-bold">Register with Your Email</h3>
-                <p class="text-balance p-2 text-center">
-                  Sign up using your student email to create your auction
-                  account.
-                </p>
-              </div>
-            </article>
-            <article class="bg-white h-50 w-60 flex m-4 rounded-lg">
-              <div class="place-content-center justify-items-center m-auto">
-                <div class="pb-1 text-forest-green">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-8"
+
+                <div
+                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 flex flex-col w-64 h-64"
+                >
+                  <div
+                    class="w-12 h-12 bg-forest-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-green/20 transition-colors"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                    />
-                  </svg>
-                </div>
-                <img />
-                <h3 class="font-bold">Create Your Listing</h3>
-                <p class="text-balance p-2 text-center">
-                  Upload images, set a deadline, and describe your magical item
-                  to attract bidders.
-                </p>
-              </div>
-            </article>
-            <article class="bg-white h-50 w-60 flex m-4 rounded-lg">
-              <div class="place-content-center justify-items-center m-auto">
-                <div class="pb-1 text-forest-green">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="size-8"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      viewBox="0 0 24 24"
                       stroke-width="1.5"
-                      d="m12 14.006l-6.156 7.227a2.182 2.182 0 1 1-3.077-3.077L9.994 12M22 11.905L15.905 18m-3.81-16L6 8.095m5.333-5.333L6.762 7.333s2.286 3.048 4.571 5.334c2.286 2.285 5.334 4.571 5.334 4.571l4.571-4.571s-2.286-3.048-4.571-5.334c-2.286-2.285-5.334-4.571-5.334-4.571"
-                    />
-                  </svg>
+                      stroke="currentColor"
+                      class="w-6 h-6 text-forest-green"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="flex-1 flex flex-col justify-center">
+                    <h3 class="text-lg font-bold text-forest-green mb-2">
+                      Register with Your Email
+                    </h3>
+                    <p class="text-sm text-gray-800 leading-relaxed">
+                      Sign up using your student email to create your auction
+                      account and get started with 1000 credits.
+                    </p>
+                  </div>
                 </div>
-                <img />
-                <h3 class="font-bold">Start Bidding</h3>
-                <p class="text-balance p-2 text-center">
-                  Browse listings, place bids, and track your auctions to win
-                  enchanted treasures.
-                </p>
               </div>
             </article>
+
+            <article class="group text-center flex-shrink-0">
+              <div class="relative">
+                <div
+                  class="absolute -top-4 -left-4 w-10 h-10 bg-earthy-beige border-2 border-forest-green rounded-full flex items-center justify-center shadow-lg"
+                >
+                  <span class="text-forest-green font-bold text-base">2</span>
+                </div>
+
+                <div
+                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 flex flex-col w-64 h-64"
+                >
+                  <div
+                    class="w-12 h-12 bg-forest-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-green/20 transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6 text-forest-green"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a .375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="flex-1 flex flex-col justify-center">
+                    <h3 class="text-lg font-bold text-forest-green mb-2">
+                      Create Your Listing
+                    </h3>
+                    <p class="text-sm text-gray-800 leading-relaxed">
+                      Upload images, set a deadline, and describe your magical
+                      item to attract bidders from across the realm.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group text-center flex-shrink-0">
+              <div class="relative">
+                <div
+                  class="absolute -top-4 -left-4 w-10 h-10 bg-earthy-beige border-2 border-forest-green rounded-full flex items-center justify-center shadow-lg"
+                >
+                  <span class="text-forest-green font-bold text-base">3</span>
+                </div>
+
+                <div
+                  class="bg-earthy-beige rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 flex flex-col w-64 h-64"
+                >
+                  <div
+                    class="w-12 h-12 bg-forest-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-green/20 transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6 text-forest-green"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="m12 14.006l-6.156 7.227a2.182 2.182 0 1 1-3.077-3.077L9.994 12M22 11.905L15.905 18m-3.81-16L6 8.095m5.333-5.333L6.762 7.333s2.286 3.048 4.571 5.334c2.286 2.285 5.334 4.571 5.334 4.571l4.571-4.571s-2.286-3.048-4.571-5.334c-2.286-2.285-5.334-4.571-5.334-4.571"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="flex-1 flex flex-col justify-center">
+                    <h3 class="text-lg font-bold text-forest-green mb-2">
+                      Start Bidding & Trading
+                    </h3>
+                    <p class="text-sm text-gray-800 leading-relaxed">
+                      Browse magical listings, place strategic bids, and track
+                      your auctions to win enchanted treasures.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="text-center">
+            <div class="inline-flex flex-col sm:flex-row gap-3">
+              <a
+                href="/pages/register.html"
+                class="inline-flex items-center px-6 py-2 bg-earthy-beige text-forest-green border-2 border-earthy-beige rounded-full hover:bg-white hover:border-white transition-all duration-300 font-medium shadow-lg hover:shadow-xl text-sm"
+              >
+                Get Started Today
+                <svg
+                  class="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5-5 5M6 12h12"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="/pages/listings.html"
+                class="inline-flex items-center justify-center px-6 py-2 bg-transparent border-2 border-earthy-beige text-earthy-beige rounded-full hover:bg-earthy-beige hover:text-forest-green transition-all duration-300 font-medium text-sm"
+              >
+                Explore Listings
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -440,108 +657,103 @@
         </section>
       </section>
     </main>
-    <footer
-      class="p-2 m-8 flex bg-earthy-beige text-forest-green gap-6 flex-col md:flex-row lg:flex-row lg:justify-between"
-    >
-      <section class="flex-col max-w-60 text-balance">
-        <div class="pl-10 flex items-center">
-          <img src="/img/logo.png" class="max-w-10" />
-          <p class="font-serif font-thin pl-2 text-2xl min-w-fit">Spirit Bid</p>
+    <footer class="bg-earthy-beige text-forest-green py-8 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col items-center text-center md:flex-row md:justify-between md:text-left md:items-start gap-8"
+        >
+          <section class="max-w-60 text-balance">
+            <div class="pl-10 flex items-center">
+              <img src="/img/logo.png" class="max-w-10" />
+              <p class="font-serif font-thin pl-2 text-2xl min-w-fit">
+                Spirit Bid
+              </p>
+            </div>
+            <blockquote
+              class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
+            >
+              A magical marketplace for unique and enchanted items.
+            </blockquote>
+            <section
+              class="flex pt-4 justify-center"
+              aria-describedby="Social media links"
+            >
+              <a
+                href="www.instagram.com"
+                class="p-2"
+                aria-describedby="Instagram"
+                ><img
+                  src="/img/instagram.png"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+              /></a>
+              <a href="www.x.com" class="p-2" aria-describedby="X"
+                ><img
+                  src="/img/x.png"
+                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+              ><a href="www.discord.com" class="p-2" aria-describedby="discord"
+                ><img
+                  src="/img/discord1.png"
+                  class="max-h-6 opacity-70 hover:opacity-100" /></a
+              ><a
+                href="www.facebook.com"
+                class="p-2"
+                aria-describedby="facebook"
+                ><img
+                  src="/img/facebook.png"
+                  class="max-h-6 opacity-70 hover:opacity-100"
+              /></a>
+            </section>
+          </section>
+          <section class="flex-col">
+            <h3 class="font-black text-xl pb-2">Quick Links</h3>
+            <a href="/index.html" class="flex pb-2 w-40 hover:font-medium"
+              >Home</a
+            >
+            <a
+              href="/pages/listings.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Explore</a
+            >
+            <a
+              href="/index.html#how-it-works"
+              class="flex pb-2 w-40 hover:font-medium"
+              >How It Works</a
+            >
+            <a
+              href="/pages/create-listing.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Create Listing</a
+            >
+            <a
+              href="/pages/profile.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >My Account</a
+            >
+          </section>
+          <section class="">
+            <h3 class="font-black text-xl pb-2">Help & Support</h3>
+            <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
+              >FAQ</a
+            >
+            <a href="/pages/about.html" class="flex pb-2 w-40 hover:font-medium"
+              >About Us</a
+            >
+            <a
+              href="/pages/contact.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Contact Us</a
+            >
+            <a
+              href="/pages/privacy.html"
+              class="flex pb-2 w-40 hover:font-medium"
+              >Privacy Policy</a
+            >
+            <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
+              >Terms of Services</a
+            >
+          </section>
         </div>
-        <blockquote
-          class="font-light border-l-forest-green border-l-4 p-4 italic rounded-full"
-        >
-          A magical marketplace for unique and enchanted items.
-        </blockquote>
-        <section
-          class="flex pt-2 justify-center"
-          aria-describedby="Social media links"
-        >
-          <a href="www.instagram.com" class="p-2" aria-describedby="Instagram"
-            ><img
-              src="/img/instagram.png"
-              class="max-h-6 opacity-70 hover:opacity-100"
-          /></a>
-          <a href="www.x.com" class="p-2" aria-describedby="X"
-            ><img
-              src="/img/x.png"
-              class="max-h-6 opacity-70 hover:opacity-100" /></a
-          ><a href="www.discord.com" class="p-2" aria-describedby="discord"
-            ><img
-              src="/img/discord1.png"
-              class="max-h-6 opacity-70 hover:opacity-100" /></a
-          ><a href="www.facebook.com" class="p-2" aria-describedby="facebook"
-            ><img
-              src="/img/facebook.png"
-              class="max-h-6 opacity-70 hover:opacity-100"
-          /></a>
-        </section>
-      </section>
-      <section class="flex-col">
-        <h3 class="font-bold pb-2">Quick Links</h3>
-        <a href="/index.html" class="flex pb-2 w-40 hover:font-medium">Home</a>
-        <a href="/pages/listings.html" class="flex pb-2 w-40 hover:font-medium"
-          >Explore</a
-        >
-        <a
-          href="/index.html#how-it-works"
-          class="flex pb-2 w-40 hover:font-medium"
-          >How It Works</a
-        >
-        <a
-          href="/pages/create-listing.html"
-          class="flex pb-2 w-40 hover:font-medium"
-          >Create Listing</a
-        >
-        <a href="/pages/profile.html" class="flex pb-2 w-40 hover:font-medium"
-          >My Account</a
-        >
-      </section>
-      <div class="">
-        <h3 class="font-bold pb-2">Help & Support</h3>
-        <a href="/pages/faq.html" class="flex pb-2 w-40 hover:font-medium"
-          >FAQ</a
-        >
-        <a href="/pages/about.html" class="flex pb-2 w-40 hover:font-medium"
-          >About Us</a
-        >
-        <a href="/pages/contact.html" class="flex pb-2 w-40 hover:font-medium"
-          >Contact Us</a
-        >
-        <a href="/pages/privacy.html" class="flex pb-2 w-40 hover:font-medium"
-          >Privacy Policy</a
-        >
-        <a href="/pages/terms.html" class="flex pb-2 w-40 hover:font-medium"
-          >Terms of Services</a
-        >
       </div>
-      <section class="">
-        <h3 class="font-bold pb-2">Newsletter</h3>
-        <p class="text-balance pb-2 max-w-60">
-          Subscribe to get updates on new magical items and exclusive auctions.
-        </p>
-        <div class="flex pt-2">
-          <div
-            class="pl-2 border-forest-green border-2 border-r-0 rounded-l-3xl max-w-fit content-center"
-          >
-            <input
-              type="email"
-              id="newsletter-email"
-              name="newsletter-email"
-              autocomplete="email"
-              required
-              aria-describedby="enter email to subscribe to newsletter"
-              placeholder="example@mail.com"
-              class="pl-2 focus:border-0"
-            />
-          </div>
-          <button
-            class="bg-warm-terracotta text-earthy-beige rounded-r-3xl justify-between px-4 py-1.5 border-warm-terracotta border-2 border-l-0 font-semibold"
-          >
-            Subscribe
-          </button>
-        </div>
-      </section>
     </footer>
   </body>
 </html>
