@@ -15,6 +15,8 @@
 
   --font-family-heading: "Playfair Display", serif;
   --font-family-body: "Inter", sans-serif;
+
+  --breakpoint-xs: 350px;
 }
 
 /* utility classes */
@@ -120,4 +122,20 @@ h6 {
       transparent
     )
     var(--color-forest-green);
+}
+
+/* small breakpoint for confirm password registration form */
+@media (min-width: 350px) {
+  .xs\:flex-row {
+    flex-direction: row;
+  }
+
+  .xs\:items-center {
+    align-items: center;
+  }
+
+  .xs\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
