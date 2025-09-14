@@ -1,4 +1,52 @@
 /**
+ * @fileoverview Category Classification and Mapping Module
+ *
+ * This module provides intelligent categorization functionality for auction listings
+ * based on content analysis of titles, tags, and keywords. Implements a multi-tier
+ * matching system with exact tag matching and title keyword detection to automatically
+ * classify listings into predefined categories.
+ *
+ * Features:
+ * - Predefined category system with keyword mapping
+ * - Multi-tier matching: exact tag matches (priority) + title keyword matching
+ * - Word boundary regex matching for accurate keyword detection
+ * - Batch listing categorization and filtering utilities
+ * - Debug utilities for understanding categorization decisions
+ * - Graceful handling of malformed or missing data
+ * - Case-insensitive matching with normalization
+ *
+ * Classification Strategy:
+ * 1. Exact tag matches (highest priority) - looks for keywords in listing tags
+ * 2. Title keyword matches (secondary) - scans title for category keywords
+ * 3. Fallback to "other" category when no matches found
+ *
+ * Categories:
+ * - magical-items: Magic, enchanted, mystical items
+ * - rare-collectibles: Vintage, antique, limited edition items
+ * - ancient-books: Books, manuscripts, texts, grimoires
+ * - forest-artifacts: Natural, woodland, botanical items
+ * - other: Uncategorized listings
+ *
+ * Dependencies:
+ * - None (self-contained utility module)
+ *
+ * Usage Patterns:
+ * - Use categorizeListling() for single item classification
+ * - Use filterByCategory() for category-based filtering
+ * - Use groupByCategory() for organizing listings by category
+ * - Use debugCategorization() for troubleshooting classification
+ *
+ * Performance Notes:
+ * - Uses efficient regex word boundary matching
+ * - Early return on first category match for optimization
+ * - Handles arrays gracefully with validation checks
+ *
+ * @author Your Name
+ * @version 1.0.0
+ * @since 2024
+ */
+
+/**
  * Category definitions with associated keywords
  */
 export const CATEGORIES = {
@@ -122,7 +170,6 @@ export function groupByCategory(listings) {
   };
 
   if (!Array.isArray(listings)) {
-    console.warn("groupByCategory: listings is not an array");
     return grouped;
   }
 
@@ -142,7 +189,6 @@ export function groupByCategory(listings) {
  */
 export function filterByCategory(listings, categoryKey) {
   if (!Array.isArray(listings)) {
-    console.warn("filterByCategory: listings is not an array");
     return [];
   }
 
