@@ -12,6 +12,7 @@ import { createUserBidCard } from "/js/components/user-profile/user-bid-card-com
 import { createUserWinCard } from "/js/components/user-profile/user-win-card-component.mjs";
 import { createUserListingCard } from "/js/components/user-profile/user-listing-card-component.mjs";
 import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
+import { showError } from "../../shared/error-handling.mjs";
 
 export class ProfileListingsSorter {
   constructor() {
@@ -94,7 +95,7 @@ export class ProfileListingsSorter {
       this.renderBids(response.data);
       this.updateLoadMoreButton();
     } catch (error) {
-      console.error("Error loading bids:", error);
+      showError("Error loading bids: " + error.message, this.containerSelector);
       showErrorState(
         error.message,
         this.containerSelector,
@@ -118,7 +119,10 @@ export class ProfileListingsSorter {
       this.renderUserListings(response.data);
       this.updateLoadMoreButton();
     } catch (error) {
-      console.error("Error loading listings:", error);
+      showError(
+        "Error loading listings: " + error.message,
+        this.containerSelector,
+      );
       showErrorState(
         error.message,
         this.containerSelector,
@@ -141,7 +145,7 @@ export class ProfileListingsSorter {
       this.renderWins(response.data);
       this.updateLoadMoreButton();
     } catch (error) {
-      console.error("Error loading wins:", error);
+      showError("Error loading wins: " + error.message, this.containerSelector);
       showErrorState(
         error.message,
         this.containerSelector,
@@ -208,8 +212,10 @@ export class ProfileListingsSorter {
 
       this.updateLoadMoreButton();
     } catch (error) {
-      console.error("Error loading more:", error);
-      showError("Failed to load more items. Please try again.");
+      showError(
+        "Failed to load more items. Please try again.",
+        this.containerSelector,
+      );
     } finally {
       this.isLoading = false;
 
