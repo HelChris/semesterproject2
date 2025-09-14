@@ -41,9 +41,6 @@
  * - Early return on first category match for optimization
  * - Handles arrays gracefully with validation checks
  *
- * @author Your Name
- * @version 1.0.0
- * @since 2024
  */
 
 /**
