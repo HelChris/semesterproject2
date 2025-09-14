@@ -6,6 +6,7 @@ import {
 } from "/js/components/render/render-listing-cards.mjs";
 import { LoadMoreHandler } from "./load-more-handler.mjs";
 import { initializeCategoryHandler } from "/js/components/categories/category-handler.mjs";
+import { showError } from "../../shared/error-handling.mjs";
 
 let loadMoreHandler = null;
 
@@ -60,7 +61,9 @@ export async function initListingsPage(options = {}) {
       }
     }
   } catch (error) {
-    console.error("Error loading listings:", error);
+    showError("Error loading listings:", "#error-container", {
+      scrollToTop: false,
+    });
     showErrorState(error, containerSelector, loadingSelector);
   }
 }
@@ -90,9 +93,11 @@ async function handleCachedSearchResults(
     loadMoreHandler.setSearchActive(true);
     sessionStorage.removeItem("searchResults");
   } catch (error) {
-    console.warn(
+    showError(
       "Failed to parse cached results, falling back to normal listings:",
       error,
+      "#error-container",
+      { scrollToTop: false },
     );
 
     sessionStorage.removeItem("searchResults");
