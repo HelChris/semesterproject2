@@ -84,7 +84,6 @@ async function submitListing(event) {
     alert("Listing created successfully!");
     window.location.href = "/pages/listings.html";
   } catch (error) {
-    console.error(error);
     showError(error, "#message");
     scrollToErrorMessage();
   } finally {

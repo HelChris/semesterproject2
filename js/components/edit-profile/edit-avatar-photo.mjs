@@ -1,6 +1,6 @@
 import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
-import { API_KEY } from "../../constants/apikey.mjs";
+import { API_KEY } from "/js/constants/apikey.mjs";
 
 export async function updateAvatar(newAvatarUrl) {
   const username = getFromLocalStorage("username");
@@ -31,14 +31,10 @@ export async function updateAvatar(newAvatarUrl) {
   if (contentType && contentType.includes("application/json")) {
     json = await response.json();
   } else {
-    const text = await response.text();
-    if (text) {
-      console.error("Non-JSON error response:", text);
-    }
+    await response.text();
   }
 
   if (!response.ok) {
-    console.error("Avatar update failed:", response.status, json);
     throw new Error(
       json?.errors?.[0]?.message ||
         `Failed to update avatar (status ${response.status})`,
@@ -47,4 +43,3 @@ export async function updateAvatar(newAvatarUrl) {
 
   return json;
 }
-

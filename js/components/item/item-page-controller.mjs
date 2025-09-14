@@ -3,6 +3,7 @@ import { ItemImageCarousel } from "/js/components/item/item-image-carousel.mjs";
 import { ItemInfoRenderer } from "/js/components/item/item-info-renderer.mjs";
 import { BidManager } from "/js/components/item/bid-manager.mjs";
 import { BidHistoryRenderer } from "/js/components/item/bid-history-renderer.mjs";
+import { showError } from "../../shared/error-handling.mjs";
 
 let imageCarousel = null;
 let bidManager = null;
@@ -17,12 +18,7 @@ export async function setupItemPage() {
       return;
     }
 
-    console.log(`Loading item details for ID: ${itemId}`);
-
     const itemData = await fetchAuctionById(itemId);
-
-    console.log("Received item data:", itemData);
-    console.log("Item media:", itemData.media);
 
     if (!itemData) {
       showItemError("Item not found");
@@ -41,13 +37,25 @@ export async function setupItemPage() {
 
     showItemContent();
   } catch (error) {
-    showItemError("Failed to load item details. Please try again.", error);
+    if (error.message.includes("not found")) {
+      showItemError(
+        "This auction listing could not be found. It may have been removed or the link is incorrect.",
+      );
+    } else if (error.message.includes("Network error")) {
+      showItemError(
+        "Unable to load auction details. Please check your internet connection and try again.",
+      );
+    } else {
+      showItemError(
+        "Failed to load auction details. Please refresh the page and try again.",
+      );
+    }
   }
 }
 
 function updatePageTitle(itemTitle) {
   if (!itemTitle || typeof itemTitle !== "string") {
-    console.warn("Invalid item title provided to updatePageTitle:", itemTitle);
+    showError("Invalid item title provided to updatePageTitle:", "#error-container", {scrollToTop: false});
     return;
   }
 
@@ -72,7 +80,7 @@ function updatePageTitle(itemTitle) {
       window.history.replaceState({}, "", currentUrl);
     }
   } catch (error) {
-    console.error("Error updating page title:", error);
+    showError("Error updating page title:", error, {scrollToTop: false});
   }
 }
 

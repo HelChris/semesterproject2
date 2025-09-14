@@ -1,3 +1,29 @@
+/**
+ * @fileoverview User Authentication Login Module
+ *
+ * This module handles user login functionality for the auction platform,
+ * providing both programmatic login capabilities and form submission handling.
+ * Manages authentication token storage, user session data, and login error states.
+ *
+ * Features:
+ * - Email/password authentication via API
+ * - Automatic token and user data storage
+ * - Form validation and submission handling
+ * - Loading states with fieldset disabling
+ * - Comprehensive error handling with user feedback
+ * - Automatic redirect on successful login
+ *
+ * Dependencies:
+ * - AUTH_ENDPOINTS: API endpoint configuration
+ * - addToLocalStorage: Local storage utility for session data
+ * - showError: Error display utility for user feedback
+ *
+ * Usage:
+ * - Call login() directly for programmatic authentication
+ * - Call loginHandler() to set up form event listeners
+ * - Typically initialized on login page load
+ *
+ */
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
 import { addToLocalStorage } from "/js/utils/local-storage.mjs";
 import { showError } from "/js/shared/error-handling.mjs";
@@ -72,7 +98,6 @@ export function loginHandler() {
       await login(data);
       location.href = "/index.html";
     } catch (error) {
-      console.error(error);
       showError(error, "#message");
     } finally {
       fieldset.disabled = false;

@@ -1,6 +1,3 @@
-/**
- * Centralized button style constants using your preferred color scheme
- */
 export const BUTTON_STYLES = {
   // Primary: Soft teal background with white text
   PRIMARY: "btn-primary",
