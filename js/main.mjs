@@ -25,41 +25,26 @@ import { checkAuthAndRender } from "/js/utils/route-guard.mjs";
  * @returns {void}
  */
 
-// Environment detection
-const isDev = !window.location.hostname.includes("netlify");
 let routerInitialized = false;
 
-if (isDev) {
-  console.log("main.mjs loaded successfully");
-  console.log("Current pathname:", window.location.pathname);
-  console.log("Current hostname:", window.location.hostname);
-}
-console.log("Is production:", window.location.hostname.includes("netlify"));
-
 // Route handlers
-function handleIndexPage() {
-  console.log("Index page");
-}
+function handleIndexPage() {}
 
 function handleLoginPage() {
-  console.log("Login page");
   loginHandler();
 }
 
 function handleRegisterPage() {
-  console.log("Register page");
   setupRegisterForm();
 }
 
 function handleListingsPageRoute() {
-  console.log("Listings page - calling handlers");
   setupListingsPage();
   setupCreateListingModal();
   createListingHandler();
 }
 
 function handleCreateListingPage() {
-  console.log("Create listing page");
   checkAuthAndRender(
     () => {
       createListingHandler();
@@ -73,12 +58,10 @@ function handleCreateListingPage() {
 }
 
 function handleItemPage() {
-  console.log("Item page");
   setupItemPage();
 }
 
 function handleProfilePage() {
-  console.log("Profile page");
   checkAuthAndRender(
     () => {
       loadUserProfile();
@@ -96,14 +79,12 @@ function handleProfilePage() {
 }
 
 function handleEditProfilePage() {
-  console.log("Edit profile page");
   loadUserProfile();
   setupEditProfileForm();
   setupChangePhotoModal();
 }
 
 function handleContactPage() {
-  console.log("Contact page");
   setupContactForm();
 }
 
@@ -157,29 +138,18 @@ const routes = {
 };
 
 function router() {
-  try {
-    const pathname = window.location.pathname;
+  const pathname = window.location.pathname;
+  clearSearchOnNavigation(pathname);
 
-    if (isDev) {
-      console.log("Router called with pathname:", pathname);
-    }
+  // Setup common functionality for all pages
+  initializeNavigation();
+  setupLogoutListeners();
+  setupGlobalSearch();
 
-    clearSearchOnNavigation(pathname);
-
-    // Setup common functionality for all pages
-    initializeNavigation();
-    setupLogoutListeners();
-    setupGlobalSearch();
-
-    // Execute route handler
-    const handler = routes[pathname];
-    if (handler) {
-      handler();
-    } else {
-      console.log("Unknown page:", pathname);
-    }
-  } catch (error) {
-    console.error("Router error:", error);
+  // Execute route handler
+  const handler = routes[pathname];
+  if (handler) {
+    handler();
   }
 }
 
@@ -187,7 +157,6 @@ function clearSearchOnNavigation(pathname) {
   const isListingsPage = pathname.includes("listings");
 
   if (!isListingsPage) {
-    const hadSearch = sessionStorage.getItem("searchQuery");
     sessionStorage.removeItem("searchQuery");
     sessionStorage.removeItem("searchResults");
 
@@ -196,36 +165,15 @@ function clearSearchOnNavigation(pathname) {
     if (searchInput) {
       searchInput.value = "";
     }
-
-    if (hadSearch) {
-      console.log("Navigated away from listings - cleared search");
-    }
   }
 }
 
 function initializeRouter() {
   if (routerInitialized) {
-    if (isDev) {
-      console.log("Router already initialized, skipping...");
-    }
     return;
   }
   routerInitialized = true;
-
-  if (isDev) {
-    console.log("DOM loaded, initializing router...");
-    console.log("Document state:", {
-      readyState: document.readyState,
-      hasBody: !!document.body,
-      bodyChildren: document.body?.children.length,
-    });
-  }
-
   router();
-
-  if (isDev) {
-    console.log("Application routing initialized");
-  }
 }
 
 if (document.readyState === "loading") {
