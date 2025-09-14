@@ -11,7 +11,6 @@ export function showError(error, targetSelector, options = {}) {
   const targetElement = document.querySelector(targetSelector);
 
   if (!targetElement) {
-    // Remove console.warn but handle the case gracefully
     return;
   }
 
@@ -105,7 +104,7 @@ export function showError(error, targetSelector, options = {}) {
       const modalContent = modal.querySelector('[class*="overflow-y-auto"]');
       if (modalContent) {
         modalContent.scrollTo({
-          top: 0, // Fixed the typo from "tio" to "top"
+          top: 0,
           behavior: "smooth",
         });
       }
