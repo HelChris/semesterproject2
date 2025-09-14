@@ -65,7 +65,6 @@ export class LoadMoreHandler {
       this.setLoadingState(true);
 
       this.currentPage += 1;
-      console.log(`Loading page ${this.currentPage}...`);
 
       const response = await fetchLatestListings(
         this.itemsPerPage,
