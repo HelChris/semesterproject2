@@ -1,7 +1,7 @@
+import { showError } from "/js/shared/error-handling.mjs";
+
 export class ItemImageCarousel {
   constructor(mediaArray = []) {
-    console.log("ItemImageCarousel received media:", mediaArray);
-
     this.media = this.processMediaArray(mediaArray);
     this.currentIndex = 0;
 
@@ -16,7 +16,6 @@ export class ItemImageCarousel {
 
   processMediaArray(mediaArray) {
     if (!Array.isArray(mediaArray) || mediaArray.length === 0) {
-      console.log("No media provided, using placeholder");
       return [{ url: "/img/placeholder.jpg", alt: "No image available" }];
     }
 
@@ -25,15 +24,12 @@ export class ItemImageCarousel {
         media &&
         typeof media === "object" &&
         media.url &&
-        media.url !== "string" &&
+        typeof media.url === "string" &&
         media.url.trim()
       );
     });
 
-    console.log("Valid media after filtering:", validMedia);
-
     if (validMedia.length === 0) {
-      console.log("No valid media URLs found, using placeholder");
       return [{ url: "/img/placeholder.jpg", alt: "No image available" }];
     }
 
@@ -42,7 +38,9 @@ export class ItemImageCarousel {
 
   initialize() {
     if (!this.mainImage) {
-      console.warn("Main image element not found");
+      showError("Main image element not found", "#image-carousel-message", {
+        scrollToTop: false,
+      });
       return;
     }
 
@@ -55,14 +53,18 @@ export class ItemImageCarousel {
 
   renderMainImage() {
     if (!this.media || this.media.length === 0) {
-      console.error("No media available for rendering");
+      showError("No media available for rendering", "#image-carousel-message", {
+        scrollToTop: false,
+      });
       return;
     }
 
     const currentMedia = this.media[this.currentIndex];
 
     if (!currentMedia || !currentMedia.url) {
-      console.error("Current media is invalid:", currentMedia);
+      showError("Current media is invalid", "#image-carousel-message", {
+        scrollToTop: false,
+      });
       return;
     }
 
@@ -71,12 +73,12 @@ export class ItemImageCarousel {
       this.mainImage.alt = currentMedia.alt || `Image ${this.currentIndex + 1}`;
 
       this.mainImage.onerror = () => {
-        console.warn("Failed to load image:", currentMedia.url);
+        showError("Failed to load image", "#image-carousel-message", {
+          scrollToTop: false,
+        });
         this.mainImage.src = "/img/placeholder.jpg";
       };
     }
-
-    console.log(`Rendered image ${this.currentIndex + 1}:`, currentMedia.url);
   }
 
   renderThumbnails() {
