@@ -91,7 +91,7 @@ export function showError(error, targetSelector, options = {}) {
   // Add to DOM
   targetElement.appendChild(alertDiv);
 
-  // Handle scrolling behavior (preserve your existing logic)
+  // Handle scrolling behavior 
   if (scrollToTop) {
     const modal = targetElement.closest('[id*="modal"]');
 
