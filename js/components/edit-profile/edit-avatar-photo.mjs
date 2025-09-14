@@ -1,6 +1,6 @@
 import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
-import { API_KEY } from "../../constants/apikey.mjs";
+import { API_KEY } from "/js/constants/apikey.mjs";
 
 export async function updateAvatar(newAvatarUrl) {
   const username = getFromLocalStorage("username");
