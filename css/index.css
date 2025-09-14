@@ -46,21 +46,55 @@ h6 {
 }
 
 .alert-error {
-  background-color: #fee2e2;
-  border: 1px solid #fca5a5;
-  color: #dc2626;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
+  @apply bg-red-50 border border-red-200 text-red-700 p-3 rounded-md mb-4 transition-all duration-300 ease-in-out;
 }
 
 .alert-success {
-  background-color: #d1fae5;
-  border: 1px solid #6ee7b7;
-  color: #059669;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
+  @apply bg-green-50 border border-green-200 text-green-700 p-3 rounded-md mb-4 transition-all duration-300 ease-in-out;
+}
+
+.error-network {
+  @apply animate-pulse border-orange-400 bg-orange-50;
+}
+
+.error-auth {
+  @apply border-l-8 border-l-yellow-400 bg-yellow-50;
+}
+
+.error-server {
+  @apply shadow-lg border-purple-400 bg-purple-50;
+}
+
+.error-not-found {
+  @apply border-dashed border-blue-400 bg-blue-50;
+}
+
+.alert-error h4 {
+  @apply text-sm font-medium uppercase tracking-wide mb-1;
+}
+
+.alert-error p {
+  @apply text-base leading-relaxed;
+}
+
+.error-network h4,
+.error-network p {
+  @apply text-orange-800;
+}
+
+.error-auth h4,
+.error-auth p {
+  @apply text-yellow-800;
+}
+
+.error-server h4,
+.error-server p {
+  @apply text-purple-800;
+}
+
+.error-not-found h4,
+.error-not-found p {
+  @apply text-blue-800;
 }
 
 /* Primary Button - Soft Teal with White Text */
@@ -91,7 +125,16 @@ h6 {
   @apply px-4 py-2 bg-white hover:bg-soft-teal-1 border-2 border-soft-teal-2 hover:border-soft-teal-2 hover:text-earthy-beige text-soft-teal-2 rounded-3xl font-bold shadow transition-all duration-300;
 }
 
-/ #mobile-menu .overflow-y-auto::-webkit-scrollbar {
+/* Tag styling for listings */
+.listing-tag {
+  @apply inline-block px-3 py-1 bg-super-soft-yellow text-gray-800 text-sm rounded-full border border-soft-yellow mr-2 mb-2 transition-colors duration-200;
+}
+
+.listing-tag:hover {
+  @apply bg-soft-yellow;
+}
+
+#mobile-menu .overflow-y-auto::-webkit-scrollbar {
   width: 8px;
 }
 
