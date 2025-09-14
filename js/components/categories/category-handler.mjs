@@ -100,7 +100,6 @@ export class CategoryHandler {
 
       // Fetch multiple pages to get better category coverage (max 100 per request)
       let allListings = [];
-      let currentPage = 1;
       const maxPages = 3; // Fetch up to 3 pages (300 listings total)
 
       // Fetch multiple pages to get more listings for category filtering
@@ -118,8 +117,7 @@ export class CategoryHandler {
           if (!response.data || response.data.length < 100) {
             break;
           }
-        } catch (error) {
-          console.warn(`Failed to fetch page ${page}:`, error);
+        } catch {
           break; // Stop fetching more pages if one fails
         }
       }
@@ -129,10 +127,6 @@ export class CategoryHandler {
       // Filter by category using exact matching
       this.filteredListings = filterByCategory(this.allListings, categoryKey);
       this.currentCategory = categoryKey;
-
-      console.log(
-        `Category ${categoryKey}: Found ${this.filteredListings.length} listings from ${this.allListings.length} total`,
-      );
 
       if (this.filteredListings.length === 0) {
         this.showNoCategoryResults(categoryKey);
@@ -150,7 +144,6 @@ export class CategoryHandler {
       // Update UI to show current category
       this.updateCategoryDisplay(categoryKey, this.filteredListings.length);
     } catch (error) {
-      console.error("Error loading category listings:", error);
       showErrorState(error, this.containerSelector, this.loadingSelector);
     }
   }
@@ -271,7 +264,6 @@ export class CategoryHandler {
       // Setup normal load more functionality
       this.setupNormalLoadMore();
     } catch (error) {
-      console.error("Error loading normal listings:", error);
       showErrorState(error, this.containerSelector, this.loadingSelector);
     }
   }
@@ -365,10 +357,9 @@ export class CategoryHandler {
       // Setup load more for fallback listings
       this.setupNormalLoadMore();
     } catch (error) {
-      console.error("Error loading fallback listings:", error);
       const errorDiv = document.createElement("div");
       errorDiv.className = "col-span-full text-center py-8 text-red-600";
-      errorDiv.textContent = "Failed to load listings. Please try again later.";
+      errorDiv.textContent = `Failed to load listings. ${error.message || "Please try again later."}`;
       container.appendChild(errorDiv);
     }
   }
