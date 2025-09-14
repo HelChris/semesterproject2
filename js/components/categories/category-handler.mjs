@@ -1,3 +1,46 @@
+/**
+ * @fileoverview Category-Based Listing Handler Module
+ *
+ * This module provides comprehensive category filtering and display functionality
+ * for the auction platform's listings page. Handles URL-based category routing,
+ * dynamic content loading, pagination, and graceful fallback to general listings.
+ *
+ * Features:
+ * - URL parameter-based category filtering (?category=electronics)
+ * - Multi-page data fetching for comprehensive category coverage
+ * - Intelligent pagination with load-more functionality
+ * - Graceful fallback when no category results are found
+ * - Dynamic page title and breadcrumb updates
+ * - Mobile and desktop responsive category display
+ * - State management for filtered vs. unfiltered views
+ * - Loading and error state handling
+ *
+ * Architecture:
+ * - CategoryHandler class manages all category-related state and operations
+ * - Integrates with existing listing card components and load-more handlers
+ * - Supports both category-filtered and normal listing modes
+ * - Handles URL routing and browser navigation
+ *
+ * Dependencies:
+ * - fetchLatestListings: API service for listing data retrieval
+ * - CATEGORIES & filterByCategory: Category mapping and filtering utilities
+ * - renderListingCards & state utilities: UI rendering and state management
+ * - LoadMoreHandler: Pagination functionality for normal listings
+ * - createListingCard: Individual listing card component
+ *
+ * Usage Patterns:
+ * - Initialize via initializeCategoryHandler() on page load
+ * - Automatic category detection from URL parameters
+ * - Fallback to normal listings when category is empty or invalid
+ * - Supports direct category URLs like /listings.html?category=electronics
+ *
+ * State Management:
+ * - Maintains separate arrays for all listings vs. filtered listings
+ * - Tracks current category, pagination state, and display preferences
+ * - Handles loading states and error recovery
+ * - Preserves user experience during category transitions
+ *
+ */
 import { fetchLatestListings } from "/js/api/auction-listings.mjs";
 import {
   CATEGORIES,
@@ -57,7 +100,6 @@ export class CategoryHandler {
 
       // Fetch multiple pages to get better category coverage (max 100 per request)
       let allListings = [];
-      let currentPage = 1;
       const maxPages = 3; // Fetch up to 3 pages (300 listings total)
 
       // Fetch multiple pages to get more listings for category filtering
@@ -75,8 +117,7 @@ export class CategoryHandler {
           if (!response.data || response.data.length < 100) {
             break;
           }
-        } catch (error) {
-          console.warn(`Failed to fetch page ${page}:`, error);
+        } catch {
           break; // Stop fetching more pages if one fails
         }
       }
@@ -86,10 +127,6 @@ export class CategoryHandler {
       // Filter by category using exact matching
       this.filteredListings = filterByCategory(this.allListings, categoryKey);
       this.currentCategory = categoryKey;
-
-      console.log(
-        `Category ${categoryKey}: Found ${this.filteredListings.length} listings from ${this.allListings.length} total`,
-      );
 
       if (this.filteredListings.length === 0) {
         this.showNoCategoryResults(categoryKey);
@@ -107,7 +144,6 @@ export class CategoryHandler {
       // Update UI to show current category
       this.updateCategoryDisplay(categoryKey, this.filteredListings.length);
     } catch (error) {
-      console.error("Error loading category listings:", error);
       showErrorState(error, this.containerSelector, this.loadingSelector);
     }
   }
@@ -228,7 +264,6 @@ export class CategoryHandler {
       // Setup normal load more functionality
       this.setupNormalLoadMore();
     } catch (error) {
-      console.error("Error loading normal listings:", error);
       showErrorState(error, this.containerSelector, this.loadingSelector);
     }
   }
@@ -322,10 +357,9 @@ export class CategoryHandler {
       // Setup load more for fallback listings
       this.setupNormalLoadMore();
     } catch (error) {
-      console.error("Error loading fallback listings:", error);
       const errorDiv = document.createElement("div");
       errorDiv.className = "col-span-full text-center py-8 text-red-600";
-      errorDiv.textContent = "Failed to load listings. Please try again later.";
+      errorDiv.textContent = `Failed to load listings. ${error.message || "Please try again later."}`;
       container.appendChild(errorDiv);
     }
   }

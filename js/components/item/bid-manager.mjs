@@ -146,11 +146,21 @@ export class BidManager {
         this.bidAmountInput.value = "";
       }
     } catch (error) {
-      console.error("Error placing bid:", error);
-      showError(
-        error.message || "Failed to place bid. Please try again",
-        "#bid-form",
-      );
+      let userMessage = "Failed to place bid. Please try again.";
+
+      if (error.message.includes("Authentication")) {
+        userMessage = "Please log in again to place your bid.";
+      } else if (error.message.includes("Invalid bid amount")) {
+        userMessage =
+          "Your bid amount is invalid. Please check the minimum bid requirement.";
+      } else if (error.message.includes("Network error")) {
+        userMessage =
+          "Connection problem. Please check your internet and try again.";
+      } else if (error.message.includes("auction has ended")) {
+        userMessage = "This auction has already ended.";
+      }
+
+      showError(userMessage, "#bid-form");
     } finally {
       this.placeBidButton.disabled = false;
       this.placeBidButton.textContent = "Place Bid";

@@ -41,8 +41,6 @@ export function renderListingCards(
     const card = createListingCard(listing);
     container.appendChild(card);
   });
-
-  console.log(`Rendered ${listings.length} listing cards`);
 }
 
 /**

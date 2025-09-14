@@ -44,7 +44,6 @@ function setupMobileMenu() {
 
   mobileMenu.addEventListener("click", (e) => {
     if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
-      console.log("Mobile menu item clicked:", e.target);
       closeMobileMenu();
     }
   });

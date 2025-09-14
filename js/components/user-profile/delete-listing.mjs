@@ -42,7 +42,6 @@ export async function deleteUserListing(listingId, listingTitle) {
       window.location.reload();
     }, 1000);
   } catch (error) {
-    console.error("Error deleting listing:", error);
     showError(error.message || "Failed to delete listing. Please try again.");
   }
 }

@@ -1,3 +1,5 @@
+import { showError } from "/js/shared/error-handling.mjs";
+
 export class ItemInfoRenderer {
   static render(itemData) {
     const itemContainer = document.getElementById("item-container");
@@ -12,6 +14,9 @@ export class ItemInfoRenderer {
     this.renderDescription(itemData.description);
     this.renderSellerInfo(itemData.seller);
     this.renderBidInfo(itemData.bids, itemData._count?.bids);
+  }
+  catch(error) {
+    showError(`Error rendering item info: ${error.message}`, "#item-message");
   }
 
   static renderTitle(title) {
@@ -114,8 +119,7 @@ export class ItemInfoRenderer {
     const listedDate = document.getElementById("listed-date");
 
     if (sellerAvatar) {
-      sellerAvatar.src =
-        seller?.avatar?.url || "/img/avatar1-placeholder.jpg";
+      sellerAvatar.src = seller?.avatar?.url || "/img/avatar1-placeholder.jpg";
       sellerAvatar.alt = `${seller?.name || "Unknown seller"}'s avatar`;
     }
 
@@ -142,8 +146,10 @@ export class ItemInfoRenderer {
       const year = date.getFullYear();
 
       return `${day}.${month}.${year}`;
-    } catch (error) {
-      console.warn("Error formatting date:", error);
+    } catch {
+      showError("Error formatting date", "#item-message", {
+        scrollToTop: false,
+      });
       return "Invalid date";
     }
   }
