@@ -12,7 +12,6 @@ import { createUserBidCard } from "/js/components/user-profile/user-bid-card-com
 import { createUserWinCard } from "/js/components/user-profile/user-win-card-component.mjs";
 import { createUserListingCard } from "/js/components/user-profile/user-listing-card-component.mjs";
 import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
-import { showError } from "../../shared/error-handling.mjs";
 
 export class ProfileListingsSorter {
   constructor() {
