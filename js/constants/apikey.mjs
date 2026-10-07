@@ -1,7 +1,1 @@
-export const API_KEY = import.meta.env.VITE_NOROFF_API_KEY;
-
-if (!API_KEY) {
-  throw new Error(
-    "API Key not found. Make sure VITE_NOROFF_API_KEY is set in your .env file",
-  );
-}
+export const API_KEY = import.meta.env.VITE_NOROFF_API_KEY || "";

@@ -98,6 +98,7 @@
       <!-- mobile menu overlay -->
       <div
         id="mobile-menu"
+        style="visibility: hidden"
         class="fixed inset-0 bg-forest-green z-50 transform translate-x-full transition-transform duration-300 xl:hidden"
       >
         <div class="flex flex-col h-full">
@@ -105,7 +106,7 @@
           <div
             class="flex justify-between items-center p-4 border-b border-earthy-beige/20"
           >
-            <div class="flex items-center">
+            <a href="/index.html" class="flex items-center">
               <img
                 src="/img/logo.png"
                 class="max-w-8 mr-2"
@@ -114,7 +115,7 @@
               <span class="text-earthy-beige font-serif text-xl"
                 >Spirit Bid</span
               >
-            </div>
+            </a>
             <button id="close-menu-btn" class="text-earthy-beige text-2xl">
               &times;
             </button>
@@ -200,10 +201,8 @@
         </div>
       </div>
     </header>
-    <main class="bg-light-forest-green p-6">
-      <section
-        class="pt-2 max-w-fit justify-self-center rounded-3xl bg-earthy-beige"
-      >
+    <main class="flex justify-center bg-light-forest-green p-6">
+      <section class="mx-auto w-full max-w-xl rounded-3xl bg-earthy-beige pt-2">
         <!-- Contact form -->
         <div class="p-8">
           <h1 class="text-center text-3xl font-medium">Contact us</h1>
@@ -213,7 +212,7 @@
               <div id="message"></div>
               <!-- Title field-->
               <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
                   <label for="title">Title:</label>
                   <input
                     type="text"
@@ -221,7 +220,7 @@
                     name="title"
                     required
                     placeholder="Subject.."
-                    class="pl-1"
+                    class="min-w-0 flex-1 pl-1"
                   />
                 </div>
                 <div
@@ -234,13 +233,13 @@
               </div>
               <!-- Message field-->
               <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
+                <div class="border p-2 rounded-2xl flex items-start gap-2">
                   <label for="contactMessage" class="align-top">Message:</label>
                   <textarea
                     id="contactMessage"
                     name="message"
                     required
-                    class="pl-1 w-full"
+                    class="min-w-0 flex-1 pl-1"
                     rows="4"
                   ></textarea>
                 </div>
@@ -254,7 +253,7 @@
               </div>
               <!-- Name field-->
               <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
                   <label for="name">Name:</label>
                   <input
                     type="text"
@@ -262,7 +261,7 @@
                     name="name"
                     required
                     placeholder="Your name"
-                    class="pl-1"
+                    class="min-w-0 flex-1 pl-1"
                   />
                 </div>
                 <div
@@ -275,7 +274,7 @@
               </div>
               <!-- email field-->
               <div class="space-y-2">
-                <div class="border p-2 rounded-2xl">
+                <div class="border p-2 rounded-2xl flex items-center gap-2">
                   <label for="email">Email:</label>
                   <input
                     type="email"
@@ -283,7 +282,7 @@
                     name="email"
                     required
                     placeholder="your@mail.com"
-                    class="pl-1"
+                    class="min-w-0 flex-1 pl-1"
                   />
                 </div>
                 <div
@@ -298,7 +297,7 @@
                 <button
                   type="submit"
                   id="contactFormButton"
-                  class="items-center px-8 py-3 bg-forest-green text-earthy-beige rounded-full hover:bg-soft-teal-2 transition-all duration-300 font-medium shadow-lg hover:shadow-xl w-full max-w-xs mx-auto"
+                  class="flex items-center justify-center px-8 py-3 bg-forest-green text-earthy-beige rounded-full hover:bg-soft-teal-2 transition-all duration-300 font-medium shadow-lg hover:shadow-xl w-full max-w-xs mx-auto"
                 >
                   Send
                 </button>

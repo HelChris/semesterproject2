@@ -26,6 +26,7 @@ function setupMobileMenu() {
 
   // Open mobile menu
   mobileMenuBtn.addEventListener("click", () => {
+    mobileMenu.style.visibility = "visible";
     mobileMenu.classList.remove("translate-x-full");
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
@@ -35,6 +36,7 @@ function setupMobileMenu() {
   // Close mobile menu
   const closeMobileMenu = () => {
     mobileMenu.classList.add("translate-x-full");
+    mobileMenu.style.visibility = "hidden";
     document.body.style.overflow = "";
     document.body.style.position = "";
     document.body.style.width = "";

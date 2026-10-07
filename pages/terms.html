@@ -98,6 +98,7 @@
       <!-- mobile menu overlay -->
       <div
         id="mobile-menu"
+        style="visibility: hidden"
         class="fixed inset-0 bg-forest-green z-50 transform translate-x-full transition-transform duration-300 xl:hidden"
       >
         <div class="flex flex-col h-full">
@@ -105,7 +106,7 @@
           <div
             class="flex justify-between items-center p-4 border-b border-earthy-beige/20"
           >
-            <div class="flex items-center">
+            <a href="/index.html" class="flex items-center">
               <img
                 src="/img/logo.png"
                 class="max-w-8 mr-2"
@@ -114,7 +115,7 @@
               <span class="text-earthy-beige font-serif text-xl"
                 >Spirit Bid</span
               >
-            </div>
+            </a>
             <button id="close-menu-btn" class="text-earthy-beige text-2xl">
               &times;
             </button>

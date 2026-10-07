@@ -23,7 +23,7 @@ The website allows visitor to register users, users to create auctions, bid on o
 - Register user CTA section, register now or learn more:
 - About page with information about the site
 - Footer with quicklinks and newsletter subscription signup
-- Users can bid directly from auction cards 
+- Users can bid directly from auction cards
 - Clicking a card navigates to a detailed view:
 - Item title, description, time left, image gallery
 - See current bid, place a bid if logged in
@@ -97,9 +97,10 @@ npm run test
 Create a `.env` file in the root directory:
 
 ```bash
-API_KEY=your-api-key-here
-BASE_URL=https://example.com/api
+VITE_NOROFF_API_KEY=your-noroff-api-key-here
 ```
+
+You can use `.env.example` as a template. Replace the placeholder with your Noroff API key and restart the Vite development server after changing the file. The `.env` file is ignored by Git and should not be committed.
 
 ## Available Scripts
 
@@ -107,4 +108,3 @@ BASE_URL=https://example.com/api
 - `npm run build` - Build for production
 - `npm run test` - Run tests
 - `npm run lint` - Run ESLint
-
