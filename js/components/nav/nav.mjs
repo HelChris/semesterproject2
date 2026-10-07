@@ -63,6 +63,8 @@ function updateDesktopNavigation() {
   if (!authNav) return;
 
   const user = getCurrentUser();
+  const searchInput = document.getElementById("site-search");
+  searchInput?.classList.toggle("logged-in", Boolean(user));
 
   if (user) {
     // User is logged in - show avatar + welcome + profile + logout
@@ -74,7 +76,7 @@ function updateDesktopNavigation() {
           class="w-8 h-8 rounded-full border-2 border-earthy-beige object-cover shadow-lg"
           onerror="this.src='/img/avatar1-placeholder.jpg'"
         />
-        <span class="text-earthy-beige text-sm font-medium hidden lg:block">Hi, ${user.displayName}</span>
+        <span class="text-earthy-beige text-sm font-medium hidden lg:block max-w-32 truncate">Hi, ${user.displayName}</span>
       </div>
 
       <a href="${BUTTON_CONFIG.LOGGED_IN.desktop.profile.href}"
@@ -138,7 +140,7 @@ function updateMobileUserGreeting(user) {
     // Add user greeting
     const userGreeting = document.createElement("div");
     userGreeting.id = "mobile-user-greeting";
-    userGreeting.className = "flex items-center gap-2 xl:hidden";
+    userGreeting.className = "flex items-center gap-2 lg:hidden";
 
     userGreeting.innerHTML = `
       <img

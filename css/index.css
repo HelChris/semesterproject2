@@ -35,6 +35,16 @@
   color: #000;
 }
 
+#site-search.logged-in {
+  width: 10rem;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #site-search.logged-in {
+    width: 7rem;
+  }
+}
+
 h1,
 h2,
 h3,
