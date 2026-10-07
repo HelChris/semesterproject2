@@ -23,10 +23,16 @@ export function setupEditProfileForm() {
 
     const url = `${AUTH_ENDPOINTS.profiles}/${username}`;
     const body = {
-      avatar: { url: avatarUrl, alt: avatarAlt },
-      banner: { url: bannerUrl, alt: bannerAlt },
       bio,
     };
+
+    if (avatarUrl) {
+      body.avatar = { url: avatarUrl, alt: avatarAlt };
+    }
+
+    if (bannerUrl) {
+      body.banner = { url: bannerUrl, alt: bannerAlt };
+    }
 
     try {
       const response = await fetch(url, {
