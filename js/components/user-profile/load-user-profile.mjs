@@ -20,6 +20,7 @@ export async function loadUserProfile() {
     const profileData = result.data;
 
     updateProfileAvatar(profileData);
+    updateProfileBanner(profileData);
     updateProfileInfo(profileData);
   } catch (error) {
     console.error("error loading user profile:", error);
@@ -48,6 +49,19 @@ function updateProfileAvatar(profileData) {
       profilePageAvatar.src = "/img/avatar1-placeholder.jpg";
     };
   }
+}
+
+function updateProfileBanner(profileData) {
+  const bannerElement = document.getElementById("profile-banner");
+  if (!bannerElement) return;
+
+  const bannerUrl = profileData?.banner?.url;
+  if (!bannerUrl) {
+    bannerElement.style.backgroundImage = "";
+    return;
+  }
+
+  bannerElement.style.backgroundImage = `url(${JSON.stringify(bannerUrl)})`;
 }
 
 function updateProfileInfo(profileData) {
