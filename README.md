@@ -2,9 +2,9 @@
 
 ## Project Description
 
-This project is part of my delivery for the Front-End Development studies at Noroff. The goal is to build a fully functional auction website using all the skills we've learnd throughout the studies.
+This project is part of my delivery for the Front-End Development studies at Noroff. The goal is to build a fully functional auction website using all the skills we've learned throughout the studies.
 
-The website allows visitor to register users, users to create auctions, bid on others' listings, and manage their own profile. The application is built with a modular file structure, semantic HTML for proper base structure, tailwind CSS for styling + responsive layout and javascript to handle interaction and functionality.
+The website allows visitors to register, create auctions, bid on other users' listings, and manage their own profile. The application is built with a modular file structure, semantic HTML for the base structure, Tailwind CSS for styling and responsive layout, and JavaScript to handle interaction and functionality.
 
 ## Goal
 
@@ -36,11 +36,9 @@ The website allows visitor to register users, users to create auctions, bid on o
 - Create new listing button with modal
 - Edit profile page:
 - Update avatar, banner and bio
-- User updates information, image, (wishlist?) saves changes (and can delete account?)
+- User updates profile information and images, then saves the changes
 - Contact page with a validated contact form
 - Uses .env for configuration
-- Unit testing with Vitest
-- E2E testing with Playwright
 
 ## User Stories
 
@@ -55,17 +53,17 @@ The website allows visitor to register users, users to create auctions, bid on o
 
 ## Tech Stack
 
-- HTML 5
-- Javascript (ES6 modules)
-- Tailwind 4
+- HTML5
+- JavaScript (ES6 modules)
+- Tailwind CSS v4
 - Vite
-- Vitest
-- Playwright
+- Noroff API
 - ESLint
 - Prettier
 - Husky
+- lint-staged
+- Google Fonts
 - Netlify (hosting)
-- Hotjar (user behavior tracking)
 
 ## Prerequisites
 
@@ -86,11 +84,9 @@ npm install
 npm run dev
 ```
 
-### Running tests
+### Testing
 
-```bash
-npm run test
-```
+There is currently no automated test suite configured. The `npm run test` script remains a placeholder and will exit with an error.
 
 ## Environment Variables
 
@@ -106,5 +102,5 @@ You can use `.env.example` as a template. Replace the placeholder with your Noro
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm run test` - Run tests
 - `npm run lint` - Run ESLint
+- `npm run format` - Format supported files with Prettier
