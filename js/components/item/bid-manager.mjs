@@ -110,6 +110,14 @@ export class BidManager {
       return;
     }
 
+    if (this.isOwnListing()) {
+      this.showBidError(
+        "You can't place a bid on your own item.",
+        "ownership",
+      );
+      return;
+    }
+
     const bidValue = this.bidAmountInput.value.trim();
     const bidAmount = parseInt(bidValue, 10);
     const minimumBid = this.getCurrentHighestBid() + 1;
@@ -189,10 +197,25 @@ export class BidManager {
     BidHistoryRenderer.render(this.itemData.bids);
   }
 
-  showBidError(message) {
+  isOwnListing() {
+    const currentUsername = getFromLocalStorage("username");
+    const sellerName = this.itemData.seller?.name;
+
+    return (
+      !!currentUsername &&
+      !!sellerName &&
+      currentUsername.toLowerCase() === sellerName.toLowerCase()
+    );
+  }
+
+  showBidError(message, type = "validation") {
     if (!this.bidError) return;
 
     this.bidError.textContent = message;
+    this.bidError.classList.toggle("bg-red-50", type === "ownership");
+    this.bidError.classList.toggle("text-red-700", type === "ownership");
+    this.bidError.classList.toggle("bg-green-50", type !== "ownership");
+    this.bidError.classList.toggle("text-forest-green", type !== "ownership");
     this.bidError.classList.remove("hidden");
   }
 
@@ -200,6 +223,8 @@ export class BidManager {
     if (!this.bidError) return;
 
     this.bidError.textContent = "";
+    this.bidError.classList.remove("bg-red-50", "text-red-700");
+    this.bidError.classList.add("bg-green-50", "text-forest-green");
     this.bidError.classList.add("hidden");
   }
 }
