@@ -12,33 +12,30 @@ The website allows visitors to register, create auctions, bid on other users' li
 
 ## Features
 
-- Carousel on the front page with latest auctions
 - "View more" button to load more listings
 - Search for listings in the navbar/on the front page.
 - Hero banner with buttons to start bidding and create listing
 - Explore category section links users to listings sorted by category containing certain keywords
-- Carousel with some listings
 - "How it works" section explaining three steps to get started
-- Featured Auction of the week section
 - Register user CTA section, register now or learn more:
 - About page with information about the site
-- Footer with quicklinks and newsletter subscription signup
-- Users can bid directly from auction cards
-- Clicking a card navigates to a detailed view:
+- Footer with quicklinks 
+- Users can bid on listings
+- Clicking a View Details navigates to a detailed view:
 - Item title, description, time left, image gallery
 - See current bid, place a bid if logged in
 - See bid history with user, amount, and time
 - Profile page:
-- Username, member since, number of listings, credit balance
+- Username, credit balance, listing, bio
 - Sort content on profile page by: current bids, users listings, wins
 - Edit listing (modal), delete listing (modal/alert)
 - Edit profile button
-- Create new listing button with modal
+- Create new listing modal
 - Edit profile page:
 - Update avatar, banner and bio
 - User updates profile information and images, then saves the changes
 - Contact page with a validated contact form
-- Uses .env for configuration
+
 
 ## User Stories
 
@@ -95,8 +92,6 @@ Create a `.env` file in the root directory:
 ```bash
 VITE_NOROFF_API_KEY=your-noroff-api-key-here
 ```
-
-You can use `.env.example` as a template. Replace the placeholder with your Noroff API key and restart the Vite development server after changing the file. The `.env` file is ignored by Git and should not be committed.
 
 ## Available Scripts
 
