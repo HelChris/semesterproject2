@@ -120,9 +120,8 @@ export function categorizeListling(listing) {
   const tags = (listing.tags || []).map((tag) => tag.toLowerCase().trim());
   const title = (listing.title || "").toLowerCase();
 
-  // Check each category
+  // Check exact tag matches across all categories before checking titles.
   for (const [categoryKey, category] of Object.entries(CATEGORIES)) {
-    // 1. EXACT TAG MATCHES (highest priority)
     const hasExactTagMatch = tags.some((tag) =>
       category.keywords.some(
         (keyword) =>
@@ -135,11 +134,12 @@ export function categorizeListling(listing) {
     if (hasExactTagMatch) {
       return categoryKey;
     }
+  }
 
-    // 2. KEYWORD MATCHES IN TITLE (second priority)
+  // Use title keywords only when no category tag matched.
+  for (const [categoryKey, category] of Object.entries(CATEGORIES)) {
     const hasTitleMatch = category.keywords.some((keyword) => {
       const keywordLower = keyword.toLowerCase();
-      // Use word boundary regex for exact word matching in title
       const wordBoundaryRegex = new RegExp(`\\b${keywordLower}\\b`, "i");
       return wordBoundaryRegex.test(title);
     });
