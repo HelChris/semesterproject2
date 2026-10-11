@@ -8,10 +8,9 @@ export async function updateAvatar(newAvatarUrl) {
 
   const url = `${AUTH_ENDPOINTS.profiles}/${username}`;
   const body = {
-    avatar: {
-      url: newAvatarUrl,
-      alt: "Avatar image",
-    },
+    avatar: newAvatarUrl
+      ? { url: newAvatarUrl, alt: "Avatar image" }
+      : null,
   };
 
   const options = {

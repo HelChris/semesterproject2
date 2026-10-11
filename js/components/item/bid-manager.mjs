@@ -15,6 +15,7 @@ export class BidManager {
     this.bidAmountInput = document.getElementById("bid-amount");
     this.placeBidButton = document.getElementById("place-bid-button");
     this.minimumBidText = document.getElementById("minimum-bid");
+    this.bidError = document.getElementById("bid-error");
 
     this.initialize();
   }
@@ -79,19 +80,22 @@ export class BidManager {
   validateBidAmount() {
     if (!this.bidAmountInput || !this.placeBidButton) return;
 
-    const bidAmount = parseInt(this.bidAmountInput.value);
+    const bidValue = this.bidAmountInput.value.trim();
+    const bidAmount = parseInt(bidValue, 10);
     const minimumBid = this.getCurrentHighestBid() + 1;
-    const isValid = bidAmount >= minimumBid;
+    const isValid = bidValue !== "" && bidAmount >= minimumBid;
 
-    this.placeBidButton.disabled = !isValid;
+    this.placeBidButton.disabled = bidValue !== "" && !isValid;
 
-    if (bidAmount && !isValid) {
+    if (bidValue && !isValid) {
       this.bidAmountInput.classList.add("border-red-500");
       this.minimumBidText.classList.add("text-red-600");
     } else {
       this.bidAmountInput.classList.remove("border-red-500");
       this.minimumBidText.classList.remove("text-red-600");
     }
+
+    this.clearBidError();
   }
   async handleBidSubmission(event) {
     event.preventDefault();
@@ -106,11 +110,27 @@ export class BidManager {
       return;
     }
 
-    const bidAmount = parseInt(this.bidAmountInput.value);
+    if (this.isOwnListing()) {
+      this.showBidError(
+        "You can't place a bid on your own item.",
+        "ownership",
+      );
+      return;
+    }
+
+    const bidValue = this.bidAmountInput.value.trim();
+    const bidAmount = parseInt(bidValue, 10);
     const minimumBid = this.getCurrentHighestBid() + 1;
 
+    if (!bidValue) {
+      this.showBidError("Please add a bid amount to continue.");
+      this.bidAmountInput.focus();
+      return;
+    }
+
     if (bidAmount < minimumBid) {
-      showError(`Bid must be at least ${minimumBid} credits`);
+      this.showBidError(`Please enter at least ${minimumBid} credits.`);
+      this.bidAmountInput.focus();
       return;
     }
 
@@ -175,5 +195,36 @@ export class BidManager {
     this.updateMinimumBid();
 
     BidHistoryRenderer.render(this.itemData.bids);
+  }
+
+  isOwnListing() {
+    const currentUsername = getFromLocalStorage("username");
+    const sellerName = this.itemData.seller?.name;
+
+    return (
+      !!currentUsername &&
+      !!sellerName &&
+      currentUsername.toLowerCase() === sellerName.toLowerCase()
+    );
+  }
+
+  showBidError(message, type = "validation") {
+    if (!this.bidError) return;
+
+    this.bidError.textContent = message;
+    this.bidError.classList.toggle("bg-red-50", type === "ownership");
+    this.bidError.classList.toggle("text-red-700", type === "ownership");
+    this.bidError.classList.toggle("bg-green-50", type !== "ownership");
+    this.bidError.classList.toggle("text-forest-green", type !== "ownership");
+    this.bidError.classList.remove("hidden");
+  }
+
+  clearBidError() {
+    if (!this.bidError) return;
+
+    this.bidError.textContent = "";
+    this.bidError.classList.remove("bg-red-50", "text-red-700");
+    this.bidError.classList.add("bg-green-50", "text-forest-green");
+    this.bidError.classList.add("hidden");
   }
 }

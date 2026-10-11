@@ -202,7 +202,7 @@
       </div>
     </header>
     <main
-      class="bg-soft-yellow/50 min-h-screen flex flex-col lg:flex-row gap-4 p-2 md:p-4 lg:p-6"
+      class="bg-soft-yellow/50 min-h-screen justify-center flex flex-col lg:flex-row gap-4 p-2 md:p-4 lg:p-6"
     >
       <!-- Left Sidebar Section -->
       <section class="w-full lg:w-80 lg:flex-shrink-0 p-2 md:p-4 lg:p-6">
@@ -347,7 +347,7 @@
       </section>
 
       <!-- Right Form Section -->
-      <section class="flex-1 min-w-0">
+      <section class="flex-1 min-w-0 w-full max-w-3xl">
         <div class="bg-earthy-beige rounded-3xl shadow-lg h-fit">
           <div class="p-4 md:p-6 lg:p-8">
             <div class="space-y-6">
@@ -362,7 +362,7 @@
               </div>
 
               <!-- Profile Picture Section -->
-              <div class="flex flex-col sm:flex-row gap-4 items-start">
+              <div class="flex flex-col sm:flex-row gap-4 items-center">
                 <img
                   id="profile-avatar"
                   class="avatar-img w-16 h-16 md:w-20 md:h-20 rounded-full border-gray-600 border-2 flex-shrink-0"
@@ -375,11 +375,6 @@
                     class="px-4 py-2 border-2 border-soft-teal-2 bg-earthy-beige hover:bg-soft-teal-1 hover:border-soft-teal-2 hover:text-earthy-beige rounded-3xl text-soft-teal-2 font-bold shadow transition-colors text-sm md:text-base"
                   >
                     Change Photo
-                  </button>
-                  <button
-                    class="text-red-600 text-sm md:text-base hover:underline"
-                  >
-                    Remove
                   </button>
                 </div>
               </div>
@@ -425,168 +420,6 @@
                     </div>
                   </div>
 
-                  <!-- Username field -->
-                  <div>
-                    <div class="border p-3 rounded-2xl m-2">
-                      <div
-                        class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                      >
-                        <label
-                          for="username"
-                          class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                        >
-                          Username:
-                        </label>
-                        <input
-                          type="text"
-                          id="username"
-                          name="username"
-                          required
-                          aria-describedby="username-error"
-                          placeholder="Jane"
-                          class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      id="username-error"
-                      class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                      role="alert"
-                    >
-                      Please enter your username
-                    </div>
-                  </div>
-
-                  <!-- First Name & Last Name -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="firstName"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            First Name:
-                          </label>
-                          <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            required
-                            aria-describedby="firstName-error"
-                            placeholder="Jane"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="firstName-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your first name
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="lastName"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            Last Name:
-                          </label>
-                          <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            required
-                            aria-describedby="lastName-error"
-                            placeholder="Doe"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="lastName-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your last name
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Email & Phone -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="email"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            Email:
-                          </label>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            aria-describedby="email-error"
-                            placeholder="example@stud.noroff.no"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="email-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your email
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="phone"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            Phone:
-                          </label>
-                          <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            required
-                            aria-describedby="phone-error"
-                            placeholder="+47 11 22 33 44"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="phone-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your phone number
-                      </div>
-                    </div>
-                  </div>
-
                   <!-- Bio field -->
                   <div>
                     <div class="border p-3 rounded-2xl m-2">
@@ -616,136 +449,6 @@
                       role="alert"
                     >
                       Please write a bio
-                    </div>
-                  </div>
-
-                  <!-- Country & City -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="country"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            Country:
-                          </label>
-                          <input
-                            type="text"
-                            id="country"
-                            name="country"
-                            required
-                            aria-describedby="country-error"
-                            placeholder="Norway"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="country-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your country
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="city"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            City:
-                          </label>
-                          <input
-                            type="text"
-                            id="city"
-                            name="city"
-                            required
-                            aria-describedby="city-error"
-                            placeholder="Oslo"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="city-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your city
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Address & Postal Code -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 m-2">
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="address"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            Address:
-                          </label>
-                          <input
-                            type="text"
-                            id="address"
-                            name="address"
-                            required
-                            aria-describedby="address-error"
-                            placeholder="Example Road"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="address-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your address
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="border p-3 rounded-2xl">
-                        <div
-                          class="flex flex-col lg:flex-row lg:items-center lg:gap-3"
-                        >
-                          <label
-                            for="postalcode"
-                            class="lg:w-fit lg:flex-shrink-0 text-sm md:text-base font-medium"
-                          >
-                            Postal Code:
-                          </label>
-                          <input
-                            type="text"
-                            id="postalcode"
-                            name="postalcode"
-                            required
-                            aria-describedby="postalcode-error"
-                            placeholder="1234"
-                            class="mt-1 lg:mt-0 pl-2 py-1 w-full lg:flex-1 text-sm md:text-base"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        id="postalcode-error"
-                        class="mt-1 text-xs md:text-sm text-red-600 hidden"
-                        role="alert"
-                      >
-                        Please enter your postal code
-                      </div>
                     </div>
                   </div>
 

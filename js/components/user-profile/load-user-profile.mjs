@@ -1,4 +1,7 @@
-import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
+import {
+  addToLocalStorage,
+  getFromLocalStorage,
+} from "/js/utils/local-storage.mjs";
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
 import { API_KEY } from "/js/constants/apikey.mjs";
 
@@ -18,6 +21,10 @@ export async function loadUserProfile() {
 
     const result = await response.json();
     const profileData = result.data;
+
+    if (profileData?.name) {
+      addToLocalStorage("username", profileData.name);
+    }
 
     updateProfileAvatar(profileData);
     updateProfileBanner(profileData);

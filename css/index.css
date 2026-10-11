@@ -39,6 +39,57 @@
   width: 10rem;
 }
 
+/* Match the outer field borders to the create-listing control color. */
+#create-listing-form .mb-4 > .border,
+#create-listing-form .mb-3 > .border {
+  border-color: #8db190;
+  border-width: 2px;
+}
+
+/* Keep all create-listing fields visually consistent, including the native date input. */
+#create-listing-form input,
+#create-listing-form textarea {
+  background-color: #f5f3eb;
+  border: 0;
+  border-radius: 0.75rem;
+  color: #000;
+  font: inherit;
+}
+
+#create-listing-form input::placeholder,
+#create-listing-form textarea::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+#create-listing-form input:focus-visible,
+#create-listing-form textarea:focus-visible {
+  outline: 2px solid #487961;
+  outline-offset: 1px;
+}
+
+input[type="datetime-local"] {
+  color-scheme: light;
+  accent-color: #487961;
+}
+
+@media (prefers-color-scheme: dark) {
+  #create-listing-form .mb-4 > .border,
+  #create-listing-form .mb-3 > .border {
+    background-color: #8db190;
+  }
+
+  #create-listing-form input,
+  #create-listing-form textarea {
+    background-color: #8db190;
+    color: #000;
+  }
+
+  input[type="datetime-local"] {
+    color-scheme: dark;
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   #site-search.logged-in {
     width: 7rem;
