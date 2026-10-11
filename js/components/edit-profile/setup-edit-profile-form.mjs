@@ -21,6 +21,7 @@ export function setupEditProfileForm() {
     const accessToken = getFromLocalStorage("accessToken");
 
     const url = `${AUTH_ENDPOINTS.profiles}/${username}`;
+
     const body = {
       bio,
     };
