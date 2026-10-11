@@ -2,43 +2,39 @@
 
 ## Project Description
 
-This project is part of my delivery for the Front-End Development studies at Noroff. The goal is to build a fully functional auction website using all the skills we've learned throughout the studies.
+This project is part of my delivery for the Front-End Development studies at Noroff. The goal is to build a fully functional auction website using the Noroff API and FIGMA for design and prototype.
 
 The website allows visitors to register, create auctions, bid on other users' listings, and manage their own profile. The application is built with a modular file structure, semantic HTML for the base structure, Tailwind CSS for styling and responsive layout, and JavaScript to handle interaction and functionality.
 
 ## Goal
 
-> Build a modern auction website where users can buy and sell items through a credit-based bidding system.
+> Build a frontend app for a modern auction website where users can buy and sell items through a credit-based bidding system.
 
 ## Features
 
-- Carousel on the front page with latest auctions
-- "View more" button to load more listings
 - Search for listings in the navbar/on the front page.
 - Hero banner with buttons to start bidding and create listing
+- "View more" button to load more listings
 - Explore category section links users to listings sorted by category containing certain keywords
-- Carousel with some listings
 - "How it works" section explaining three steps to get started
-- Featured Auction of the week section
 - Register user CTA section, register now or learn more:
 - About page with information about the site
-- Footer with quicklinks and newsletter subscription signup
-- Users can bid directly from auction cards
-- Clicking a card navigates to a detailed view:
+- Footer with quicklinks
+- Users can bid on items
+- Clicking "view details" on cards navigates to a detailed view:
 - Item title, description, time left, image gallery
 - See current bid, place a bid if logged in
 - See bid history with user, amount, and time
 - Profile page:
-- Username, member since, number of listings, credit balance
+- Username, credit balance, number of listings, bio
 - Sort content on profile page by: current bids, users listings, wins
 - Edit listing (modal), delete listing (modal/alert)
 - Edit profile button
-- Create new listing button with modal
+- Create new listing button with modal create listing form
 - Edit profile page:
 - Update avatar, banner and bio
 - User updates profile information and images, then saves the changes
 - Contact page with a validated contact form
-- Uses .env for configuration
 
 ## User Stories
 
