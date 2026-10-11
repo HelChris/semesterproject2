@@ -202,6 +202,11 @@ export class EditListingModal {
 
     this.modal = document.getElementById("edit-listing-modal");
     this.form = document.getElementById("edit-listing-form");
+
+    const endDateInput = document.getElementById("edit-endsAt");
+    if (endDateInput) {
+      endDateInput.step = "60";
+    }
   }
 
   setupEventListeners() {
