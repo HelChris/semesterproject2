@@ -2,7 +2,6 @@ import { getFromLocalStorage } from "/js/utils/local-storage.mjs";
 import { AUTH_ENDPOINTS } from "/js/constants/endpoints.mjs";
 import { API_KEY } from "/js/constants/apikey.mjs";
 import { showError } from "/js/shared/error-handling.mjs";
-import { loadUserProfile } from "/js/components/user-profile/load-user-profile.mjs";
 
 export function setupEditProfileForm() {
   const form = document.getElementById("editProfile-form");
@@ -52,14 +51,7 @@ export function setupEditProfileForm() {
         );
       }
 
-      await loadUserProfile();
-
-      const messageDiv = document.getElementById("message");
-      if (messageDiv) {
-        messageDiv.textContent = "Profile updated successfully!";
-      }
-
-      form.reset();
+      window.location.href = "/pages/profile.html";
     } catch (error) {
       showError(error.message, "#message");
     }
