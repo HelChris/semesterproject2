@@ -72,9 +72,9 @@ export async function login(user) {
 
   if (avatar?.url) {
     addToLocalStorage("userAvatar", avatar.url);
-
-    return json;
   }
+
+  return json;
 }
 
 export function loginHandler() {

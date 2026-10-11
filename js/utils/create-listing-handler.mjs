@@ -1,11 +1,28 @@
 import { createAuctionListing } from "/js/api/auction-listings.mjs";
 import { showError } from "/js/shared/error-handling.mjs";
+import { showSuccess } from "/js/shared/success-handling.mjs";
 
 export function createListingHandler() {
   const form = document.querySelector("#create-listing-form");
   if (form) {
+    setMinimumEndDate(form);
     form.addEventListener("submit", submitListing);
   }
+}
+
+function setMinimumEndDate(form) {
+  const endDateInput = form.querySelector("#endsAt");
+  if (!endDateInput) return;
+
+  const now = new Date();
+  const localDateTime = new Date(
+    now.getTime() - now.getTimezoneOffset() * 60000,
+  )
+    .toISOString()
+    .slice(0, 16);
+
+  endDateInput.min = localDateTime;
+  endDateInput.step = "60";
 }
 
 async function submitListing(event) {
@@ -72,7 +89,7 @@ async function submitListing(event) {
     description: data.description.trim(),
     tags: tags,
     media: mediaUrls,
-    endsAt: new Date(data.endsAt).toISOString(),
+    endsAt: endDate.toISOString(),
   };
 
   const fieldset = form.querySelector("fieldset");
@@ -81,8 +98,10 @@ async function submitListing(event) {
     fieldset.disabled = true;
     await createAuctionListing(listingData);
 
-    alert("Listing created successfully!");
-    window.location.href = "/pages/listings.html";
+    showSuccess("Listing created successfully!", "#message");
+    setTimeout(() => {
+      window.location.href = "/pages/listings.html";
+    }, 1500);
   } catch (error) {
     showError(error, "#message");
     scrollToErrorMessage();

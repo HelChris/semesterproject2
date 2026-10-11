@@ -77,6 +77,24 @@ export class BidManager {
     }
     return Math.max(...this.itemData.bids.map((bid) => bid.amount));
   }
+
+  isCurrentUserHighestBidder() {
+    if (!this.itemData.bids?.length) return false;
+
+    const highestBid = this.itemData.bids.reduce((highest, bid) =>
+      bid.amount > highest.amount ? bid : highest,
+    );
+    const currentUsername = getFromLocalStorage("username")?.toLowerCase();
+    const currentEmail = getFromLocalStorage("email")?.toLowerCase();
+    const bidderName = highestBid.bidder?.name?.toLowerCase();
+    const bidderEmail = highestBid.bidder?.email?.toLowerCase();
+
+    return (
+      (currentUsername && bidderName === currentUsername) ||
+      (currentEmail && bidderEmail === currentEmail)
+    );
+  }
+
   validateBidAmount() {
     if (!this.bidAmountInput || !this.placeBidButton) return;
 
@@ -118,6 +136,11 @@ export class BidManager {
       return;
     }
 
+    if (this.isCurrentUserHighestBidder()) {
+      this.showBidError("You are already the highest bidder.", "ownership");
+      return;
+    }
+
     const bidValue = this.bidAmountInput.value.trim();
     const bidAmount = parseInt(bidValue, 10);
     const minimumBid = this.getCurrentHighestBid() + 1;
@@ -153,10 +176,10 @@ export class BidManager {
           id: result.id,
           amount: bidAmount,
           bidder: {
-            name: getFromLocalStorage("userName") || "You",
+            name: getFromLocalStorage("username") || "You",
             avatar: {
               url: userAvatar || "/img/avatar1-placeholder.jpg",
-              alt: `${getFromLocalStorage("userName") || "Your"} avatar`,
+              alt: `${getFromLocalStorage("username") || "Your"} avatar`,
             },
           },
           created: new Date().toISOString(),
